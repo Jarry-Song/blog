@@ -10,13 +10,13 @@
 排序的应用无处不在
 
 
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-370dbf44061c0a4b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200913232847.png)
 
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-c852ce4ebd77d21e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200913232934.png)
 
 ## 10大排序算法
 
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-9af6205e8f91f44b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200913233009.png)
 
 以上表格是基于数组进行排序的一般性结论
 
@@ -53,7 +53,7 @@ for (int end = array.length - 1; end > 0; end--) {
 
 如果序列已经完全有序，可以提前终止冒泡排序
 
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-719f13cd429ecbe0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200913233101.png)
 
 ```java
 for (int end = array.length - 1; end > 0; end--) {
@@ -74,7 +74,7 @@ for (int end = array.length - 1; end > 0; end--) {
 
 如果序列尾部已经局部有序，可以记录最后1次交换的位置，减少比较次数
 
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-318b08e4da9c2542.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200913233124.png)
 
 最后1次交换的位置是 6
 
@@ -118,7 +118,7 @@ for (int end = array.length - 1; end > 0; end--) {
 
 - 稍有不慎，稳定的排序算法也能被写成不稳定的排序算法，比如下面的冒泡排序代码是不稳定的
 
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-17ea156c80266632.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200913233222.png)
 
 ### 原地算法（In-place Algorithm）
 
@@ -183,7 +183,7 @@ for (int end = array.length - 1; end > 0; end--) {
 
 ✓对 0 位置进行 1 次 siftDown 操
 
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-51276ec2983e2c69.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200913233256.png)
 
 ### 实现
 
@@ -254,7 +254,7 @@ public class HeapSort<T extends Comparable<T>> extends Sort<T> {
 
 插入排序非常类似于扑克牌的排序
 
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-2501588aab4b1bd1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200913233356.png)
 
 ### 执行流程
 
@@ -264,7 +264,7 @@ public class HeapSort<T extends Comparable<T>> extends Sort<T> {
 ② 从头开始扫描每一个元素 
 - ✓每当扫描到一个元素，就将它插入到头部合适的位置，使得头部数据依然保持有序
 
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-b2cbb8746ef9e6d5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200913233413.png)
 
 ### 实现
 
@@ -292,7 +292,7 @@ protected void sort() {
 
 - 逆序对的数量越多，插入排序的时间复杂度越高
 
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-331b002706639233.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200913233439.png)
 
 1.最坏、平均时间复杂度：O(n2) 
 
@@ -331,7 +331,7 @@ for (int begin = 1; begin < array.length; begin++) {
 
 
 
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-291a84d553a93f06.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200914000221.png)
 
 
 
@@ -341,11 +341,11 @@ for (int begin = 1; begin < array.length; begin++) {
 
 - 如果是无序数组，从第 0 个位置开始遍历搜索，平均时间复杂度：O(n)
 
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-5e055f247c103101.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200914000251.png)
 
 如果是有序数组，可以使用二分搜索，最坏时间复杂度：O(logn）
 
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-1870649ade9e818f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200914000312.png)
 
 ### 思路
 
@@ -354,7 +354,7 @@ for (int begin = 1; begin < array.length; begin++) {
 -  如果 v > m，去 [mid + 1, end) 范围内二分搜索
 - 如果 v == m，直接返回 mid
 
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-17f9a48e55027fe6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200914000333.png)
 
 
 
@@ -364,11 +364,11 @@ for (int begin = 1; begin < array.length; begin++) {
 
 搜索10
 
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-f0fb0d194b4ca820.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200914000355.png)
 
 搜索3
 
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-a9df82bb0898a75f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200914000416.png)
 
 
 
@@ -404,7 +404,7 @@ public static int indexOf(int[] array, int v) {
 
 在元素 v 的插入过程中，可以先二分搜索出合适的插入位置，然后再将元素 v 插入
 
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-052d9cc0ce4206e9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200914000442.png)
 
 要求二分搜索返回的插入位置：**第1个大于 v 的元素位置**
 
@@ -421,15 +421,15 @@ public static int indexOf(int[] array, int v) {
 - 如果 v < m，去 [begin, mid) 范围内二分搜索 
 - 如果 v ≥ m，去 [mid + 1, end) 范围内二分搜
 
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-86c94019252a28b8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200914000518.png)
 
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-80a0372b5ead87b9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200914000534.png)
 
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-69391a5b7afa6284.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200914000552.png)
 
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-85e679ed24a99fd5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200914000615.png)
 
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-22a34cdee60ac27e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200914000632.png)
 
 ```java
 /**
@@ -501,7 +501,7 @@ return begin;
 
 1945年由约翰·冯·诺伊曼（John von Neumann）首次提出
 
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-e8f2c4fd887da86b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200914000655.png)
 
 ### 执行流程
 
@@ -541,31 +541,31 @@ return begin;
 
 ### merge
 
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-e8540833c9bcd5ef.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200914000752.png)
 
 merge细节
 
 需要 merge 的 2 组序列存在于同一个数组中，并且是挨在一起的
 
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-134eaf001a9a5fb1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200914000816.png)
 
 为了更好地完成 merge 操作，最好将其中 1 组序列备份出来，比如 [begin, mid)
 
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-2aa2891dcd23058b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200914000845.png)
 
 
 
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-9ad05092d74f48b0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200914000931.png)
 
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-08e099aa1b77d9d0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200914001003.png)
 
 merge – 左边先结束
 
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-787c2341e5a2f791.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200914001032.png)
 
 merge – 右边先结束
 
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-97d187b978e71291.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200914001053.png)
 
 merge实现
 
@@ -617,7 +617,7 @@ merge实现
 
 ## 常见的递推式与复杂度
 
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-7220a105e674c7b2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200914001118.png)
 
 
 
@@ -659,17 +659,17 @@ merge实现
 ③ 对子序列进行 ① ② 操作
 - ✓直到不能再分割（子序列中只剩下1个元素）
 
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-6c8024099bb76ae9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200914001146.png)
 
  快速排序的本质：逐渐将每一个元素都转换成轴点元素
 
 ### 轴点构造
 
- ![image.png](https://upload-images.jianshu.io/upload_images/1128757-42d9f2d4f1ddf6a8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+ ![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200914001224.png)
 
 ### 时间复杂度
 
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-98fd4d0cd309e183.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200914001243.png)
 
 1.在轴点左右元素数量比较均匀的情况下，同时也是最好的情况 
 - T(n) = 2 ∗ T(n/2)+ O(n) = O(nlogn)
@@ -754,14 +754,14 @@ merge实现
 ```
 ### 与轴点相等的元素
 
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-0780dfe90befe39a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200914001316.png)
 
 
 如果序列中的所有元素都与轴点元素相等，利用目前的算法实现，轴点元素可以将序列分割成 2 个均匀的子序列
 
 **思考：**cmp 位置的判断分别改为 ≤、≥ 会起到什么效果？
 
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-9b88d6972bd0d11c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200914001338.png)
 
 
 
@@ -786,19 +786,19 @@ merge实现
 希尔本人给出的步长序列是 𝑛/2𝑘，比如 𝑛 为16时，步长序列是{1, 2, 4, 8}
 
 
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-ecb0f14906bbd72a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200914001358.png)
 
 分成8列进行排序
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-ddef492420c0774f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200914001433.png)
 
 分成4列进行排序
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-266b96d626b9b02c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200914001453.png)
 
 分成2列进行排序
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-126bbf4d75f23080.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200914001513.png)
 
 1列排序之后
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-1dd6b92866ef5063.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200914001605.png)
 
 不难看出来，从8列 变为 1列的过程中，逆序对的数量在逐渐减少
 - 因此希尔排序底层一般使用插入排序对每一列进行排序，也很多资料认为希尔排序是插入排序的改进版 
@@ -808,7 +808,7 @@ merge实现
 
  假设有11个元素，步长序列是{1, 2, 5}
 
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-65e5793e46c79acf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200914001623.png)
 
 
  假设元素在第 col 列、第 row 行，步长（总列数）是 step 
@@ -861,7 +861,7 @@ private List<Integer> shellStepSequence() {
 - 希尔本人给出的步长序列，最坏情况时间复杂度是 O(n2)
 - 目前已知的最好的步长序列，最坏情况时间复杂度是 O(n4/3) ，1986年由Robert Sedgewick提出
 
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-4b1ab8c4f7667848.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200914001648.png)
 ```java
 private List<Integer> sedgewickStepSequence() {
 	List<Integer> stepSequence = new LinkedList<>();
@@ -900,7 +900,7 @@ private List<Integer> sedgewickStepSequence() {
 
 ### 最简单的实现
 
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-888a986370db9b9a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200914001707.png)
 
 ```java
 protected void sort() {
@@ -940,7 +940,7 @@ protected void sort() {
 
 ### 改进思路
 
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-8398759f06ddb157.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200914001726.png)
 
 1.假设array中的最小值是 min 
 
@@ -965,15 +965,15 @@ protected void sort() {
 
 ### 改进实现
 
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-60d56a0a37091d4f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200914001744.png)
 
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-6a1581eebab65560.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200914001759.png)
 
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-c78a35896d00d234.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200914001815.png)
 
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-5f291ac83a3310c1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200914001836.png)
 
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-b09f1a64047340a9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200914001904.png)
 
 ```java
 protected void sort() {
@@ -1118,7 +1118,7 @@ public void sort() {
 ### 执行流程
 依次对个位数、十位数、百位数、千位数、万位数...进行排序（从低位到高位）
 
-![image-20200901084157977](D:\Users\80254882\AppData\Roaming\Typora\typora-user-images\image-20200901084157977.png)
+![image-20200901084157977](https://gitee.com/jarrysong/img/raw/master/img/image-20200901084157977.png)
 
 个位数、十位数、百位数的取值范围都是固定的0~9，可以使用计数排序对它们进行排序
 
@@ -1179,9 +1179,9 @@ protected void sort() {
 
 ### 另一种思路
 
-![image-20200901085836524](D:\Users\80254882\AppData\Roaming\Typora\typora-user-images\image-20200901085836524.png)
+![image-20200901085836524](https://gitee.com/jarrysong/img/raw/master/img/image-20200901085836524.png)
 
-![image-20200901090112980](D:\Users\80254882\AppData\Roaming\Typora\typora-user-images\image-20200901090112980.png)
+![image-20200901090112980](https://gitee.com/jarrysong/img/raw/master/img/image-20200901090112980.png)
 
 空间复杂度是 O(kn + k)，时间复杂度是 O(dn) 
 
@@ -1203,7 +1203,7 @@ d 是最大值的位数，k 是进制
 
 ④ 将所有非空桶的元素合并成有序序列 
 
-![image-20200901090351915](D:\Users\80254882\AppData\Roaming\Typora\typora-user-images\image-20200901090351915.png)
+![image-20200901090351915](https://gitee.com/jarrysong/img/raw/master/img/image-20200901090351915.png)
 
 元素在桶中的索引 
 
@@ -1211,12 +1211,12 @@ d 是最大值的位数，k 是进制
 
 ### 实现
 
-![image-20200901090425970](D:\Users\80254882\AppData\Roaming\Typora\typora-user-images\image-20200901090425970.png)
+![image-20200901090425970](https://gitee.com/jarrysong/img/raw/master/img/image-20200901090425970.png)
 
-![image-20200901090636618](D:\Users\80254882\AppData\Roaming\Typora\typora-user-images\image-20200901090636618.png)
+![image-20200901090636618](https://gitee.com/jarrysong/img/raw/master/img/image-20200901090636618.png)
 
 
 
 ## 史上“最强”排序 – 休眠排序 
 
-![image-20200901090714902](D:\Users\80254882\AppData\Roaming\Typora\typora-user-images\image-20200901090714902.png)
+![image-20200901090714902](https://gitee.com/jarrysong/img/raw/master/img/image-20200901090714902.png)

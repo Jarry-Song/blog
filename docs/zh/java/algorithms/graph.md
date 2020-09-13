@@ -2,7 +2,7 @@
 
 ## 数据结构回顾
 [toc]
-![image.png](https://upload-images.jianshu.io/upload_images/1128757-081bc221ba48646b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://gitee.com/jarrysongjihang/img/raw/master/img/20200913232425.png)
 
 ## 图（Graph）
 
