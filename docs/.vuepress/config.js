@@ -1,18 +1,7 @@
 module.exports = ctx => ({
-  locales: {
-    '/': {
-      lang: 'en-US',
-      title: "My Blog",
-      description: "This is a blog.",
-      base: '/blog/' 
-    },
-    '/zh/': {
-      lang: 'zh-CN',
-      title: "My Blog",
-      description: "This is a blog.",
-      base: '/blog/' 
-    }
-  },
+   title: "My Blog",
+   description: "This is a blog.",
+   base: '/blog/' ,
    head: [
     ['link', { rel: 'icon', href: `/logo.png` }],
     ['link', { rel: 'manifest', href: '/manifest.json' }],
@@ -27,25 +16,13 @@ module.exports = ctx => ({
   port:'8080',
   themeConfig: {
      smoothScroll: true,
-      locales: {
-      '/': {
-        label: 'English',
-        selectText: 'Languages',
-        ariaLabel: 'Select language',
-        editLinkText: 'Edit this page on GitHub',
-        lastUpdated: 'Last Updated',
-        nav: require('./nav/en'),
-      },
-      '/zh/': {
-        label: '简体中文',
+     label: '简体中文',
         selectText: '选择语言',
         ariaLabel: '选择语言',
         editLinkText: '在 GitHub 上编辑此页',
         lastUpdated: '上次更新',
         nav: require('./nav/zh'),
         sidebar: require('./sidebar/zh'),
-      }
-    }
   },
   plugins: [
     ['@vuepress/back-to-top', true],
@@ -68,10 +45,6 @@ module.exports = ctx => ({
       after: '</UpgradePath>'
     }],
     ['flowchart']
-  ],
-  extraWatchFiles: [
-    '.vuepress/nav/en.js',
-    '.vuepress/nav/zh.js'
   ]
 })
 
