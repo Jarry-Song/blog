@@ -4,7 +4,7 @@
 
 假设有n个村庄，有些村庄之间有连接的路，有些村庄之间并没有连接的路
 
-![image-20200901130357544](D:\Users\80254882\AppData\Roaming\Typora\typora-user-images\image-20200901130357544.png)
+![image-20200901130357544](https://gitee.com/jarrysong/img/raw/master/img/image-20200901130357544.png)
 
 设计一个数据结构，能够快速执行2个操作 
 
@@ -48,7 +48,7 @@
 
 假设并查集处理的数据都是整型，那么可以用整型数组来存储数据
 
-![image-20200901131219877](D:\Users\80254882\AppData\Roaming\Typora\typora-user-images\image-20200901131219877.png)
+![image-20200901131219877](https://gitee.com/jarrysong/img/raw/master/img/image-20200901131219877.png)
 
 不难看出
 
@@ -109,7 +109,7 @@ public abstract class UnionFind {
 
 初始化时，每个元素各自属于一个单元素集
 
-![image-20200901131538303](D:\Users\80254882\AppData\Roaming\Typora\typora-user-images\image-20200901131538303.png)
+![image-20200901131538303](https://gitee.com/jarrysong/img/raw/master/img/image-20200901131538303.png)
 
 ```java
 public UnionFind(int capacity) {
@@ -130,13 +130,13 @@ public UnionFind(int capacity) {
 
 Quick Find 的 union(v1, v2)：让 v1 所在集合的所有元素都指向 v2 的根节点
 
-![image-20200901132244485](D:\Users\80254882\AppData\Roaming\Typora\typora-user-images\image-20200901132244485.png
+![image-20200901132244485](https://gitee.com/jarrysong/img/raw/master/img/image-20200901132244485.png)
 
-![image-20200903085331033](D:\Users\80254882\AppData\Roaming\Typora\typora-user-images\image-20200903085331033.png)
+![image-20200903085331033](https://gitee.com/jarrysong/img/raw/master/img/image-20200903085331033.png)
 
-![image-20200901132327782](D:\Users\80254882\AppData\Roaming\Typora\typora-user-images\image-20200901132327782.png
+![image-20200901132327782](https://gitee.com/jarrysong/img/raw/master/img/image-20200901132327782.png)
 
-![image-20200903085431948](D:\Users\80254882\AppData\Roaming\Typora\typora-user-images\image-20200903085431948.png)
+![image-20200903085431948](https://gitee.com/jarrysong/img/raw/master/img/image-20200903085431948.png)
 
 ```java
 /**
@@ -159,7 +159,7 @@ Quick Find 的 union(v1, v2)：让 v1 所在集合的所有元素都指向 v2 �
 
 ### Find
 
-![image-20200901132424292](D:\Users\80254882\AppData\Roaming\Typora\typora-user-images\image-20200901132424292.png)
+![image-20200901132424292](https://gitee.com/jarrysong/img/raw/master/img/image-20200901132424292.png)
 
 ```java
 /*
@@ -222,9 +222,9 @@ public class UnionFind_QF extends UnionFind {
 
 Quick Union 的 union(v1, v2)：让 v1 的根节点指向 v2 的根节点
 
-![image-20200903085558863](D:\Users\80254882\AppData\Roaming\Typora\typora-user-images\image-20200903085558863.png)
+![image-20200903085558863](https://gitee.com/jarrysong/img/raw/master/img/image-20200903085558863.png)
 
-![image-20200903085718826](D:\Users\80254882\AppData\Roaming\Typora\typora-user-images\image-20200903085718826.png)
+![image-20200903085718826](https://gitee.com/jarrysong/img/raw/master/img/image-20200903085718826.png)
 
 
 
@@ -244,7 +244,7 @@ Quick Union 的 union(v1, v2)：让 v1 的根节点指向 v2 的根节点
 
 ### Find
 
-![image-20200901220015857](D:\Users\80254882\AppData\Roaming\Typora\typora-user-images\image-20200901220015857.png)
+![image-20200901220015857](https://gitee.com/jarrysong/img/raw/master/img/image-20200901220015857.png)
 
 
 
@@ -310,7 +310,7 @@ public class UnionFind_QU extends UnionFind {
 
 在Union的过程中，可能会出现树不平衡的情况，甚至退化成链表
 
-![image-20200903080541503](D:\Users\80254882\AppData\Roaming\Typora\typora-user-images\image-20200903080541503.png)
+![image-20200903080541503](https://gitee.com/jarrysong/img/raw/master/img/image-20200903080541503.png)
 
 **有2种常见的优化方案**
 
@@ -320,7 +320,7 @@ public class UnionFind_QU extends UnionFind {
 
 #### 基于size的优化
 
-![image-20200903082113630](D:\Users\80254882\AppData\Roaming\Typora\typora-user-images\image-20200903082113630.png)
+![image-20200903082113630](https://gitee.com/jarrysong/img/raw/master/img/image-20200903082113630.png)
 
 ```java
 public class UnionFind_QU_S extends UnionFind_QU {
@@ -359,11 +359,11 @@ public class UnionFind_QU_S extends UnionFind_QU {
 
 基于size的优化，也可能会存在树不平衡的问题
 
-![image-20200903085106071](D:\Users\80254882\AppData\Roaming\Typora\typora-user-images\image-20200903085106071.png)
+![image-20200903085106071](https://gitee.com/jarrysong/img/raw/master/img/image-20200903085106071.png)
 
 #### 基于rank的优化
 
-![image-20200903082217042](D:\Users\80254882\AppData\Roaming\Typora\typora-user-images\image-20200903082217042.png)
+![image-20200903082217042](https://gitee.com/jarrysong/img/raw/master/img/image-20200903082217042.png)
 
 ```java
 public class UnionFind_QU_R extends UnionFind_QU {
@@ -405,13 +405,13 @@ public class UnionFind_QU_R extends UnionFind_QU {
 
 - 导致find操作变慢，尤其是底层节点（因为find是不断向上找到根节点）
 
-![image-20200903082751317](D:\Users\80254882\AppData\Roaming\Typora\typora-user-images\image-20200903082751317.png)
+![image-20200903082751317](https://gitee.com/jarrysong/img/raw/master/img/image-20200903082751317.png)
 
 **什么是路径压缩？** 
 
 - 在find时使路径上的所有节点都指向根节点，从而降低树的高度
 
-![image-20200903082940519](D:\Users\80254882\AppData\Roaming\Typora\typora-user-images\image-20200903082940519.png)
+![image-20200903082940519](https://gitee.com/jarrysong/img/raw/master/img/image-20200903082940519.png)
 
 ```java
 /**
@@ -449,7 +449,7 @@ public class UnionFind_QU_R_PC extends UnionFind_QU_R {
 
 路径分裂：使路径上的每个节点都指向其祖父节点（parent的parent）
 
-![image-20200903083654120](D:\Users\80254882\AppData\Roaming\Typora\typora-user-images\image-20200903083654120.png)
+![image-20200903083654120](https://gitee.com/jarrysong/img/raw/master/img/image-20200903083654120.png)
 
 ```java
 /**
@@ -482,7 +482,7 @@ public class UnionFind_QU_R_PS extends UnionFind_QU_R {
 
 路径减半：使路径上每隔一个节点就指向其祖父节点（parent的parent)
 
-![image-20200903084034023](D:\Users\80254882\AppData\Roaming\Typora\typora-user-images\image-20200903084034023.png)
+![image-20200903084034023](https://gitee.com/jarrysong/img/raw/master/img/image-20200903084034023.png)
 
 ```java
 /**
