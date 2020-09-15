@@ -1,9 +1,6 @@
 # 图
 
 ## 数据结构回顾
-
-
-
 ![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200913232425.png)
 
 ## 图（Graph）
@@ -560,15 +557,10 @@ public abstract class Graph<V, E> {
 ### 思路
 
 可以使用卡恩算法（Kahn于1962年提出）完成拓扑排序 
-
 - 假设 L 是存放拓扑排序结果的列表
-
-- ① 把所有入度为 0 的顶点放入 L 中，然后把这些顶点从图中去掉 
-
-- ② 重复操作 ①，直到找不到入度为 0 的顶点 
-
+  - ① 把所有入度为 0 的顶点放入 L 中，然后把这些顶点从图中去掉 
+  - ② 重复操作 ①，直到找不到入度为 0 的顶点 
 - 如果此时 L 中的元素个数和顶点总数相同，说明拓扑排序完成 
-
 - 如果此时 L 中的元素个数少于顶点总数，说明原图中存在环，无法进行拓扑排序
 
 ![image-20200914084907829](https://gitee.com/jarrysong/img/raw/master/img/image-20200914084907829.png)
@@ -1012,33 +1004,265 @@ Dijkstra 的原理其实跟生活中的一些自然现象完全一样
 
 ![image-20200914220913302](https://gitee.com/jarrysong/img/raw/master/img/image-20200914220913302.png)
 
+### Dijkstra – 实现
+
+简单实现
+
+```java
+	public Map<V, E> shortestPath(V begin) {
+		Vertex<V, E> beginVertex = vertices.get(begin);
+		if (beginVertex == null) return null;
+		//已经被拽起来的点
+		Map<V, E> selectedPaths = new HashMap<>();
+         //可以被拽起的种子选手
+		Map<Vertex<V, E>, E> paths = new HashMap<>();
+		// 初始化paths
+		for (Edge<V, E> edge : beginVertex.outEdges) {
+			paths.put(edge.to, edge.weight);
+		}
+
+		while (!paths.isEmpty()) {
+			Entry<Vertex<V, E>, E> minEntry = getMinPath(paths);
+			// minVertex离开桌面
+			Vertex<V, E> minVertex = minEntry.getKey();
+			selectedPaths.put(minVertex.value, minEntry.getValue());
+			paths.remove(minVertex);
+			// 对它的minVertex的outEdges进行松弛操作
+			for (Edge<V, E> edge : minVertex.outEdges) {
+				// 如果edge.to已经离开桌面，就没必要进行松弛操作
+				if (selectedPaths.containsKey(edge.to.value)) continue;
+				// 新的可选择的最短路径：beginVertex到edge.from的最短路径 + edge.weight
+				E newWeight = weightManager.add(minEntry.getValue(), edge.weight);
+				// 以前的最短路径：beginVertex到edge.to的最短路径
+				E oldWeight = paths.get(edge.to);
+				if (oldWeight == null || weightManager.compare(newWeight, oldWeight) < 0) {
+					paths.put(edge.to, newWeight);
+				}
+			}
+		}
+		
+		selectedPaths.remove(begin);
+		return selectedPaths;
+	}
+
+
+     /**
+	 * 从paths中挑一个最小的路径出来
+	 * @param paths
+	 * @return
+	 */
+	private Entry<Vertex<V, E>, PathInfo<V, E>> getMinPath(Map<Vertex<V, E>, PathInfo<V, E>> paths) {
+		Iterator<Entry<Vertex<V, E>, PathInfo<V, E>>> it = paths.entrySet().iterator();
+		Entry<Vertex<V, E>, PathInfo<V, E>> minEntry = it.next();
+		while (it.hasNext()) {
+			Entry<Vertex<V, E>, PathInfo<V, E>> entry = it.next();
+			if (weightManager.compare(entry.getValue().weight, minEntry.getValue().weight) < 0) {
+				minEntry = entry;
+			}
+		}
+		return minEntry;
+	}
+```
+
+```java
+	public static class PathInfo<V, E> {
+		protected E weight;
+		protected List<EdgeInfo<V, E>> edgeInfos = new LinkedList<>();
+		public PathInfo() {}
+		public PathInfo(E weight) {
+			this.weight = weight;
+		}
+		public E getWeight() {
+			return weight;
+		}
+		public void setWeight(E weight) {
+			this.weight = weight;
+		}
+		public List<EdgeInfo<V, E>> getEdgeInfos() {
+			return edgeInfos;
+		}
+		public void setEdgeInfos(List<EdgeInfo<V, E>> edgeInfos) {
+			this.edgeInfos = edgeInfos;
+		}
+		@Override
+		public String toString() {
+			return "PathInfo [weight=" + weight + ", edgeInfos=" + edgeInfos + "]";
+		}
+	}
+```
+
+Dijkstra
+
+```java
+private Map<V, PathInfo<V, E>> dijkstra(V begin) {
+		Vertex<V, E> beginVertex = vertices.get(begin);
+		if (beginVertex == null) return null;
+		
+		Map<V, PathInfo<V, E>> selectedPaths = new HashMap<>();
+		Map<Vertex<V, E>, PathInfo<V, E>> paths = new HashMap<>();
+		paths.put(beginVertex, new PathInfo<>(weightManager.zero()));
+		// 初始化paths
+//		for (Edge<V, E> edge : beginVertex.outEdges) {
+//			PathInfo<V, E> path = new PathInfo<>();
+//			path.weight = edge.weight;
+//			path.edgeInfos.add(edge.info());
+//			paths.put(edge.to, path);
+//		}
+
+		while (!paths.isEmpty()) {
+			Entry<Vertex<V, E>, PathInfo<V, E>> minEntry = getMinPath(paths);
+			// minVertex离开桌面
+			Vertex<V, E> minVertex = minEntry.getKey();
+			PathInfo<V, E> minPath = minEntry.getValue();
+			selectedPaths.put(minVertex.value, minPath);
+			paths.remove(minVertex);
+			// 对它的minVertex的outEdges进行松弛操作
+			for (Edge<V, E> edge : minVertex.outEdges) {
+				// 如果edge.to已经离开桌面，就没必要进行松弛操作
+				if (selectedPaths.containsKey(edge.to.value)) continue;
+				relaxForDijkstra(edge, minPath, paths);
+			}
+		}
+		
+		selectedPaths.remove(begin);
+		return selectedPaths;
+	}
+
+
+    /**
+	 * 松弛
+	 * @param edge 需要进行松弛的边
+	 * @param fromPath edge的from的最短路径信息
+	 * @param paths 存放着其他点（对于dijkstra来说，就是还没有离开桌面的点）的最短路径信息
+	 */
+	private void relaxForDijkstra(Edge<V, E> edge, PathInfo<V, E> fromPath, Map<Vertex<V, E>, PathInfo<V, E>> paths) {
+		// 新的可选择的最短路径：beginVertex到edge.from的最短路径 + edge.weight
+		E newWeight = weightManager.add(fromPath.weight, edge.weight);
+		// 以前的最短路径：beginVertex到edge.to的最短路径
+		PathInfo<V, E> oldPath = paths.get(edge.to);
+		if (oldPath != null && weightManager.compare(newWeight, oldPath.weight) >= 0) return;
+		
+		if (oldPath == null) {
+			oldPath = new PathInfo<>();
+			paths.put(edge.to, oldPath);
+		} else {
+			oldPath.edgeInfos.clear();
+		}
+
+		oldPath.weight = newWeight;
+		oldPath.edgeInfos.addAll(fromPath.edgeInfos);
+		oldPath.edgeInfos.add(edge.info());
+	}
+
+
+```
+
+
+
 ## Bellman-Ford
 
 Bellman-Ford 也属于单源最短路径算法，支持负权边，还能检测出是否有负权环 
 
 - 算法原理：对所有的边进行 V – 1 次松弛操作（ V 是节点数量），得到所有可能的最短路径 
 
-- 时间复杂度：O EV ，E 是边数量，V 是节点数量
+- 时间复杂度：O(EV) ，E 是边数量，V 是节点数量
 
 下图的最好情况是恰好从左到右的顺序对边进行松弛操作 
 
 - 对所有边仅需进行 1 次松弛操作就能计算出A到达其他所有顶点的最短路径
 
+![image-20200915132503106](https://gitee.com/jarrysong/img/raw/master/img/image-20200915132503106.png)
+
 最坏情况是恰好每次都从右到左的顺序对边进行松弛操作 
 
 对所有边需进行 V – 1 次松弛操作才能计算出A到达其他所有顶点的最短路径
 
+![image-20200915213339579](https://gitee.com/jarrysong/img/raw/master/img/image-20200915213339579.png)
+
 ### Bellman-Ford – 实例
 
-◼ 一共8条边
+![image-20200915213416019](https://gitee.com/jarrysong/img/raw/master/img/image-20200915213416019.png)
 
-◼ 假设每次松弛操作的顺序是：DC、DF、BC、ED、EF、BE、AE、AB
+一共8条边
+
+假设每次松弛操作的顺序是：DC、DF、BC、ED、EF、BE、AE、AB
+
+![image-20200915213416019](https://gitee.com/jarrysong/img/raw/master/img/20200915230650.png)
+
+![image-20200915213416019](https://gitee.com/jarrysong/img/raw/master/img/20200915231022.png)
+
+
+
+![image-20200915213416019](https://gitee.com/jarrysong/img/raw/master/img/20200915230006.png)
+
+不难分析出，经过4次松弛操作之后，已经计算出了A到其他所有顶点的最短路径
+
+```java
+private Map<V, PathInfo<V, E>> bellmanFord(V begin) {
+		Vertex<V, E> beginVertex = vertices.get(begin);
+		if (beginVertex == null) return null;
+		
+		Map<V, PathInfo<V, E>> selectedPaths = new HashMap<>();
+		selectedPaths.put(begin, new PathInfo<>(weightManager.zero()));
+		
+		int count = vertices.size() - 1;
+		for (int i = 0; i < count; i++) { // v - 1 次
+			for (Edge<V, E> edge : edges) {
+				PathInfo<V, E> fromPath = selectedPaths.get(edge.from.value);
+				if (fromPath == null) continue;
+				relax(edge, fromPath, selectedPaths);
+			}
+		}
+		
+		for (Edge<V, E> edge : edges) {
+			PathInfo<V, E> fromPath = selectedPaths.get(edge.from.value);
+			if (fromPath == null) continue;
+			if (relax(edge, fromPath, selectedPaths)) {
+				System.out.println("有负权环");
+				return null;
+			}
+		}
+		
+		selectedPaths.remove(begin);
+		return selectedPaths;
+	}
+
+	
+	/**
+	 * 松弛
+	 * @param edge 需要进行松弛的边
+	 * @param fromPath edge的from的最短路径信息
+	 * @param paths 存放着其他点（对于dijkstra来说，就是还没有离开桌面的点）的最短路径信息
+	 */
+	private boolean relax(Edge<V, E> edge, PathInfo<V, E> fromPath, Map<V, PathInfo<V, E>> paths) {
+		// 新的可选择的最短路径：beginVertex到edge.from的最短路径 + edge.weight
+		E newWeight = weightManager.add(fromPath.weight, edge.weight);
+		// 以前的最短路径：beginVertex到edge.to的最短路径
+		PathInfo<V, E> oldPath = paths.get(edge.to.value);
+		if (oldPath != null && weightManager.compare(newWeight, oldPath.weight) >= 0) return false;
+		
+		if (oldPath == null) {
+			oldPath = new PathInfo<>();
+			paths.put(edge.to.value, oldPath);
+		} else {
+			oldPath.edgeInfos.clear();
+		}
+
+		oldPath.weight = newWeight;
+		oldPath.edgeInfos.addAll(fromPath.edgeInfos);
+		oldPath.edgeInfos.add(edge.info());
+		
+		return true;
+	}
+```
+
+
 
 ## Floyd
 
 Floyd 属于多源最短路径算法，能够求出任意2个顶点之间的最短路径，支持负权边 
 
-时间复杂度：O(V3)，效率比执行 V 次 Dijkstra 算法要好（ V 是顶点数量）
+- 时间复杂度：O(V3)，效率比执行 V 次 Dijkstra 算法要好（ V 是顶点数量）
 
 ### 算法原理 
 
@@ -1053,5 +1277,66 @@ Floyd 属于多源最短路径算法，能够求出任意2个顶点之间的最�
 对于每一个顶点 k，检查 dist(i，k) + dist(k，j)＜dist(i，j) 是否成立 
 
 - ✓如果成立，证明从 i 到 k 再到 j 的路径比 i 直接到 j 的路径短，设置 dist(i，j) = dist(i，k) + dist(k，j)
-
 - ✓当我们遍历完所有结点 k，dist(i，j) 中记录的便是 i 到 j 的最短路径的距离
+
+### 实现
+
+```java
+public Map<V, Map<V, PathInfo<V, E>>> shortestPath() {
+		Map<V, Map<V, PathInfo<V, E>>> paths = new HashMap<>();
+		// 初始化
+		for (Edge<V, E> edge : edges) {
+			Map<V, PathInfo<V, E>> map = paths.get(edge.from.value);
+			if (map == null) {
+				map = new HashMap<>();
+				paths.put(edge.from.value, map);
+			}
+			
+			PathInfo<V, E> pathInfo = new PathInfo<>(edge.weight);
+			pathInfo.edgeInfos.add(edge.info());
+			map.put(edge.to.value, pathInfo);
+		}
+
+		vertices.forEach((V v2, Vertex<V, E> vertex2) -> {
+			vertices.forEach((V v1, Vertex<V, E> vertex1) -> {
+				vertices.forEach((V v3, Vertex<V, E> vertex3) -> {
+					if (v1.equals(v2) || v2.equals(v3) || v1.equals(v3)) return;
+					
+					// v1 -> v2
+					PathInfo<V, E> path12 = getPathInfo(v1, v2, paths);
+					if (path12 == null) return;
+					
+					// v2 -> v3
+					PathInfo<V, E> path23 = getPathInfo(v2, v3, paths);
+					if (path23 == null) return;
+					
+					// v1 -> v3 
+					PathInfo<V, E> path13 = getPathInfo(v1, v3, paths);
+					
+					E newWeight = weightManager.add(path12.weight, path23.weight);
+					if (path13 != null && weightManager.compare(newWeight, path13.weight) >= 0) return;
+					
+					if (path13 == null) {
+						path13 = new PathInfo<V, E>();
+						paths.get(v1).put(v3, path13);
+					} else {
+						path13.edgeInfos.clear();
+					}
+					
+					path13.weight = newWeight;
+					path13.edgeInfos.addAll(path12.edgeInfos);
+					path13.edgeInfos.addAll(path23.edgeInfos);
+				});
+			});
+		});
+		
+		return paths;
+	}
+```
+
+
+
+
+
+
+
