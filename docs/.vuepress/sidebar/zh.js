@@ -157,10 +157,23 @@ function getJavaStructures () {
       collapsable: false,
       children: [
         '',
+        'complexity',
+        'array',
+        'linked-list',
         'stack',
         'queue',
         'binary-tree',
-        'binary-serch-tree'
+        'binary-serch-tree',
+        'AVL',
+        'B-tree',
+        'red-black-tree',
+        'set',
+        'map',
+        'hashmap',
+        'heap',
+        'priority-queue',
+        'huffman',
+        'tire'
       ]
     }
   ]
@@ -176,7 +189,16 @@ function getJavaAlgorithms () {
         '',
         'sort',
         'union-find',
-        'graph'
+        'graph',
+        'recursion',
+        'backtrack',
+        'greedy',
+        'divide-conquer',
+        'coin-change',
+        'bloom-filter',
+        'skip-list',
+        'B-tree',
+        'sequence'
       ]
     }
   ]
