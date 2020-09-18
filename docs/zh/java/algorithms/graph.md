@@ -1332,6 +1332,11 @@ public Map<V, Map<V, PathInfo<V, E>>> shortestPath() {
 		
 		return paths;
 	}
+
+	private PathInfo<V, E> getPathInfo(V from, V to, Map<V, Map<V, PathInfo<V, E>>> paths) {
+		Map<V, PathInfo<V, E>> map = paths.get(from);
+		return map == null ? null : map.get(to);
+	}
 ```
 
 
