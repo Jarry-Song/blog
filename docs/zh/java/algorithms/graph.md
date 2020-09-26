@@ -1,4 +1,6 @@
-# 图
+# 图（Graph）
+
+![image-20200917091306528](https://gitee.com/jarrysong/img/raw/master/img/image-20200917091306528.png)
 
 ## 数据结构回顾
 ![image.png](https://gitee.com/jarrysong/img/raw/master/img/20200913232425.png)
@@ -1332,7 +1334,7 @@ public Map<V, Map<V, PathInfo<V, E>>> shortestPath() {
 		
 		return paths;
 	}
-
+	
 	private PathInfo<V, E> getPathInfo(V from, V to, Map<V, Map<V, PathInfo<V, E>>> paths) {
 		Map<V, PathInfo<V, E>> map = paths.get(from);
 		return map == null ? null : map.get(to);

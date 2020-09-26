@@ -66,8 +66,9 @@
 
 ## 对数阶的细节
 对数阶一般省略底数
-```
-log2n = log29 ∗ log9n
+
+```math
+\log_2 n = \log_2 9 ∗ \log_9 n
 ```
 所以 log2n 、log9n 统称为 logn
 
@@ -88,8 +89,9 @@ O(1) < O(logn) < O(n) < O(nlogn) < O(n2) < O(n3) < O(2n) < O(n!) < O(nn)
 - https://zh.numberempire.com/graphingcalculator.php
 
 数据规模较小时
-
+![image](https://gitee.com/jarrysong/img/raw/master/img/20200920000843.png)
 数据规模较大时
+![image](https://gitee.com/jarrysong/img/raw/master/img/20200920000240.png)
 
 fib函数的时间复杂度分析
 
@@ -100,13 +102,16 @@ fib函数的时间复杂度分析
 呈现的是指数级增长的趋势
 
 fib函数的时间复杂度分析
+![image](https://gitee.com/jarrysong/img/raw/master/img/20200920000000.png)
 
+![image](https://gitee.com/jarrysong/img/raw/master/img/20200920001944.png)
+
+![image](https://gitee.com/jarrysong/img/raw/master/img/20200920000339.png)
 他们的差别有多大？ 
 - 如果有一台1GHz的普通计算机，运算速度 109 次每秒（ n 为 64 ） 
 - O(n) 大约耗时 6.4 ∗ 10−8 秒 
 - O(2n) 大约耗时 584.94 年 
 - 有时候算法之间的差距，往往比硬件方面的差距还要大
-
 
 Something interesting 
 - 我是一个斐波那契程序员 
@@ -114,13 +119,18 @@ Something interesting
 
 斐波那契的线性代数解法 – 特征方程
 
+![image](https://gitee.com/jarrysong/img/raw/master/img/20200920002138.png)
+
+
 时间复杂度：视为 O(1)
 
 
-算法的优化方向
+## 算法的优化方向
 - 用尽量少的存储空间
 - 用尽量少的执行步骤（执行时间）
-- 根据情况，可以 空间换时间 时间换空间
+- 根据情况，可以 
+  - 空间换时间 
+  - 时间换空间
 
 
 多个数据规模的情况
@@ -132,7 +142,7 @@ Something interesting
 - 复杂度震荡 
 - 平均复杂度 
 - ......
-
+## 练习
 leetcode一个用于练习算法的好网站
 - https://leetcode.com/ 
 - https://leetcode-cn.com/
