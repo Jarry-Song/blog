@@ -1,6 +1,6 @@
 module.exports = ctx => ({
-   title: "My Blog",
-   description: "This is a blog.",
+   title: "淌过汗水的足迹",
+   description: "程序员的自我修养，温故知新",
    base: '/blog/' ,
    head: [
     ['link', { rel: 'icon', href: `/logo.png` }],
