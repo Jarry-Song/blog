@@ -320,7 +320,7 @@ static int maxSubArray(int[] nums) {
 	}
 	return max;
 }
-```
+```3
 
 空间复杂度：O(1)，时间复杂度：O(n)
 
@@ -369,6 +369,8 @@ dp(i) 是以 nums[i] 结尾的最长上升子序列的长度，i ∈ [0, nums.le
 - dp(0) = 1 
 - 所有的 dp(i) 默认都初始化为 1
 
+### 动态规划 – 实现
+
 ```java
 public static void main(String[] args) {
 	System.out.println(lengthOfLIS(new int[] {10, 2, 2, 5, 1, 7, 101, 18}));
@@ -392,6 +394,101 @@ static int lengthOfLIS(int[] nums) {
 	return max;
 }
 ```
+
+- 空间复杂度：O(n)
+- 时间复杂度：O (n^2)
+
+### 二分搜索牌顶-实现
+
+![image-20201012132854423](https://gitee.com/jarrysong/img/raw/master/img/image-20201012132854423.png)
+
+把每个数字看做是一张扑克牌，从左到右按顺序处理每一个扑克牌 
+
+- 将它压在（从左边数过来）第一个牌顶 ≥ 它的牌堆上面 
+- 如果找不到牌顶 ≥ 它的牌堆，就在最右边新建一个牌堆，将它放入这个新牌堆中
+
+![image-20201012133101749](https://gitee.com/jarrysong/img/raw/master/img/image-20201012133101749.png)
+
+当处理完所有牌，最终牌堆的数量就是最长上升子序列的长度
+
+#### 普通牌顶实现
+
+```java
+/**
+ * 牌顶
+ */
+static int lengthOfLIS2(int[] nums) {
+	if (nums == null || nums.length == 0) return 0;
+	// 牌堆的数量
+	int len = 0;
+	// 牌顶数组
+	int[] top = new int[nums.length];
+	// 遍历所有的牌
+	for (int num : nums) {
+		int j = 0;
+		while (j < len) {
+			// 找到一个>=num的牌顶
+			if (top[j] >= num) {
+				top[j] = num;
+				break;
+			}
+			// 牌顶 < num
+			j++;
+		}
+		if (j == len) { // 新建一个牌堆
+			len++;
+			top[j] = num;
+		}
+	}
+	return len;
+}
+```
+
+#### 二分搜索牌顶实现
+
+**思路（假设数组是 nums，也就是最初的牌数组）**
+
+- top[i] 是第 i 个牌堆的牌顶，len 是牌堆的数量，初始值为 0 
+- 遍历每一张牌 num 
+  - ✓利用二分搜索找出 num 最终要放入的牌堆位置 index 
+  - ✓num 作为第 index 个牌堆的牌顶，top[index] = num 
+  - ✓如果 index 等于 len，相当于新建一个牌堆，牌堆数量 +1，也就是 len++
+
+```java
+/**
+ * 牌顶
+ */
+static int lengthOfLIS(int[] nums) {
+	if (nums == null || nums.length == 0) return 0;
+	// 牌堆的数量
+	int len = 0;
+	// 牌顶数组
+	int[] top = new int[nums.length];
+	// 遍历所有的牌
+	for (int num : nums) {
+		int begin = 0;
+		int end = len;
+		while (begin < end) {
+			int mid = (begin + end) >> 1;
+			if (num <= top[mid]) {
+				end = mid;
+			} else {
+				begin = mid + 1;
+			}
+		}
+		// 覆盖牌顶
+		top[begin] = num;
+		// 检查是否要新建一个牌堆
+		if (begin == len) len++;
+	}
+	return len;
+}
+```
+
+- 空间复杂度：O(n)
+- 时间复杂度：O(nlogn)
+
+
 
 ## 练习4 – 最长公共子序列（LCS）
 
@@ -491,9 +588,8 @@ static int lcs2(int[] nums1, int[] nums2) {
 }
 ```
 
-空间复杂度：O(n ∗ m)
-
-时间复杂度：O(n ∗ m）
+- 空间复杂度：O(n ∗ m)
+- 时间复杂度：O(n ∗ m）
 
 dp 数组的计算结果如下所示
 
@@ -610,6 +706,7 @@ public int longestCommonSubsequence(String text1, String text2) {
 ```
 
 
+
 ## 练习5 – 最长公共子串
 
 最长公共子串（Longest Common Substring） 
@@ -634,6 +731,254 @@ public int longestCommonSubsequence(String text1, String text2) {
 - 如果 str1[i – 1] ≠ str2[j – 1]，那么 dp(i, j) = 0
 
 最长公共子串的长度是所有 dp(i, j) 中的最大值 max { dp(i, j) }
+
+ ### 实现
+
+```java
+public static void main(String[] args) {
+		System.out.println(lcs("ABDCBA", "ABBA"));
+}
+
+static int lcs1(String str1, String str2) {
+		if (str1 == null || str2 == null) return 0;
+		char[] chars1 = str1.toCharArray();
+		if (chars1.length == 0) return 0;
+		char[] chars2 = str2.toCharArray();
+		if (chars2.length == 0) return 0;
+		int[][] dp = new int[chars1.length + 1][chars2.length + 1];
+		int max = 0;
+		for (int i = 1; i <= chars1.length; i++) {
+			for (int j = 1; j <= chars2.length; j++) {
+				if (chars1[i - 1] != chars2[j - 1]) continue;
+				dp[i][j] = dp[i - 1][j - 1] + 1;
+				max = Math.max(dp[i][j], max);
+			}
+		}
+		return max;
+}
+```
+
+- 空间复杂度：O(n ∗ m)
+- 时间复杂度：O(n ∗ m)
+
+ dp 数组的计算结果如下所示
+
+ ![image-20201010084841911](https://gitee.com/jarrysong/img/raw/master/img/image-20201010084841911.png)
+
+
+### 一维数组实现
+
+```java
+static int lcs2(String str1, String str2) {
+	if (str1 == null || str2 == null) return 0;
+	char[] chars1 = str1.toCharArray();
+	if (chars1.length == 0) return 0;
+	char[] chars2 = str2.toCharArray();
+	if (chars2.length == 0) return 0;
+	char[] rowsChars = chars1, colsChars = chars2;
+	if (chars1.length < chars2.length) {
+		colsChars = chars1;
+		rowsChars = chars2;
+	}
+		
+	int[] dp = new int[colsChars.length + 1];
+	int max = 0;
+	for (int row = 1; row <= rowsChars.length; row++) {
+		int cur = 0;
+		for (int col = 1; col <= colsChars.length; col++) {
+			int leftTop = cur;
+			cur = dp[col];
+			if (chars1[row - 1] != chars2[col - 1]) {
+				dp[col] = 0;
+			} else {
+				dp[col] = leftTop + 1;
+				max = Math.max(dp[col], max);
+			}
+		}
+	}
+	return max;
+} 
+```
+
+- 空间复杂度：O k , k = min{n,m} 
+- 时间复杂度：O(n ∗ m）
+
+优化-由大到小
+
+```java
+static int lcs(String str1, String str2) {
+	if (str1 == null || str2 == null) return 0;
+	char[] chars1 = str1.toCharArray();
+	if (chars1.length == 0) return 0;
+	char[] chars2 = str2.toCharArray();
+	if (chars2.length == 0) return 0;
+	char[] rowsChars = chars1, colsChars = chars2;
+	if (chars1.length < chars2.length) {
+		colsChars = chars1;
+		rowsChars = chars2;
+	}
+		
+	int[] dp = new int[colsChars.length + 1];
+	int max = 0;
+	for (int row = 1; row <= rowsChars.length; row++) {
+		for (int col = colsChars.length; col >= 1; col--) {
+			if (chars1[row - 1] != chars2[col - 1]) {
+				dp[col] = 0;
+			} else {
+				dp[col] = dp[col - 1] + 1;
+				max = Math.max(dp[col], max);
+			}
+		}
+	}
+	return max;	
+}
+```
+
+## 练习6 – 0-1背包
+
+前面用贪心策略，但是还有不足
+
+有 n 件物品和一个最大承重为 W 的背包，每件物品的重量是 𝑤i、价值是 𝑣i
+
+- 在保证总重量不超过 W 的前提下，选择某些物品装入背包，背包的最大总价值是多少？ 
+- 注意：每个物品只有 1 件，也就是每个物品只能选择 0 件或者 1 件
+
+假设 values 是价值数组，weights 是重量数组 
+
+- 编号为 k 的物品，价值是 values[k]，重量是 weights[k]，k ∈ [0, n)
+
+假设 dp(i, j) 是 **最大承重为 j、有前 i 件物品可选** 时的最大总价值，i ∈ [1, n]，j ∈ [1, W] 
+
+- dp(i, 0)、dp(0, j) 初始值均为 0 
+- 如果 j < weights[i – 1]，那么 dp(i, j) = dp(i – 1, j) 
+- 如果 j ≥ weights[i – 1]，那么 dp(i, j) = max { dp(i – 1, j), dp(i – 1, j – weights[i – 1]) + values[i – 1] }
+
+### 非递归实现 
+
+```java
+public static void main(String[] args) {
+		int[] values = {6, 3, 5, 4, 6};
+		int[] weights = {2, 2, 6, 5, 4};
+		int capacity = 10;
+		System.out.println(maxValue1(values, weights, capacity));
+}
+	
+static int maxValue1(int[] values, int[] weights, int capacity) {
+		if (values == null || values.length == 0) return 0;
+		if (weights == null || weights.length == 0) return 0;
+		if (values.length != weights.length || capacity <= 0) return 0;
+		int[][] dp = new int[values.length + 1][capacity + 1];
+		for (int i = 1; i <= values.length; i++) {
+			for (int j = 1; j <= capacity; j++) {
+				if (j < weights[i - 1]) {
+					dp[i][j] = dp[i - 1][j];
+				} else {
+					dp[i][j] = Math.max(
+							dp[i - 1][j], 
+							values[i - 1] + dp[i - 1][j - weights[i - 1]]);
+				}
+			}
+		}
+		return dp[values.length][capacity];
+}
+```
+
+
+
+dp 数组的计算结果如下所示
+
+![image-20201012081935459](https://gitee.com/jarrysong/img/raw/master/img/image-20201012081935459.png)
+
+### 非递归实现 – 一维数组
+
+dp(i, j) 都是由 dp(i – 1, k) 推导出来的，也就是说，第 i 行的数据是由它的上一行第 i – 1 行推导出来的 
+
+- 因此，可以使用一维数组来优化 
+- 另外，由于 k ≤ j ，所以 j 的遍历应该由大到小，否则导致数据错乱
+
+```java
+static int maxValue2(int[] values, int[] weights, int capacity) {
+		if (values == null || values.length == 0) return 0;
+		if (weights == null || weights.length == 0) return 0;
+		if (values.length != weights.length || capacity <= 0) return 0;
+		int[] dp = new int[capacity + 1];
+		for (int i = 1; i <= values.length; i++) {
+			for (int j = capacity; j >= 1; j--) {
+				if (j < weights[i - 1]) continue;
+				dp[j] = Math.max(dp[j], values[i - 1] + dp[j - weights[i - 1]]);
+			}
+		}
+		return dp[capacity];
+}
+```
+
+
+
+### 非递归实现 – 一维数组优化
+
+观察二维数组表，得出结论：j 的下界可以从 1 改为 weights[i – 1]
+
+```java
+static int maxValue(int[] values, int[] weights, int capacity) {
+		if (values == null || values.length == 0) return 0;
+		if (weights == null || weights.length == 0) return 0;
+		if (values.length != weights.length || capacity <= 0) return 0;
+		int[] dp = new int[capacity + 1];
+		for (int i = 1; i <= values.length; i++) {
+			for (int j = capacity; j >= weights[i - 1]; j--) {
+				dp[j] = Math.max(dp[j], values[i - 1] + dp[j - weights[i - 1]]);
+			}
+		}
+		return dp[capacity];
+}
+```
+
+
+
+###  恰好装满
+
+有 n 件物品和一个最大承重为 W 的背包，每件物品的重量是 𝑤i、价值是 𝑣i 
+
+- 在保证总重量恰好等于 W 的前提下，选择某些物品装入背包，背包的最大总价值是多少？ 
+- 注意：每个物品只有 1 件，也就是每个物品只能选择 0 件或者 1 件
+
+dp(i, j) 初始状态调整 
+
+- dp(i, 0) = 0，总重量恰好为 0，最大总价值必然也为 0 
+- dp(0, j) = –∞（负无穷），j ≥ 1，负数在这里代表无法恰好装满
+
+![image-20201012084110669](https://gitee.com/jarrysong/img/raw/master/img/image-20201012084110669.png)
+
+```java
+/**
+ * @return 如果返回-1，代表没法刚好凑到capacity这个容量
+ */
+static int maxValueExactly(int[] values, int[] weights, int capacity) {
+	if (values == null || values.length == 0) return 0;
+	if (weights == null || weights.length == 0) return 0;
+	if (values.length != weights.length || capacity <= 0) return 0;
+	int[] dp = new int[capacity + 1];
+	for (int j = 1; j <= capacity; j++) {
+		dp[j] = Integer.MIN_VALUE;
+	}
+	for (int i = 1; i <= values.length; i++) {
+		for (int j = capacity; j >= weights[i - 1]; j--) {
+			dp[j] = Math.max(dp[j], values[i - 1] + dp[j - weights[i - 1]]);
+		}
+	}
+	return dp[capacity] < 0 ? -1 : dp[capacity];
+}
+```
+
+
+
+
+
+
+
+
+
+
 
 
 
