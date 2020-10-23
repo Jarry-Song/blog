@@ -1189,9 +1189,8 @@ d 是最大值的位数，k 是进制
 
 
 
-​    
-
 ## 桶排序（Bucket Sort）
+参考：https://blog.csdn.net/zxzxzx0119/article/details/79826380#t13
 
  ### 执行流程
 

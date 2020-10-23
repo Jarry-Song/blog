@@ -12,6 +12,7 @@ module.exports = {
     '/zh/java/basic/': getJavaAndroidBasic(),
     '/zh/java/structures/': getJavaStructures(),
     '/zh/java/algorithms/': getJavaAlgorithms(),
+     '/zh/java/exercise/': getJavaExercise()
 }
 
 
@@ -199,6 +200,27 @@ function getJavaAlgorithms () {
         'skip-list',
         'B-tree',
         'sequence'
+      ]
+    }
+  ]
+}
+
+//Java-练习
+function getJavaExercise () {
+  return [
+    {
+      title: 'Algorithms',
+      collapsable: false,
+      children: [
+        '',
+        'list_sort',
+        'linklist',
+        'stack_queue',
+        'string',
+        'dynamic_programming',
+        'binary-tree',
+        'dfs',
+        'top'
       ]
     }
   ]
