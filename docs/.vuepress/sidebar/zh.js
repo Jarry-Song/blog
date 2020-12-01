@@ -1,16 +1,16 @@
 module.exports = {
     '/zh/guide/': getGuideSidebar('指南', '深入'),
     //Android
-    '/zh/android/basic': getAndoridBasic(),
-    '/zh/android/ui': getAndoridUI(),
-    '/zh/android/architecture': getAndoridArchitecture(),
-    '/zh/android/performance': getAndoridPerformance(),
-    '/zh/android/ndk': getAndoridNdk(),
-    '/zh/android/hybrid': getAndoridHybrid(),
-    '/zh/android/framework': getAndoridFramework(),
-    '/zh/android/jetpack': getAndoridJetpack(),
+    '/zh/android/basic/': getAndoridBasic(),
+    '/zh/android/ui/': getAndoridUI(),
+    '/zh/android/architecture/': getAndoridArchitecture(),
+    '/zh/android/performance/': getAndoridPerformance(),
+    '/zh/android/ndk/': getAndoridNdk(),
+    '/zh/android/hybrid/': getAndoridHybrid(),
+    '/zh/android/framework/': getAndoridFramework(),
+    '/zh/android/jetpack/': getAndroidJetpack(),
     //Java
-    '/zh/java/basic/': getJavaAndroidBasic(),
+    '/zh/java/basic/': getJavaBasic(),
     '/zh/java/structures/': getJavaStructures(),
     '/zh/java/algorithms/': getJavaAlgorithms(),
     '/zh/java/exercise/': getJavaExercise(),
@@ -138,7 +138,7 @@ function getAndoridFramework () {
 
 
 //Android-Jetpack
-function getAndoridJetpack () {
+function getAndroidJetpack () {
   return [
     {
       title: 'Jetpack',
@@ -152,7 +152,7 @@ function getAndoridJetpack () {
         'savedstate',
         'room',
         'workmanager',
-        'databinging'
+        'databinding'
       ]
     }
   ]
@@ -161,7 +161,7 @@ function getAndoridJetpack () {
 
 
 //Java-基础
-function getJavaAndroidBasic () {
+function getJavaBasic () {
   return [
     {
       title: '基础',
