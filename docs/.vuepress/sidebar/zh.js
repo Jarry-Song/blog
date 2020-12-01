@@ -8,11 +8,12 @@ module.exports = {
     '/zh/android/ndk': getAndoridNdk(),
     '/zh/android/hybrid': getAndoridHybrid(),
     '/zh/android/framework': getAndoridFramework(),
+    '/zh/android/jetpack': getAndoridJetpack(),
     //Java
     '/zh/java/basic/': getJavaAndroidBasic(),
     '/zh/java/structures/': getJavaStructures(),
     '/zh/java/algorithms/': getJavaAlgorithms(),
-     '/zh/java/exercise/': getJavaExercise()
+    '/zh/java/exercise/': getJavaExercise(),
 }
 
 
@@ -136,6 +137,29 @@ function getAndoridFramework () {
 }
 
 
+//Android-Jetpack
+function getAndoridJetpack () {
+  return [
+    {
+      title: 'Jetpack',
+      collapsable: false,
+      children: [
+        '',
+        'livecycle',
+        'livedata-1',
+        'livedata-2',
+        'viewmodel',
+        'savedstate',
+        'room',
+        'workmanager',
+        'databinging'
+      ]
+    }
+  ]
+}
+
+
+
 //Java-基础
 function getJavaAndroidBasic () {
   return [
@@ -209,7 +233,7 @@ function getJavaAlgorithms () {
 function getJavaExercise () {
   return [
     {
-      title: 'Algorithms',
+      title: 'Exercise',
       collapsable: false,
       children: [
         '',
@@ -218,7 +242,7 @@ function getJavaExercise () {
         'stack_queue',
         'string',
         'dynamic_programming',
-        'binary-tree',
+        'binary_tree',
         'dfs',
         'top'
       ]

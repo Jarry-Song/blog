@@ -37,19 +37,19 @@ nums2 = [2,5,6],       n = 3
 
 ```java
 public void merge(int[] nums1, int m, int[] nums2, int n) {
-    	// nums1 = [1,3,5,0,0,0], m = 3
-    	// nums2 = [2,4,6],       n = 3
-    	int i1 = m - 1;
-    	int i2 = n - 1;
-    	int cur = nums1.length - 1;
-    	
-    	while (i2 >= 0) {
-    		if (i1 >= 0 && nums2[i2] < nums1[i1]) {
-    			nums1[cur--] = nums1[i1--];
-    		} else { // i1 < 0 || nums2[i2] >= nums1[i1]
-    			nums1[cur--] = nums2[i2--];
-    		}
-    	}
+        // nums1 = [1,3,5,0,0,0], m = 3
+        // nums2 = [2,4,6],       n = 3
+        int i1 = m - 1;
+        int i2 = n - 1;
+        int cur = nums1.length - 1;
+        
+        while (i2 >= 0) {
+            if (i1 >= 0 && nums2[i2] < nums1[i1]) {
+                nums1[cur--] = nums1[i1--];
+            } else { // i1 < 0 || nums2[i2] >= nums1[i1]
+                nums1[cur--] = nums2[i2--];
+            }
+        }
 }
 ```
 
@@ -81,7 +81,6 @@ public void merge(int[] nums1, int m, int[] nums2, int n) {
 
 
 ### 思路
-
 ![image-20201022085434199](https://gitee.com/jarrysong/img/raw/master/img/image-20201022085434199.png)
 
 
@@ -106,13 +105,13 @@ public void merge(int[] nums1, int m, int[] nums2, int n) {
     int l = 0;
     int r = nums.length - 1;
     while (i <= r) {
-    	if (nums[i] == 0) {
-    		swap(nums, i++, l++);
-    	} else if (nums[i] == 1) {
-    		i++;
-    	} else {
-    		swap(nums, i, r--);
-    	}
+        if (nums[i] == 0) {
+            swap(nums, i++, l++);
+        } else if (nums[i] == 1) {
+            i++;
+        } else {
+            swap(nums, i, r--);
+        }
     }
  }
     
@@ -158,39 +157,39 @@ public void merge(int[] nums1, int m, int[] nums2, int n) {
 1. 如果发现当前值大于最小值，记录它的位置leftIndex
 1. 如果发现当前值小于最小值，更新最小值
 
-### 代码
+### 实现
 
 ```java
 public int[] subSort(int[] nums) {
-    	if (nums.length == 0) return new int[] { -1, -1 };
-    	
-    	// 从左扫描到右寻找逆序对（正序：逐渐变大）
-    	int max = nums[0];
-    	// 用来记录最右的那个逆序对位置
-    	int r = -1;
-    	for (int i = 1; i < nums.length; i++) {
-			if (nums[i] >= max) {
-				max = nums[i];
-			} else {
-				r = i;
-			}
-		}
-    	
-    	// 提前结束
-    	if (r == -1) return new int[] { -1, -1 };
-    	
-    	// 从右扫描到左寻找逆序对（正序：逐渐变小）
-    	int min = nums[nums.length - 1];
-    	// 用来记录最左的那个逆序对位置
-    	int l = -1;
-    	for (int i = nums.length - 2; i >= 0; i--) {
-			if (nums[i] <= min) {
-				min = nums[i];
-			} else {
-				l = i;
-			}
-		}
-    	
+        if (nums.length == 0) return new int[] { -1, -1 };
+        
+        // 从左扫描到右寻找逆序对（正序：逐渐变大）
+        int max = nums[0];
+        // 用来记录最右的那个逆序对位置
+        int r = -1;
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] >= max) {
+                max = nums[i];
+            } else {
+                r = i;
+            }
+        }
+        
+        // 提前结束
+        if (r == -1) return new int[] { -1, -1 };
+        
+        // 从右扫描到左寻找逆序对（正序：逐渐变小）
+        int min = nums[nums.length - 1];
+        // 用来记录最左的那个逆序对位置
+        int l = -1;
+        for (int i = nums.length - 2; i >= 0; i--) {
+            if (nums[i] <= min) {
+                min = nums[i];
+            } else {
+                l = i;
+            }
+        }
+        
         return new int[] { l, r };
 }
 ```

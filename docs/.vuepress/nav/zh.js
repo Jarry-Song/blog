@@ -29,7 +29,12 @@ module.exports = [
           {
             text: '开源框架',
             link: '/zh/android/framework/'
+          },
+          {
+            text: 'Jetpack',
+            link: '/zh/android/jetpack/'
           }
+
     ]
   },
   {

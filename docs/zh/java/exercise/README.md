@@ -1,99 +1,148 @@
-# 大纲
-### 数组_排序
+# 练习大纲
 
-1. 课程简介
-2. 88_合并2个有序数组
-3. 75_颜色分类
-4. 面试题_16_16_部分排序
-5. 思考题 164_最大间距
-6. 作业_977_有序数组的平方
+## 1.数组排序
 
-### 链表
+- [88_合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array/)
+- [75_颜色分类](https://leetcode-cn.com/problems/sort-colors/)
+- [面试题_16_16_部分排序](https://leetcode-cn.com/problems/sub-sort-lcci/)
+- [思考题 164_最大间距](https://leetcode-cn.com/problems/maximum-gap/)
+- [作业 977_有序数组的平方](https://leetcode-cn.com/problems/squares-of-a-sorted-array/)
 
-1. 203_移除链表元素
-2. 2_两数相加
-3. 160_相交链表
-4. 86_分隔链表
-5. 234_回文链表01
-6. 234_回文链表02 
+## 2.链表
+- [203. 移除链表元素](https://leetcode-cn.com/problems/remove-linked-list-elements/)
+- [两数相加](https://leetcode-cn.com/problems/add-two-numbers/)
+- [160. 相交链表](https://leetcode-cn.com/problems/intersection-of-two-linked-lists/)
+- [面试题 02.07. 链表相交](https://leetcode-cn.com/problems/intersection-of-two-linked-lists-lcci/)
+- [剑指 Offer 52. 两个链表的第一个公共节点](https://leetcode-cn.com/problems/liang-ge-lian-biao-de-di-yi-ge-gong-gong-jie-dian-lcof/)
+- [86. 分隔链表](https://leetcode-cn.com/problems/partition-list/)
+- [面试题 02.04. 分割链表](https://leetcode-cn.com/problems/partition-list-lcci/)
+- [234. 回文链表](https://leetcode-cn.com/problems/palindrome-linked-list/)
+- [面试题 02.06. 回文链表](https://leetcode-cn.com/problems/palindrome-linked-list-lcci/)
+- [138. 复制带随机指针的链表](https://leetcode-cn.com/problems/copy-list-with-random-pointer/)
+- [剑指 Offer 35. 复杂链表的复制](https://leetcode-cn.com/problems/fu-za-lian-biao-de-fu-zhi-lcof/)
+- [循环有序列表的插入](https://leetcode-cn.com/problems/insert-into-a-sorted-circular-linked-list/)
+- [25. K 个一组翻转链表](https://leetcode-cn.com/problems/reverse-nodes-in-k-group/)
+- [24. 两两交换链表中的节点](https://leetcode-cn.com/problems/swap-nodes-in-pairs/)
+- [237. 删除链表中的节点](https://leetcode-cn.com/problems/delete-node-in-a-linked-list/)
+- [141. 环形链表](https://leetcode-cn.com/problems/linked-list-cycle/)
+- [206. 反转链表](https://leetcode-cn.com/problems/reverse-linked-list/)
+- [剑指 Offer 24. 反转链表](https://leetcode-cn.com/problems/fan-zhuan-lian-biao-lcof/)
+- [21. 合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/)
+- [23. 合并K个升序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/)
 
-### 栈_队列01	
-1. 栈_队列概念回顾     
-2. 155_最小栈01_双栈
-3. 155_最小栈02_链表
-4. 239_滑动窗口最大值01_暴力法
-5. 239_滑动窗口最大值02_双端队列01_思路
-6. 239_滑动窗口最大值03_双端队列02_总结
-7. 239_滑动窗口最大值04_双端队列03_实现
-8. 239_滑动窗口最大值05_另一种解法
-9. 654_最大二叉树01
-10. 654_最大二叉树02_变种
 
-### 栈_队列02	
-11. 654_最大二叉树03_变种实现
-12. 739_每日温度01_栈   
-13. 739_每日温度02_倒推
+## 3.栈_队列
+- [155. 最小栈](https://leetcode-cn.com/problems/min-stack/)
+- [面试题 03.02. 栈的最小值](https://leetcode-cn.com/problems/min-stack-lcci/)
+- [239. 滑动窗口最大值](https://leetcode-cn.com/problems/sliding-window-maximum/)
+- [剑指 Offer 59 - I. 滑动窗口的最大值](https://leetcode-cn.com/problems/hua-dong-chuang-kou-de-zui-da-zhi-lcof/)
+- [654. 最大二叉树](https://leetcode-cn.com/problems/maximum-binary-tree/)
+- [739. 每日温度](https://leetcode-cn.com/problems/daily-temperatures/)
+- [42. 接雨水](https://leetcode-cn.com/problems/trapping-rain-water/)
+- [20. 有效的括号](https://leetcode-cn.com/problems/valid-parentheses/)
+- [232. 用栈实现队列](https://leetcode-cn.com/problems/implement-queue-using-stacks/)
+- [剑指 Offer 09. 用两个栈实现队列](https://leetcode-cn.com/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof/)
+- [面试题 03.04. 化栈为队](https://leetcode-cn.com/problems/implement-queue-using-stacks-lcci/)
 
-### 字符串	
-1. 面试题_01_09_字符串轮转
-2. 572_另一个树的子树01_思路                                
-2. 572_另一个树的子树02_实现
-3. 242_有效的字母异位词
-4. 151_翻转字符串里的单词01_消除多余空格
-5. 151_翻转字符串里的单词02_翻转
-6. 3_无重复字符的最长子串01_思路
-7 .3_无重复字符的最长子串02_实现
 
-### 动态规划01
-1. 面试题_47_礼物的最大价值
-2. 121_买卖股票的最佳时机                                  
-3. 72_编辑距离01_特殊值
-4. 72_编辑距离02_状态转移
-5. 72_编辑距离03_实现
-6. 5_最长回文子串01_DP01_思路
-7. 5_最长回文子串02_DP02_实现
-8. 5_最长回文子串03_扩展中心
-9. 5_最长回文子串04_扩展中心优化01_思路
-10. 5_最长回文子串05_扩展中心优化02_实现
+## 4.字符串
+- [面试题 01.09. 字符串轮转](https://leetcode-cn.com/problems/string-rotation-lcci/)
+- [572. 另一个树的子树](https://leetcode-cn.com/problems/subtree-of-another-tree/)
+- [242. 有效的字母异位词](https://leetcode-cn.com/problems/valid-anagram/)
+- [49. 字母异位词分组](https://leetcode-cn.com/problems/group-anagrams/)
+- [面试题 10.02. 变位词组](https://leetcode-cn.com/problems/group-anagrams-lcci/)
+- [438. 找到字符串中所有字母异位词](https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/)
+- [151. 翻转字符串里的单词](https://leetcode-cn.com/problems/reverse-words-in-a-string/)
+- [剑指 Offer 58 - I. 翻转单词顺序](https://leetcode-cn.com/problems/fan-zhuan-dan-ci-shun-xu-lcof/)
+- [3. 无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/)
+- [5. 最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring/)
+- [72. 编辑距离](https://leetcode-cn.com/problems/edit-distance/)
+- [1143. 最长公共子序列](https://leetcode-cn.com/problems/longest-common-subsequence/)
+- [32. 最长有效括号](https://leetcode-cn.com/problems/longest-valid-parentheses/)
+- [1048. 最长字符串链](https://leetcode-cn.com/problems/longest-string-chain/)
+- 
 
-### 动态规划02	
-11. 5_最长回文子串06_马拉车01_预处理
-12. 5_最长回文子串07_马拉车02_思路
-13. 5_最长回文子串08_马拉车03_实现
+## 5.动态规划
 
-### 二叉树
-1. 236_二叉树的最近公共祖先01
-2. 236_二叉树的最近公共祖先02
-3. 99_恢复二叉搜索树01_中序遍历
-4. 99_恢复二叉搜索树02_Morris01
-5. 99_恢复二叉搜索树03_Morris02
-6. 333_最大BST子树01_思路
-7. 333_最大BST子树02_实现
+## 6.二叉树
 
-### DFS
-1. 17_电话号码的字母组合
-2. 46_全排列01
-3. 46_全排列02_优化
-4. 47_全排列_II
-5. 22_括号生成
-6. 思考题分析
+## 7.DFS
 
-### 高频题01
-1. 1_两数之和
-2. 15_三数之和
-3. 50_pow01_递归
-4. 50_pow02_非递归
-5. 50_pow03_补充
-6. 面试题_62_圆圈中最后剩下的数字
-7. 54_螺旋矩阵
-8. 146_LRU缓存机制
-9. 7_整数翻转
-10. 252_会议室
+## 8.高频题
 
-### 高频题02	
-11. 253_会议室_II01_堆
-12. 253_会议室_II02_分开排序
-13. 11_盛水最多的容器
-14. 42_接雨水
-15. 总结
+
+
+# 练习大纲
+
+## 1.数组排序
+
+- [88_合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array/)
+- [75_颜色分类](https://leetcode-cn.com/problems/sort-colors/)
+- [面试题_16_16_部分排序](https://leetcode-cn.com/problems/sub-sort-lcci/)
+- [思考题 164_最大间距](https://leetcode-cn.com/problems/maximum-gap/)
+- [作业 977_有序数组的平方](https://leetcode-cn.com/problems/squares-of-a-sorted-array/)
+
+## 2.链表
+- [203. 移除链表元素](https://leetcode-cn.com/problems/remove-linked-list-elements/)
+- [两数相加](https://leetcode-cn.com/problems/add-two-numbers/)
+- [160. 相交链表](https://leetcode-cn.com/problems/intersection-of-two-linked-lists/)
+- [面试题 02.07. 链表相交](https://leetcode-cn.com/problems/intersection-of-two-linked-lists-lcci/)
+- [剑指 Offer 52. 两个链表的第一个公共节点](https://leetcode-cn.com/problems/liang-ge-lian-biao-de-di-yi-ge-gong-gong-jie-dian-lcof/)
+- [86. 分隔链表](https://leetcode-cn.com/problems/partition-list/)
+- [面试题 02.04. 分割链表](https://leetcode-cn.com/problems/partition-list-lcci/)
+- [234. 回文链表](https://leetcode-cn.com/problems/palindrome-linked-list/)
+- [面试题 02.06. 回文链表](https://leetcode-cn.com/problems/palindrome-linked-list-lcci/)
+- [138. 复制带随机指针的链表](https://leetcode-cn.com/problems/copy-list-with-random-pointer/)
+- [剑指 Offer 35. 复杂链表的复制](https://leetcode-cn.com/problems/fu-za-lian-biao-de-fu-zhi-lcof/)
+- [循环有序列表的插入](https://leetcode-cn.com/problems/insert-into-a-sorted-circular-linked-list/)
+- [25. K 个一组翻转链表](https://leetcode-cn.com/problems/reverse-nodes-in-k-group/)
+- [24. 两两交换链表中的节点](https://leetcode-cn.com/problems/swap-nodes-in-pairs/)
+- [237. 删除链表中的节点](https://leetcode-cn.com/problems/delete-node-in-a-linked-list/)
+- [141. 环形链表](https://leetcode-cn.com/problems/linked-list-cycle/)
+- [206. 反转链表](https://leetcode-cn.com/problems/reverse-linked-list/)
+- [剑指 Offer 24. 反转链表](https://leetcode-cn.com/problems/fan-zhuan-lian-biao-lcof/)
+- [21. 合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/)
+- [23. 合并K个升序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/)
+
+
+## 3.栈_队列
+- [155. 最小栈](https://leetcode-cn.com/problems/min-stack/)
+- [面试题 03.02. 栈的最小值](https://leetcode-cn.com/problems/min-stack-lcci/)
+- [239. 滑动窗口最大值](https://leetcode-cn.com/problems/sliding-window-maximum/)
+- [剑指 Offer 59 - I. 滑动窗口的最大值](https://leetcode-cn.com/problems/hua-dong-chuang-kou-de-zui-da-zhi-lcof/)
+- [654. 最大二叉树](https://leetcode-cn.com/problems/maximum-binary-tree/)
+- [739. 每日温度](https://leetcode-cn.com/problems/daily-temperatures/)
+- [42. 接雨水](https://leetcode-cn.com/problems/trapping-rain-water/)
+- [20. 有效的括号](https://leetcode-cn.com/problems/valid-parentheses/)
+- [232. 用栈实现队列](https://leetcode-cn.com/problems/implement-queue-using-stacks/)
+- [剑指 Offer 09. 用两个栈实现队列](https://leetcode-cn.com/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof/)
+- [面试题 03.04. 化栈为队](https://leetcode-cn.com/problems/implement-queue-using-stacks-lcci/)
+
+
+## 4.字符串
+- [面试题 01.09. 字符串轮转](https://leetcode-cn.com/problems/string-rotation-lcci/)
+- [572. 另一个树的子树](https://leetcode-cn.com/problems/subtree-of-another-tree/)
+- [242. 有效的字母异位词](https://leetcode-cn.com/problems/valid-anagram/)
+- [49. 字母异位词分组](https://leetcode-cn.com/problems/group-anagrams/)
+- [面试题 10.02. 变位词组](https://leetcode-cn.com/problems/group-anagrams-lcci/)
+- [438. 找到字符串中所有字母异位词](https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/)
+- [151. 翻转字符串里的单词](https://leetcode-cn.com/problems/reverse-words-in-a-string/)
+- [剑指 Offer 58 - I. 翻转单词顺序](https://leetcode-cn.com/problems/fan-zhuan-dan-ci-shun-xu-lcof/)
+- [3. 无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/)
+- [5. 最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring/)
+- [72. 编辑距离](https://leetcode-cn.com/problems/edit-distance/)
+- [1143. 最长公共子序列](https://leetcode-cn.com/problems/longest-common-subsequence/)
+- [32. 最长有效括号](https://leetcode-cn.com/problems/longest-valid-parentheses/)
+- [1048. 最长字符串链](https://leetcode-cn.com/problems/longest-string-chain/)
+- 
+
+## 5.动态规划
+
+## 6.二叉树
+
+## 7.DFS
+
+## 8.高频题
+
+
 

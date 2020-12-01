@@ -1,0 +1,10 @@
+# 笔记
+## 框架
+- OkHttp
+- Glide源码
+- 虚拟机
+- 性能优化
+- UI系列
+- Hashmap算法
+- Binder
+- Activity启动流程
