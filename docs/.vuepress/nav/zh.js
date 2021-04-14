@@ -33,6 +33,10 @@ module.exports = [
           {
             text: 'Jetpack',
             link: '/zh/android/jetpack/'
+          },
+          {
+            text: 'Kotlin',
+            link: '/zh/android/kotlin/'
           }
 
     ]

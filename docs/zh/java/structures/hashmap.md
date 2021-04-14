@@ -32,7 +32,7 @@
 - 空间使用率极其低，非常浪费内存空间
 - 其实数组 companies 就是一个哈希表，典型的【空间换时间】
 
-## 哈希表（Hash Table） 
+## 哈希表（Hash Table）  
 1.哈希表也叫做散列表（ hash 有“剁碎”的意思）
 
 2.它是如何实现高效处理数据的？ 
@@ -107,7 +107,7 @@
 - 让哈希值更加均匀分布 → 减少哈希冲突次数 → 提升哈希表的性能
 
 ## 如何生成key的哈希值
-1.key的常见种类可能有 整数、浮点数、字符串、自定义对象 
+1.key的常见种类可能：整数、浮点数、字符串、自定义对象 
 - 不同种类的 key，哈希值的生成方式不一样，但目标是一致的 
 - ✓尽量让每个 key 的哈希值是唯一的 
 - ✓尽量让 key 的所有信息参与运算
@@ -253,7 +253,7 @@ public class Person implements Comparable<Person> {
 	}
 }
 ```
-撕考几个问题 
+思考几个问题：
 - 哈希值太大，整型溢出怎么办？
 - ✓不用作任何处理
 
@@ -790,11 +790,11 @@ private Node<K, V> node(Node<K, V> node, K k1) {
 ## LinkedHashMap
 在HashMap的基础上维护元素的添加顺序，使得遍历的结果是遵从添加顺序的
 
-![image-20200821000036625](D:\Users\80254882\AppData\Roaming\Typora\typora-user-images\image-20200821000036625.png)
+![image-20200821000036625](https://gitee.com/jarrysong/img/raw/master/img/20210414114510.png)
 
 假设添加顺序是：37、21、31、41、97、95、52、42、83
 
-![image-20200821000142003](D:\Users\80254882\AppData\Roaming\Typora\typora-user-images\image-20200821000142003.png)
+![image-20200821000142003](https://gitee.com/jarrysong/img/raw/master/img/20210414114433.png)
 
 #### 实现LinkHashMap
 

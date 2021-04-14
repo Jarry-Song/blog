@@ -1,14 +1,15 @@
 module.exports = {
     '/zh/guide/': getGuideSidebar('指南', '深入'),
     //Android
-    '/zh/android/basic/': getAndoridBasic(),
-    '/zh/android/ui/': getAndoridUI(),
-    '/zh/android/architecture/': getAndoridArchitecture(),
-    '/zh/android/performance/': getAndoridPerformance(),
-    '/zh/android/ndk/': getAndoridNdk(),
-    '/zh/android/hybrid/': getAndoridHybrid(),
-    '/zh/android/framework/': getAndoridFramework(),
+    '/zh/android/basic/': getAndroidBasic(),
+    '/zh/android/ui/': getAndroidUI(),
+    '/zh/android/architecture/': getAndroidArchitecture(),
+    '/zh/android/performance/': getAndroidPerformance(),
+    '/zh/android/ndk/': getAndroidNdk(),
+    '/zh/android/hybrid/': getAndroidHybrid(),
+    '/zh/android/framework/': getAndroidFramework(),
     '/zh/android/jetpack/': getAndroidJetpack(),
+    '/zh/android/kotlin/': getAndroidKotlin(),
     //Java
     '/zh/java/basic/': getJavaBasic(),
     '/zh/java/structures/': getJavaStructures(),
@@ -42,14 +43,13 @@ function getGuideSidebar (groupA, groupB) {
 
 
 //Android-基础
-function getAndoridBasic () {
+function getAndroidBasic () {
   return [
     {
       title: '基础',
       collapsable: false,
       children: [
         '',
-        'object'
       ]
     }
   ]
@@ -57,7 +57,7 @@ function getAndoridBasic () {
 
 
 //Android-UI
-function getAndoridUI () {
+function getAndroidUI () {
   return [
     {
       title: '高级UI',
@@ -70,7 +70,7 @@ function getAndoridUI () {
 }
 
 //Android-架构设计
-function getAndoridArchitecture () {
+function getAndroidArchitecture () {
   return [
     {
       title: '架构设计',
@@ -83,7 +83,7 @@ function getAndoridArchitecture () {
 }
 
 //Android-性能优化
-function getAndoridPerformance () {
+function getAndroidPerformance () {
   return [
     {
       title: '性能优化',
@@ -97,7 +97,7 @@ function getAndoridPerformance () {
 
 
 //Android-NDK
-function getAndoridNdk () {
+function getAndroidNdk () {
   return [
     {
       title: 'NDK',
@@ -110,7 +110,7 @@ function getAndoridNdk () {
 }
 
 //Android-混合开发
-function getAndoridHybrid () {
+function getAndroidHybrid () {
   return [
     {
       title: '混合开发',
@@ -124,7 +124,7 @@ function getAndoridHybrid () {
 
 
 //Android-开源框架
-function getAndoridFramework () {
+function getAndroidFramework () {
   return [
     {
       title: '开源框架',
@@ -153,6 +153,31 @@ function getAndroidJetpack () {
         'room',
         'workmanager',
         'databinding'
+      ]
+    }
+  ]
+}
+
+//Android-Kotlin
+function getAndroidKotlin () {
+  return [
+    {
+      title: 'Jetpack',
+      collapsable: false,
+      children: [
+        '',
+        'kotlin-1-1',
+        'kotlin-2',
+        'kotlin-3',
+        'kotlin-4',
+        'kotlin-5',
+        'kotlin-6',
+        'kotlin-7',
+        'kotlin-8',
+        'kotlin-9',
+        'kotlin-10',
+        'kotlin-11',
+        'kotlin-12'
       ]
     }
   ]

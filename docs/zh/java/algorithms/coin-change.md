@@ -320,7 +320,7 @@ static int maxSubArray(int[] nums) {
 	}
 	return max;
 }
-```3
+```
 
 空间复杂度：O(1)，时间复杂度：O(n)
 

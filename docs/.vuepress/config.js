@@ -1,5 +1,5 @@
 module.exports = ctx => ({
-   title: "剩余的52天，一百万个可能",
+   title: "Android Nodes",
    description: "欲速则不达，起于累土",
    base: '/blog/' ,
    head: [
