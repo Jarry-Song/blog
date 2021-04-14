@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>深入理解Kotlin类与接口 | Android Nodes</title>
+    <meta name="generator" content="VuePress 1.5.4">
+    <link rel="icon" href="/blog/logo.png">
+    <link rel="manifest" href="/blog/manifest.json">
+    <link rel="apple-touch-icon" href="/blog/icons/apple-touch-icon-152x152.png">
+    <link rel="mask-icon" href="/blog/icons/safari-pinned-tab.svg" color="#3eaf7c">
+    <meta name="description" content="欲速则不达，起于累土">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    <link rel="preload" href="/blog/assets/css/0.styles.c59328e2.css" as="style"><link rel="preload" href="/blog/assets/js/app.b29a8dd7.js" as="script"><link rel="preload" href="/blog/assets/js/2.f6cef42b.js" as="script"><link rel="preload" href="/blog/assets/js/30.cbbb74b5.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.7a48b7c5.js"><link rel="prefetch" href="/blog/assets/js/11.eac2ba23.js"><link rel="prefetch" href="/blog/assets/js/12.0f90fab7.js"><link rel="prefetch" href="/blog/assets/js/13.bec57e62.js"><link rel="prefetch" href="/blog/assets/js/14.3ae2a79a.js"><link rel="prefetch" href="/blog/assets/js/15.a791971b.js"><link rel="prefetch" href="/blog/assets/js/16.e5da048d.js"><link rel="prefetch" href="/blog/assets/js/17.4908b8a7.js"><link rel="prefetch" href="/blog/assets/js/18.46af3ffd.js"><link rel="prefetch" href="/blog/assets/js/19.89281622.js"><link rel="prefetch" href="/blog/assets/js/20.cd52446d.js"><link rel="prefetch" href="/blog/assets/js/21.82cce5e6.js"><link rel="prefetch" href="/blog/assets/js/22.80975ead.js"><link rel="prefetch" href="/blog/assets/js/23.96416586.js"><link rel="prefetch" href="/blog/assets/js/24.2c36cba8.js"><link rel="prefetch" href="/blog/assets/js/25.367808ef.js"><link rel="prefetch" href="/blog/assets/js/26.be8af843.js"><link rel="prefetch" href="/blog/assets/js/27.b222d373.js"><link rel="prefetch" href="/blog/assets/js/28.a12c5df9.js"><link rel="prefetch" href="/blog/assets/js/29.d5ff3c40.js"><link rel="prefetch" href="/blog/assets/js/3.6d59dab0.js"><link rel="prefetch" href="/blog/assets/js/31.b75f6d67.js"><link rel="prefetch" href="/blog/assets/js/32.86d96ea4.js"><link rel="prefetch" href="/blog/assets/js/33.46446d62.js"><link rel="prefetch" href="/blog/assets/js/34.8408a108.js"><link rel="prefetch" href="/blog/assets/js/35.98c56f35.js"><link rel="prefetch" href="/blog/assets/js/36.bdaeac6f.js"><link rel="prefetch" href="/blog/assets/js/37.533f8161.js"><link rel="prefetch" href="/blog/assets/js/38.0200746e.js"><link rel="prefetch" href="/blog/assets/js/39.c88574ea.js"><link rel="prefetch" href="/blog/assets/js/4.1ea1eeff.js"><link rel="prefetch" href="/blog/assets/js/40.45749e2b.js"><link rel="prefetch" href="/blog/assets/js/41.f908dd77.js"><link rel="prefetch" href="/blog/assets/js/42.6a921fb9.js"><link rel="prefetch" href="/blog/assets/js/43.a545ead3.js"><link rel="prefetch" href="/blog/assets/js/44.599973fd.js"><link rel="prefetch" href="/blog/assets/js/45.4f5aa578.js"><link rel="prefetch" href="/blog/assets/js/46.bc77698b.js"><link rel="prefetch" href="/blog/assets/js/47.6fab262f.js"><link rel="prefetch" href="/blog/assets/js/48.06721492.js"><link rel="prefetch" href="/blog/assets/js/49.ddd2004c.js"><link rel="prefetch" href="/blog/assets/js/5.7d990afd.js"><link rel="prefetch" href="/blog/assets/js/50.68d30b00.js"><link rel="prefetch" href="/blog/assets/js/51.1e95b300.js"><link rel="prefetch" href="/blog/assets/js/52.7e58153e.js"><link rel="prefetch" href="/blog/assets/js/53.49c83746.js"><link rel="prefetch" href="/blog/assets/js/54.cafb7c5d.js"><link rel="prefetch" href="/blog/assets/js/55.e3a5298e.js"><link rel="prefetch" href="/blog/assets/js/56.16a6fa14.js"><link rel="prefetch" href="/blog/assets/js/57.a5849246.js"><link rel="prefetch" href="/blog/assets/js/58.21f63823.js"><link rel="prefetch" href="/blog/assets/js/59.1de0dd4e.js"><link rel="prefetch" href="/blog/assets/js/6.cec4111c.js"><link rel="prefetch" href="/blog/assets/js/60.d486fda7.js"><link rel="prefetch" href="/blog/assets/js/61.2df18a41.js"><link rel="prefetch" href="/blog/assets/js/62.f167b5ca.js"><link rel="prefetch" href="/blog/assets/js/63.1a1ddafe.js"><link rel="prefetch" href="/blog/assets/js/64.4ba3449a.js"><link rel="prefetch" href="/blog/assets/js/65.8005097c.js"><link rel="prefetch" href="/blog/assets/js/66.5d3693a7.js"><link rel="prefetch" href="/blog/assets/js/67.e9d7bf30.js"><link rel="prefetch" href="/blog/assets/js/68.1efe09bb.js"><link rel="prefetch" href="/blog/assets/js/69.50f5445d.js"><link rel="prefetch" href="/blog/assets/js/7.9d95edae.js"><link rel="prefetch" href="/blog/assets/js/70.02047906.js"><link rel="prefetch" href="/blog/assets/js/71.634bd610.js"><link rel="prefetch" href="/blog/assets/js/72.a00660d0.js"><link rel="prefetch" href="/blog/assets/js/73.cb4a91db.js"><link rel="prefetch" href="/blog/assets/js/74.3f83725a.js"><link rel="prefetch" href="/blog/assets/js/75.89822bf9.js"><link rel="prefetch" href="/blog/assets/js/76.9c29fa27.js"><link rel="prefetch" href="/blog/assets/js/77.0e21a0d0.js"><link rel="prefetch" href="/blog/assets/js/78.83828550.js"><link rel="prefetch" href="/blog/assets/js/79.038d118d.js"><link rel="prefetch" href="/blog/assets/js/8.b3b24cde.js"><link rel="prefetch" href="/blog/assets/js/80.4ed5e1a3.js"><link rel="prefetch" href="/blog/assets/js/81.d08345df.js"><link rel="prefetch" href="/blog/assets/js/82.b6dfa43b.js"><link rel="prefetch" href="/blog/assets/js/83.78d8aa89.js"><link rel="prefetch" href="/blog/assets/js/84.9ecbf7a5.js"><link rel="prefetch" href="/blog/assets/js/85.49225f21.js"><link rel="prefetch" href="/blog/assets/js/86.29868731.js"><link rel="prefetch" href="/blog/assets/js/87.f05ddddc.js"><link rel="prefetch" href="/blog/assets/js/88.9703366d.js"><link rel="prefetch" href="/blog/assets/js/89.0a340baa.js"><link rel="prefetch" href="/blog/assets/js/9.5eb0e890.js"><link rel="prefetch" href="/blog/assets/js/90.af7d5cb4.js"><link rel="prefetch" href="/blog/assets/js/91.e94154f4.js"><link rel="prefetch" href="/blog/assets/js/92.32326a59.js"><link rel="prefetch" href="/blog/assets/js/93.12ad3fb5.js"><link rel="prefetch" href="/blog/assets/js/94.045060fa.js"><link rel="prefetch" href="/blog/assets/js/95.5c510610.js"><link rel="prefetch" href="/blog/assets/js/96.5bcee9fd.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.c59328e2.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">Android Nodes</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/zh/guide/" class="nav-link">
+  备忘录
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Android" class="dropdown-title"><span class="title">Android</span> <span class="arrow down"></span></button> <button type="button" aria-label="Android" class="mobile-dropdown-title"><span class="title">Android</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/zh/android/basic/" class="nav-link">
+  基础
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/ui/" class="nav-link">
+  高级UI
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/architecture/" class="nav-link">
+  架构设计
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/performance/" class="nav-link">
+  性能优化
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/ndk/" class="nav-link">
+  NDK
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/framework/" class="nav-link">
+  开源框架
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/jetpack/" class="nav-link">
+  Jetpack
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/kotlin/" class="nav-link router-link-active">
+  Kotlin
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java" class="dropdown-title"><span class="title">Java</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java" class="mobile-dropdown-title"><span class="title">Java</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/zh/java/basic/" class="nav-link">
+  基础
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/structures/" class="nav-link">
+  数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/algorithms/" class="nav-link">
+  算法
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/exercise/" class="nav-link">
+  算法练习
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/zh/net/" class="nav-link">
+  API
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具" class="mobile-dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          代码管理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/api/cli.html" class="nav-link">
+  git
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/api/node.html" class="nav-link">
+  分支管理
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发规范
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/local-development.html" class="nav-link">
+  代码规范
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/design-concepts.html" class="nav-link">
+  团队协作
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/faq/" class="nav-link">
+  需求与工作分配
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/glossary.html" class="nav-link">
+  文档沉淀
+</a></li></ul></li><li class="dropdown-item"><h4>
+          软实力
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/migration-guide.html" class="nav-link">
+  必备技能
+</a></li><li class="dropdown-subitem"><a href="https://github.com/vuejs/vuepress/blob/master/CHANGELOG.md" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  团队管理
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/zh/guide/" class="nav-link">
+  备忘录
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Android" class="dropdown-title"><span class="title">Android</span> <span class="arrow down"></span></button> <button type="button" aria-label="Android" class="mobile-dropdown-title"><span class="title">Android</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/zh/android/basic/" class="nav-link">
+  基础
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/ui/" class="nav-link">
+  高级UI
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/architecture/" class="nav-link">
+  架构设计
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/performance/" class="nav-link">
+  性能优化
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/ndk/" class="nav-link">
+  NDK
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/framework/" class="nav-link">
+  开源框架
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/jetpack/" class="nav-link">
+  Jetpack
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/kotlin/" class="nav-link router-link-active">
+  Kotlin
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java" class="dropdown-title"><span class="title">Java</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java" class="mobile-dropdown-title"><span class="title">Java</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/zh/java/basic/" class="nav-link">
+  基础
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/structures/" class="nav-link">
+  数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/algorithms/" class="nav-link">
+  算法
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/exercise/" class="nav-link">
+  算法练习
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/zh/net/" class="nav-link">
+  API
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具" class="mobile-dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          代码管理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/api/cli.html" class="nav-link">
+  git
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/api/node.html" class="nav-link">
+  分支管理
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发规范
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/local-development.html" class="nav-link">
+  代码规范
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/design-concepts.html" class="nav-link">
+  团队协作
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/faq/" class="nav-link">
+  需求与工作分配
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/glossary.html" class="nav-link">
+  文档沉淀
+</a></li></ul></li><li class="dropdown-item"><h4>
+          软实力
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/migration-guide.html" class="nav-link">
+  必备技能
+</a></li><li class="dropdown-subitem"><a href="https://github.com/vuejs/vuepress/blob/master/CHANGELOG.md" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  团队管理
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Jetpack</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/zh/android/kotlin/" aria-current="page" class="sidebar-link">以架构师角度认识Kotlin</a></li><li><a href="/blog/zh/android/kotlin/kotlin-1-1.html" class="sidebar-link">Kotlin与Java的异同</a></li><li><a href="/blog/zh/android/kotlin/kotlin-2.html" class="sidebar-link">Kotlin开发环境搭建技巧</a></li><li><a href="/blog/zh/android/kotlin/kotlin-3.html" class="sidebar-link">Kotlin必备基础</a></li><li><a href="/blog/zh/android/kotlin/kotlin-4.html" class="sidebar-link">Kotlin方法与Lambda表达式</a></li><li><a href="/blog/zh/android/kotlin/kotlin-5.html" class="sidebar-link">Kotlin方法进阶</a></li><li><a href="/blog/zh/android/kotlin/kotlin-6.html" aria-current="page" class="active sidebar-link">深入理解Kotlin类与接口</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/zh/android/kotlin/kotlin-6.html#构造方法" class="sidebar-link">构造方法</a></li><li class="sidebar-sub-header"><a href="/blog/zh/android/kotlin/kotlin-6.html#继承与覆盖" class="sidebar-link">继承与覆盖</a></li><li class="sidebar-sub-header"><a href="/blog/zh/android/kotlin/kotlin-6.html#属性" class="sidebar-link">属性</a></li><li class="sidebar-sub-header"><a href="/blog/zh/android/kotlin/kotlin-6.html#抽象类与接口" class="sidebar-link">抽象类与接口</a></li><li class="sidebar-sub-header"><a href="/blog/zh/android/kotlin/kotlin-6.html#数据类" class="sidebar-link">数据类</a></li><li class="sidebar-sub-header"><a href="/blog/zh/android/kotlin/kotlin-6.html#对象表达式与对象声明" class="sidebar-link">对象表达式与对象声明</a></li><li class="sidebar-sub-header"><a href="/blog/zh/android/kotlin/kotlin-6.html#作业" class="sidebar-link">作业：</a></li></ul></li><li><a href="/blog/zh/android/kotlin/kotlin-7.html" class="sidebar-link">深入理解Kotlin泛型</a></li><li><a href="/blog/zh/android/kotlin/kotlin-8.html" class="sidebar-link">深入理解Kotlin注解</a></li><li><a href="/blog/zh/android/kotlin/kotlin-9.html" class="sidebar-link">Kotlin扩展（Extensions）技术探Extensions秘与应用</a></li><li><a href="/blog/zh/android/kotlin/kotlin-10.html" class="sidebar-link">Kotlin实用技巧</a></li><li><a href="/blog/zh/android/kotlin/kotlin-11.html" class="sidebar-link">探秘Kotlin协程机制</a></li><li><a href="/blog/zh/android/kotlin/kotlin-12.html" class="sidebar-link">Kotlin协程应用</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="深入理解kotlin类与接口"><a href="#深入理解kotlin类与接口" class="header-anchor">#</a> 深入理解Kotlin类与接口</h1> <h2 id="构造方法"><a href="#构造方法" class="header-anchor">#</a> 构造方法</h2> <p>在 Kotlin 中的一个类可以有一个主构造方法以多个次构造方法，接下来我们先看什么是柱构造方法？</p> <h3 id="主构造方法"><a href="#主构造方法" class="header-anchor">#</a> 主构造方法</h3> <p>主构造方法是类头的一部分：它跟在类名（与可选的类型参数）后。</p> <div class="language-kotlin extra-class"><pre class="language-kotlin"><code><span class="token keyword">class</span> KotlinClass <span class="token keyword">constructor</span><span class="token punctuation">(</span>name<span class="token operator">:</span> String<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">/*……*/</span> <span class="token punctuation">}</span>
+</code></pre></div><blockquote><p>如果主构造方法没有任何注解或者可见性修饰符，可以省略这个 constructor关键字</p></blockquote> <div class="language-kotlin extra-class"><pre class="language-kotlin"><code><span class="token keyword">class</span> <span class="token function">KotlinClass</span><span class="token punctuation">(</span>name<span class="token operator">:</span> String<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">/*……*/</span> <span class="token punctuation">}</span>
+</code></pre></div><p>主构造方法不能包含任何的代码，初始化的代码可以放到以 init 关键字作为前缀的初始化块（initializer blocks）中。</p> <h4 id="初始化顺序"><a href="#初始化顺序" class="header-anchor">#</a> 初始化顺序</h4> <p>在实例初始化期间，初始化块按照它们出现在类体中的顺序执行，与属性初始化器交织在一起：</p> <div class="language-kotlin extra-class"><pre class="language-kotlin"><code><span class="token keyword">class</span> <span class="token function">InitDemo</span><span class="token punctuation">(</span>name<span class="token operator">:</span> String<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * 关于：.also(::println)的理解
+     * ::表示创建成员引用或类引用，通过它来传递println方法来作为also的参数
+     * 那also又是什么呢？源码跟进 -&gt; Kotlin扩展
+     */</span>
+    <span class="token keyword">val</span> firstProp <span class="token operator">=</span> <span class="token string">&quot;First Prop: <span class="token interpolation variable">$name</span>&quot;</span><span class="token punctuation">.</span><span class="token function">also</span><span class="token punctuation">(</span><span class="token operator">::</span>println<span class="token punctuation">)</span>
+
+    <span class="token keyword">init</span> <span class="token punctuation">{</span>
+        <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;First initializer block that prints <span class="token interpolation variable">$name</span>&quot;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">val</span> secondProp <span class="token operator">=</span> <span class="token string">&quot;Second Prop: <span class="token interpolation"><span class="token delimiter variable">${</span>name<span class="token punctuation">.</span>length<span class="token delimiter variable">}</span></span>&quot;</span><span class="token punctuation">.</span><span class="token function">also</span><span class="token punctuation">(</span><span class="token operator">::</span>println<span class="token punctuation">)</span>
+
+    <span class="token keyword">init</span> <span class="token punctuation">{</span>
+        <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;Second initializer block that prints <span class="token interpolation"><span class="token delimiter variable">${</span>name<span class="token punctuation">.</span>length<span class="token delimiter variable">}</span></span>&quot;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><blockquote><p>主构造的参数除了可以在初始化块中使用外，还可以在类体内声明属性时使用。</p></blockquote> <p>声明属性以及从主构造方法初始化属性的更简洁的写法：</p> <div class="language-kotlin extra-class"><pre class="language-kotlin"><code><span class="token comment">//构造方法的参数作为类的属性并赋值，KotlinClass2在初始化时它的name与score属性会被赋值</span>
+<span class="token keyword">class</span> <span class="token function">KotlinClass2</span><span class="token punctuation">(</span><span class="token keyword">val</span> name<span class="token operator">:</span> String<span class="token punctuation">,</span> <span class="token keyword">var</span> score<span class="token operator">:</span> Int<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">/*……*/</span> <span class="token punctuation">}</span>
+</code></pre></div><p>与普通属性一样，主构造方法中声明的属性可以是可变的（var）或只读的（val）。</p> <h3 id="次构造方法"><a href="#次构造方法" class="header-anchor">#</a> 次构造方法</h3> <p>我们也可以在类体内通过constructor前缀来声明类的次构造方法：</p> <div class="language-kotlin extra-class"><pre class="language-kotlin"><code><span class="token keyword">class</span> KotlinClass3 <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> views<span class="token operator">:</span> MutableList<span class="token operator">&lt;</span>View<span class="token operator">&gt;</span> <span class="token operator">=</span> <span class="token function">mutableListOf</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">constructor</span><span class="token punctuation">(</span>view<span class="token operator">:</span> View<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        views<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>view<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>如果类有一个主构造方法，每个次构造方法都需要委托给主构造方法，可以直接委托或者通过别的次构造方法间接委托。委托到另一个构造方法用 this 关键字即可：</p> <div class="language-kotlin extra-class"><pre class="language-kotlin"><code><span class="token keyword">class</span> <span class="token function">KotlinClass3</span><span class="token punctuation">(</span><span class="token keyword">val</span> view<span class="token operator">:</span> View<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> views<span class="token operator">:</span> MutableList<span class="token operator">&lt;</span>View<span class="token operator">&gt;</span> <span class="token operator">=</span> <span class="token function">mutableListOf</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">constructor</span><span class="token punctuation">(</span>view<span class="token operator">:</span> View<span class="token punctuation">,</span> index<span class="token operator">:</span> Int<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">(</span>view<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        views<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>view<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>因为初始化块中的代码实际上是主构造方法的一部分，所以初始化代码块会在次构造方法之前执行。</p> <h2 id="继承与覆盖"><a href="#继承与覆盖" class="header-anchor">#</a> 继承与覆盖</h2> <p>在Kotlin中，所有的类默认都是final的，如果你需要允许它可以被继承，那么你需要使用open声明：</p> <div class="language-kotlin extra-class"><pre class="language-kotlin"><code><span class="token keyword">open</span> <span class="token keyword">class</span> <span class="token function">Animal</span><span class="token punctuation">(</span>age<span class="token operator">:</span> Int<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">init</span> <span class="token punctuation">{</span>
+        <span class="token function">println</span><span class="token punctuation">(</span>age<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><blockquote><p>在 Kotlin 中所有类都有一个共同的超类 Any，Any 有三个方法：equals()、hashCode() 与 toString()</p></blockquote> <p>在Kotlin中继承用:如需继承一个类，请在类头中把超类放到冒号之后：</p> <div class="language-kotlin extra-class"><pre class="language-kotlin"><code><span class="token comment">//派生类有柱构造方法的情况</span>
+<span class="token keyword">class</span> <span class="token function">Dog</span><span class="token punctuation">(</span>age<span class="token operator">:</span> Int<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">Animal</span><span class="token punctuation">(</span>age<span class="token punctuation">)</span>
+</code></pre></div><p>如果派生类有一个主构造方法，其基类必须用派生类主构造方法的参数初始化。</p> <p>如果派生类没有主构造方法，那么每个次构造方法必须使用 super 关键字初始化其基类型。</p> <div class="language-kotlin extra-class"><pre class="language-kotlin"><code><span class="token comment">//派生类无柱构造方法的情况</span>
+<span class="token keyword">class</span> Cat <span class="token operator">:</span> Animal <span class="token punctuation">{</span>
+    <span class="token keyword">constructor</span><span class="token punctuation">(</span>age<span class="token operator">:</span> Int<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token keyword">super</span><span class="token punctuation">(</span>age<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="覆盖规则"><a href="#覆盖规则" class="header-anchor">#</a> 覆盖规则</h3> <h4 id="覆盖方法"><a href="#覆盖方法" class="header-anchor">#</a> 覆盖方法</h4> <p>Kotlin的类成员默认是隐藏的，也就是无法被覆盖，如果要覆盖我们需要用到显式修饰符（open）：</p> <div class="language-kotlin extra-class"><pre class="language-kotlin"><code><span class="token keyword">open</span> <span class="token keyword">class</span> <span class="token function">Animal</span><span class="token punctuation">(</span>age<span class="token operator">:</span> Int<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">init</span> <span class="token punctuation">{</span>
+        <span class="token function">println</span><span class="token punctuation">(</span>age<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">open</span> <span class="token keyword">fun</span> <span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/**
+ * 继承
+ */</span>
+<span class="token comment">//派生类有主构造方法的情况</span>
+<span class="token keyword">class</span> <span class="token function">Dog</span><span class="token punctuation">(</span>age<span class="token operator">:</span> Int<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">Animal</span><span class="token punctuation">(</span>age<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">override</span> <span class="token keyword">fun</span> <span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>eat() 方法上必须加上 override 修饰符。如果没写，编译器将会报错。 如果方法没有标注 open 如 eat()，那么子类中不允许定义相同签名的方法， 不论加不加 override。</p> <h4 id="覆盖属性"><a href="#覆盖属性" class="header-anchor">#</a> 覆盖属性</h4> <p>属性覆盖与方法覆盖类似；在超类中声明然后在派生类中重新声明的属性必须以override 开头，并且它们必须具有兼容的类型。</p> <div class="language-kotlin extra-class"><pre class="language-kotlin"><code><span class="token keyword">open</span> <span class="token keyword">class</span> <span class="token function">Animal</span><span class="token punctuation">(</span>age<span class="token operator">:</span> Int<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">open</span> <span class="token keyword">val</span> foot<span class="token operator">:</span> Int <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token function">Dog</span><span class="token punctuation">(</span>age<span class="token operator">:</span> Int<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">Animal</span><span class="token punctuation">(</span>age<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">override</span> <span class="token keyword">val</span> foot <span class="token operator">=</span> <span class="token number">4</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="属性"><a href="#属性" class="header-anchor">#</a> 属性</h2> <h3 id="属性的声明"><a href="#属性的声明" class="header-anchor">#</a> 属性的声明</h3> <p>Kotlin 类中的属性既可以用关键字 var 声明为可变的，也可以用关键字 val 声明为只读的。</p> <div class="language-kotlin extra-class"><pre class="language-kotlin"><code><span class="token keyword">class</span> Shop <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> name<span class="token operator">:</span> String <span class="token operator">=</span> <span class="token string">&quot;Android&quot;</span>
+    <span class="token keyword">var</span> address<span class="token operator">:</span> String<span class="token operator">?</span> <span class="token operator">=</span> <span class="token keyword">null</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">fun</span> <span class="token function">copyShop</span><span class="token punctuation">(</span>shop<span class="token operator">:</span> Shop<span class="token punctuation">)</span><span class="token operator">:</span> Shop <span class="token punctuation">{</span>
+    <span class="token keyword">val</span> shop <span class="token operator">=</span> <span class="token function">Shop</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    shop<span class="token punctuation">.</span>name <span class="token operator">=</span> shop<span class="token punctuation">.</span>name
+    shop<span class="token punctuation">.</span>address <span class="token operator">=</span> shop<span class="token punctuation">.</span>address
+    <span class="token comment">// ……</span>
+    <span class="token keyword">return</span> shop
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="getters-与-setters"><a href="#getters-与-setters" class="header-anchor">#</a> Getters 与 Setters</h3> <p>声明一个属性的完整语法是</p> <div class="language-kotlin extra-class"><pre class="language-kotlin"><code><span class="token keyword">var</span> <span class="token operator">&lt;</span>propertyName<span class="token operator">&gt;</span><span class="token punctuation">[</span><span class="token operator">:</span> <span class="token operator">&lt;</span>PropertyType<span class="token operator">&gt;</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token operator">=</span> <span class="token operator">&lt;</span>property_initializer<span class="token operator">&gt;</span><span class="token punctuation">]</span>
+    <span class="token punctuation">[</span><span class="token operator">&lt;</span>getter<span class="token operator">&gt;</span><span class="token punctuation">]</span>
+    <span class="token punctuation">[</span><span class="token operator">&lt;</span>setter<span class="token operator">&gt;</span><span class="token punctuation">]</span>
+</code></pre></div><p>其初始器（initializer）、getter 和 setter 都是可选的。如果属性类型可以从初始器 （或者从其 getter 返回值）中推断出来，也可以省略。</p> <blockquote><p>案例1：</p></blockquote> <div class="language-kotlin extra-class"><pre class="language-kotlin"><code><span class="token keyword">val</span> simple<span class="token operator">:</span> Int<span class="token operator">?</span> <span class="token comment">// 类型 Int、默认 getter、必须在构造方法中初始化</span>
+</code></pre></div><blockquote><p>案例2：</p></blockquote> <p>我们可以为属性定义自定义的访问器。如果我们定义了一个自定义的 getter，那么每次访问该属性时都会调用它：</p> <div class="language-kotlin extra-class"><pre class="language-kotlin"><code><span class="token keyword">val</span> isClose<span class="token operator">:</span> Boolean
+        <span class="token keyword">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> Calendar<span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>Calendar<span class="token punctuation">.</span>HOUR_OF_DAY<span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">11</span>
+</code></pre></div><p>如果我们定义了一个自定义的 setter，那么每次给属性赋值时都会调用它。一个自定义的 setter 如下所示：</p> <div class="language-kotlin extra-class"><pre class="language-kotlin"><code><span class="token keyword">var</span> score<span class="token operator">:</span> Float <span class="token operator">=</span> <span class="token number">0.0f</span>
+    <span class="token keyword">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>field <span class="token operator">&lt;</span> <span class="token number">0.2f</span><span class="token punctuation">)</span> <span class="token number">0.2f</span> <span class="token keyword">else</span> field <span class="token operator">*</span> <span class="token number">1.5f</span>
+    <span class="token keyword">set</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">println</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+</code></pre></div><h3 id="延迟初始化属性"><a href="#延迟初始化属性" class="header-anchor">#</a> 延迟初始化属性</h3> <p>通常属性声明为非空类型必须在构造方法中初始化。 然而，这经常不方便。例如：属性可以通过依赖注入来初始化， 或者在单元测试的 setup 方法中初始化。</p> <p>为处理这种情况，你可以用 lateinit 修饰符标记该属性：</p> <div class="language-kotlin extra-class"><pre class="language-kotlin"><code><span class="token keyword">class</span> Test <span class="token punctuation">{</span>
+    <span class="token keyword">lateinit</span> <span class="token keyword">var</span> shop<span class="token operator">:</span> Shop
+    <span class="token keyword">fun</span> <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        shop <span class="token operator">=</span> <span class="token function">Shop</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>在初始化前访问一个 lateinit 属性会抛出一个特定异常。</p> <p>我们可以通过属性的 .isInitialized API来检测一个 lateinit var 属性是否已经初始化过：</p> <div class="language-kotlin extra-class"><pre class="language-kotlin"><code><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">::</span>shop<span class="token punctuation">.</span>isInitialized<span class="token punctuation">)</span>
+            <span class="token function">println</span><span class="token punctuation">(</span>shop<span class="token punctuation">.</span>address<span class="token punctuation">)</span>
+</code></pre></div><h2 id="抽象类与接口"><a href="#抽象类与接口" class="header-anchor">#</a> 抽象类与接口</h2> <h3 id="抽象类"><a href="#抽象类" class="header-anchor">#</a> 抽象类</h3> <p>类以及其中的某些成员可以声明为 abstract:</p> <div class="language-kotlin extra-class"><pre class="language-kotlin"><code><span class="token keyword">abstract</span> <span class="token keyword">class</span> Printer <span class="token punctuation">{</span>
+    <span class="token keyword">abstract</span> <span class="token keyword">fun</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> FilePrinter <span class="token operator">:</span> <span class="token function">Printer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">override</span> <span class="token keyword">fun</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="接口"><a href="#接口" class="header-anchor">#</a> 接口</h3> <p>Kotlin 的接口可以既包含抽象方法的声明也包含实现。与抽象类不同的是，接口无法保存状态，它可以有属性但必须声明为抽象或提供访问器实现。</p> <blockquote><p>可以将Kotlin的接口理解为特殊的抽象类</p></blockquote> <h4 id="接口的定义与实现"><a href="#接口的定义与实现" class="header-anchor">#</a> 接口的定义与实现</h4> <div class="language-kotlin extra-class"><pre class="language-kotlin"><code><span class="token keyword">interface</span> Study <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> time<span class="token operator">:</span> Int<span class="token comment">// 抽象的</span>
+    <span class="token keyword">fun</span> <span class="token function">discuss</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">fun</span> <span class="token function">earningCourses</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;Android 架构师&quot;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">//在主构造方法中覆盖接口的字段</span>
+<span class="token keyword">class</span> <span class="token function">StudyAS</span><span class="token punctuation">(</span><span class="token keyword">override</span> <span class="token keyword">var</span> time<span class="token operator">:</span> Int<span class="token punctuation">)</span> <span class="token operator">:</span> Study <span class="token punctuation">{</span>
+    <span class="token comment">//在类体中覆盖接口的字段</span>
+    <span class="token comment">//    override var time: Int = 0</span>
+    <span class="token keyword">override</span> <span class="token keyword">fun</span> <span class="token function">discuss</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="解决覆盖冲突"><a href="#解决覆盖冲突" class="header-anchor">#</a> 解决覆盖冲突</h4> <p>实现多个接口时，可能会遇到同一方法继承多个实现的问题：</p> <div class="language-kotlin extra-class"><pre class="language-kotlin"><code><span class="token keyword">interface</span> A <span class="token punctuation">{</span>
+    <span class="token keyword">fun</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;A&quot;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">interface</span> B <span class="token punctuation">{</span>
+    <span class="token keyword">fun</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;B&quot;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> D <span class="token operator">:</span> A<span class="token punctuation">,</span> B <span class="token punctuation">{</span>
+    <span class="token keyword">override</span> <span class="token keyword">fun</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token operator">&lt;</span>A<span class="token operator">&gt;</span><span class="token punctuation">.</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">super</span><span class="token operator">&lt;</span>B<span class="token operator">&gt;</span><span class="token punctuation">.</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>在上例中我们通过super&lt;&gt;.来解决覆盖冲突的问题。</p> <h2 id="数据类"><a href="#数据类" class="header-anchor">#</a> 数据类</h2> <p>我们经常创建一些只保存数据的类，在 Kotlin 中，我们可以通过data来声明一个数据类：</p> <div class="language-kotlin extra-class"><pre class="language-kotlin"><code><span class="token keyword">data</span> <span class="token keyword">class</span> <span class="token function">Address</span><span class="token punctuation">(</span><span class="token keyword">val</span> name<span class="token operator">:</span> String<span class="token punctuation">,</span> <span class="token keyword">val</span> number<span class="token operator">:</span> Int<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> city<span class="token operator">:</span> String <span class="token operator">=</span> <span class="token string">&quot;&quot;</span>
+    <span class="token keyword">fun</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">println</span><span class="token punctuation">(</span>city<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="数据类的要求"><a href="#数据类的要求" class="header-anchor">#</a> 数据类的要求</h3> <ul><li>主构造方法需要至少有一个参数；</li> <li>主构造方法的所有参数需要标记为 val 或 var；</li> <li>数据类不能是抽象、开放、密封或者内部的；</li></ul> <h3 id="数据类与解构声明"><a href="#数据类与解构声明" class="header-anchor">#</a> 数据类与解构声明</h3> <p>为数据类生成的 Component 方法 使它们可在解构声明中使用：</p> <div class="language-kotlin extra-class"><pre class="language-kotlin"><code><span class="token keyword">val</span> address <span class="token operator">=</span> <span class="token function">Address</span><span class="token punctuation">(</span><span class="token string">&quot;Android&quot;</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+address<span class="token punctuation">.</span>city <span class="token operator">=</span> <span class="token string">&quot;Beijing&quot;</span>
+<span class="token keyword">val</span> <span class="token punctuation">(</span>name<span class="token punctuation">,</span> city<span class="token punctuation">)</span> <span class="token operator">=</span> address
+<span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;name:<span class="token interpolation variable">$name</span> city:<span class="token interpolation variable">$city</span>&quot;</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="对象表达式与对象声明"><a href="#对象表达式与对象声明" class="header-anchor">#</a> 对象表达式与对象声明</h2> <p>在Kotlin中提供了对象表达式来方面我们在需要对一个类做轻微改动并创建它的对象，而不用为之显式声明新的子类。</p> <h4 id="对象表达式"><a href="#对象表达式" class="header-anchor">#</a> 对象表达式</h4> <p>要创建一个继承自某个（或某些）类型的匿名类的对象，我们会这么写：</p> <div class="language-kotlin extra-class"><pre class="language-kotlin"><code><span class="token keyword">open</span> <span class="token keyword">class</span> <span class="token function">Address2</span><span class="token punctuation">(</span>name<span class="token operator">:</span> String<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">open</span> <span class="token keyword">fun</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> Shop2 <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> address<span class="token operator">:</span> Address2<span class="token operator">?</span> <span class="token operator">=</span> <span class="token keyword">null</span>
+    <span class="token keyword">fun</span> <span class="token function">addAddress</span><span class="token punctuation">(</span>address<span class="token operator">:</span> Address2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>address <span class="token operator">=</span> address
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">fun</span> <span class="token function">test3</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//如果超类型有一个构造方法，则必须传递适当的构造方法参数给它</span>
+    <span class="token function">Shop2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addAddress</span><span class="token punctuation">(</span><span class="token keyword">object</span> <span class="token operator">:</span> <span class="token function">Address2</span><span class="token punctuation">(</span><span class="token string">&quot;Android&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">override</span> <span class="token keyword">fun</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>如果我们只需要“一个对象而已”，并不需要特殊超类型，那么我们可以简单地写：</p> <div class="language-kotlin extra-class"><pre class="language-kotlin"><code><span class="token keyword">fun</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">val</span> adHoc <span class="token operator">=</span> <span class="token keyword">object</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> x<span class="token operator">:</span> Int <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token keyword">var</span> y<span class="token operator">:</span> Int <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">print</span><span class="token punctuation">(</span>adHoc<span class="token punctuation">.</span>x <span class="token operator">+</span> adHoc<span class="token punctuation">.</span>y<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><blockquote><p>请注意，匿名对象可以用作只在本地和私有作用域中声明的类型。</p></blockquote> <p>如果你使用匿名对象作为公有方法的返回类型或者用作公有属性的类型，那么该方法或属性的实际类型会是匿名对象声明的超类型， 如果没有声明任何超类型，就会是 Any ，在匿名对象中添加的成员将无法访问。</p> <div class="language-kotlin extra-class"><pre class="language-kotlin"><code><span class="token keyword">class</span> Shop2 <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> address<span class="token operator">:</span> Address2<span class="token operator">?</span> <span class="token operator">=</span> <span class="token keyword">null</span>
+    <span class="token keyword">fun</span> <span class="token function">addAddress</span><span class="token punctuation">(</span>address<span class="token operator">:</span> Address2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>address <span class="token operator">=</span> address
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 私有方法，所以其返回类型是匿名对象类型</span>
+    <span class="token keyword">private</span> <span class="token keyword">fun</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token keyword">object</span> <span class="token punctuation">{</span>
+        <span class="token keyword">val</span> x<span class="token operator">:</span> String <span class="token operator">=</span> <span class="token string">&quot;x&quot;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 公有方法，所以其返回类型是 Any</span>
+    <span class="token keyword">fun</span> <span class="token function">publicFoo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token keyword">object</span> <span class="token punctuation">{</span>
+        <span class="token keyword">val</span> x<span class="token operator">:</span> String <span class="token operator">=</span> <span class="token string">&quot;x&quot;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">fun</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">val</span> x1 <span class="token operator">=</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>x        <span class="token comment">// 没问题</span>
+<span class="token comment">//        val x2 = publicFoo().x  // 错误：未能解析的引用“x”</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="对象声明"><a href="#对象声明" class="header-anchor">#</a> 对象声明</h4> <p>将类的|class|修饰符改为|object|就变成了对象声明：</p> <div class="language-kotlin extra-class"><pre class="language-kotlin"><code><span class="token keyword">object</span> DataUtil <span class="token punctuation">{</span>
+    <span class="token keyword">fun</span> <span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> <span class="token function">isEmpty</span><span class="token punctuation">(</span>list<span class="token operator">:</span> ArrayList<span class="token operator">&lt;</span>T<span class="token operator">&gt;</span><span class="token operator">?</span><span class="token punctuation">)</span><span class="token operator">:</span> Boolean <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> list<span class="token operator">?</span><span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">?:</span> <span class="token boolean">false</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">fun</span> <span class="token function">testDataUtil</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">val</span> list <span class="token operator">=</span> <span class="token function">arrayListOf</span><span class="token punctuation">(</span><span class="token string">&quot;1&quot;</span><span class="token punctuation">)</span>
+    <span class="token function">println</span><span class="token punctuation">(</span>DataUtil<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>这称为对象声明，并且它总是在 object 关键字后跟一个名称。 就像变量声明一样，对象声明不是一个表达式，不能用在赋值语句的右边。</p> <blockquote><p>我们之前介绍过Kotlin没有静态成员，我们通常会用对象声明来实现静态方法的效果，另外对象声明也是创建单例的一个很好方式（反编译演示）</p></blockquote> <div class="language-kotlin extra-class"><pre class="language-kotlin"><code><span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">class</span> DataUtil <span class="token punctuation">{</span>
+   <span class="token keyword">public</span> static <span class="token keyword">final</span> DataUtil INSTANCE<span class="token punctuation">;</span>
+
+   <span class="token keyword">public</span> <span class="token keyword">final</span> boolean <span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token annotation builtin">@Nullable</span> ArrayList list<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> list <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">?</span> list<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+
+   <span class="token keyword">private</span> <span class="token function">DataUtil</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token punctuation">}</span>
+
+   static <span class="token punctuation">{</span>
+      DataUtil var0 <span class="token operator">=</span> new <span class="token function">DataUtil</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      INSTANCE <span class="token operator">=</span> var0<span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="伴生对象"><a href="#伴生对象" class="header-anchor">#</a> 伴生对象</h3> <p>类内部的对象声明可以用 companion关键字标记：</p> <div class="language-kotlin extra-class"><pre class="language-kotlin"><code><span class="token keyword">class</span> <span class="token function">Student</span><span class="token punctuation">(</span><span class="token keyword">val</span> name<span class="token operator">:</span> String<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">companion</span> <span class="token keyword">object</span> <span class="token punctuation">{</span>
+        <span class="token keyword">val</span> student <span class="token operator">=</span> <span class="token function">Student</span><span class="token punctuation">(</span><span class="token string">&quot;Android&quot;</span><span class="token punctuation">)</span>
+        <span class="token keyword">fun</span> <span class="token function">study</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;Android 架构师&quot;</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">var</span> age <span class="token operator">=</span> <span class="token number">16</span>
+    <span class="token keyword">fun</span> <span class="token function">printName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;My name is <span class="token interpolation variable">$name</span>&quot;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">fun</span> <span class="token function">testStudent</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">println</span><span class="token punctuation">(</span>Student<span class="token punctuation">.</span>student<span class="token punctuation">)</span>
+    Student<span class="token punctuation">.</span><span class="token function">study</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>反编译看原理：</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">class</span> <span class="token class-name">Student</span> <span class="token punctuation">{</span>
+   <span class="token keyword">private</span> <span class="token keyword">int</span> age<span class="token punctuation">;</span>
+   <span class="token annotation punctuation">@NotNull</span>
+   <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
+   <span class="token annotation punctuation">@NotNull</span>
+   <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">Student</span> student <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token string">&quot;Android&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">Student</span><span class="token punctuation">.</span><span class="token class-name">Companion</span> <span class="token class-name">Companion</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">.</span><span class="token class-name">Companion</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">DefaultConstructorMarker</span><span class="token punctuation">)</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+   <span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">int</span> <span class="token function">getAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>age<span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+
+   <span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">void</span> <span class="token function">setAge</span><span class="token punctuation">(</span><span class="token keyword">int</span> var1<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> var1<span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+
+   <span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">void</span> <span class="token function">printName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token class-name">String</span> var1 <span class="token operator">=</span> <span class="token string">&quot;My name is &quot;</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">;</span>
+      <span class="token keyword">boolean</span> var2 <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+      <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>var1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+
+   <span class="token annotation punctuation">@NotNull</span>
+   <span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token class-name">String</span> <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+
+   <span class="token keyword">public</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token annotation punctuation">@NotNull</span> <span class="token class-name">String</span> name<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token class-name">Intrinsics</span><span class="token punctuation">.</span><span class="token function">checkParameterIsNotNull</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token string">&quot;name&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">16</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+
+   <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+   <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">class</span> <span class="token class-name">Companion</span> <span class="token punctuation">{</span>
+      <span class="token annotation punctuation">@NotNull</span>
+      <span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token class-name">Student</span> <span class="token function">getStudent</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+         <span class="token keyword">return</span> <span class="token class-name">Student</span><span class="token punctuation">.</span>student<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">void</span> <span class="token function">study</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+         <span class="token class-name">String</span> var1 <span class="token operator">=</span> <span class="token string">&quot;Android 架构师&quot;</span><span class="token punctuation">;</span>
+         <span class="token keyword">boolean</span> var2 <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>var1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token keyword">private</span> <span class="token class-name">Companion</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token comment">// $FF: synthetic method</span>
+      <span class="token keyword">public</span> <span class="token class-name">Companion</span><span class="token punctuation">(</span><span class="token class-name">DefaultConstructorMarker</span> $constructor_marker<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+         <span class="token keyword">this</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>反编译我们看到使用伴生对象实际上是在这个类内部创建了一个名为 Companion的静态单例内部类，伴生对象中定义的属性会直接编译为外部类的静态字段，而方法会被编译为伴生对象的方法。</p> <blockquote><p>在 JVM 平台，如果使用 @JvmStatic 注解，你可以将伴生对象的成员生成为真正的静态方法和字段</p></blockquote> <p>最后我们总结下，对象表达式和对象声明之间的语义差异：</p> <ul><li>对象表达式是在使用他们的地方立即执行（及初始化）的；</li> <li>对象声明是在第一次被访问到时延迟初始化的；</li> <li>伴生对象的初始化是在相应的类被加载（解析）时，与 Java 静态初始化器的行为一致</li></ul> <h2 id="作业"><a href="#作业" class="header-anchor">#</a> 作业：</h2> <p>Kotlin实现静态成员的几种方案</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">4/14/2021, 1:19:11 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/zh/android/kotlin/kotlin-5.html" class="prev">
+        Kotlin方法进阶
+      </a></span> <span class="next"><a href="/blog/zh/android/kotlin/kotlin-7.html">
+        深入理解Kotlin泛型
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.b29a8dd7.js" defer></script><script src="/blog/assets/js/2.f6cef42b.js" defer></script><script src="/blog/assets/js/30.cbbb74b5.js" defer></script>
+  </body>
+</html>

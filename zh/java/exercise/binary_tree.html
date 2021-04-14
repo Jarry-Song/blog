@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>二叉树 | Android Nodes</title>
+    <meta name="generator" content="VuePress 1.5.4">
+    <link rel="icon" href="/blog/logo.png">
+    <link rel="manifest" href="/blog/manifest.json">
+    <link rel="apple-touch-icon" href="/blog/icons/apple-touch-icon-152x152.png">
+    <link rel="mask-icon" href="/blog/icons/safari-pinned-tab.svg" color="#3eaf7c">
+    <meta name="description" content="欲速则不达，起于累土">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    <link rel="preload" href="/blog/assets/css/0.styles.c59328e2.css" as="style"><link rel="preload" href="/blog/assets/js/app.b29a8dd7.js" as="script"><link rel="preload" href="/blog/assets/js/2.f6cef42b.js" as="script"><link rel="preload" href="/blog/assets/js/68.1efe09bb.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.7a48b7c5.js"><link rel="prefetch" href="/blog/assets/js/11.eac2ba23.js"><link rel="prefetch" href="/blog/assets/js/12.0f90fab7.js"><link rel="prefetch" href="/blog/assets/js/13.bec57e62.js"><link rel="prefetch" href="/blog/assets/js/14.3ae2a79a.js"><link rel="prefetch" href="/blog/assets/js/15.a791971b.js"><link rel="prefetch" href="/blog/assets/js/16.e5da048d.js"><link rel="prefetch" href="/blog/assets/js/17.4908b8a7.js"><link rel="prefetch" href="/blog/assets/js/18.46af3ffd.js"><link rel="prefetch" href="/blog/assets/js/19.89281622.js"><link rel="prefetch" href="/blog/assets/js/20.cd52446d.js"><link rel="prefetch" href="/blog/assets/js/21.82cce5e6.js"><link rel="prefetch" href="/blog/assets/js/22.80975ead.js"><link rel="prefetch" href="/blog/assets/js/23.96416586.js"><link rel="prefetch" href="/blog/assets/js/24.2c36cba8.js"><link rel="prefetch" href="/blog/assets/js/25.367808ef.js"><link rel="prefetch" href="/blog/assets/js/26.be8af843.js"><link rel="prefetch" href="/blog/assets/js/27.b222d373.js"><link rel="prefetch" href="/blog/assets/js/28.a12c5df9.js"><link rel="prefetch" href="/blog/assets/js/29.d5ff3c40.js"><link rel="prefetch" href="/blog/assets/js/3.6d59dab0.js"><link rel="prefetch" href="/blog/assets/js/30.cbbb74b5.js"><link rel="prefetch" href="/blog/assets/js/31.b75f6d67.js"><link rel="prefetch" href="/blog/assets/js/32.86d96ea4.js"><link rel="prefetch" href="/blog/assets/js/33.46446d62.js"><link rel="prefetch" href="/blog/assets/js/34.8408a108.js"><link rel="prefetch" href="/blog/assets/js/35.98c56f35.js"><link rel="prefetch" href="/blog/assets/js/36.bdaeac6f.js"><link rel="prefetch" href="/blog/assets/js/37.533f8161.js"><link rel="prefetch" href="/blog/assets/js/38.0200746e.js"><link rel="prefetch" href="/blog/assets/js/39.c88574ea.js"><link rel="prefetch" href="/blog/assets/js/4.1ea1eeff.js"><link rel="prefetch" href="/blog/assets/js/40.45749e2b.js"><link rel="prefetch" href="/blog/assets/js/41.f908dd77.js"><link rel="prefetch" href="/blog/assets/js/42.6a921fb9.js"><link rel="prefetch" href="/blog/assets/js/43.a545ead3.js"><link rel="prefetch" href="/blog/assets/js/44.599973fd.js"><link rel="prefetch" href="/blog/assets/js/45.4f5aa578.js"><link rel="prefetch" href="/blog/assets/js/46.bc77698b.js"><link rel="prefetch" href="/blog/assets/js/47.6fab262f.js"><link rel="prefetch" href="/blog/assets/js/48.06721492.js"><link rel="prefetch" href="/blog/assets/js/49.ddd2004c.js"><link rel="prefetch" href="/blog/assets/js/5.7d990afd.js"><link rel="prefetch" href="/blog/assets/js/50.68d30b00.js"><link rel="prefetch" href="/blog/assets/js/51.1e95b300.js"><link rel="prefetch" href="/blog/assets/js/52.7e58153e.js"><link rel="prefetch" href="/blog/assets/js/53.49c83746.js"><link rel="prefetch" href="/blog/assets/js/54.cafb7c5d.js"><link rel="prefetch" href="/blog/assets/js/55.e3a5298e.js"><link rel="prefetch" href="/blog/assets/js/56.16a6fa14.js"><link rel="prefetch" href="/blog/assets/js/57.a5849246.js"><link rel="prefetch" href="/blog/assets/js/58.21f63823.js"><link rel="prefetch" href="/blog/assets/js/59.1de0dd4e.js"><link rel="prefetch" href="/blog/assets/js/6.cec4111c.js"><link rel="prefetch" href="/blog/assets/js/60.d486fda7.js"><link rel="prefetch" href="/blog/assets/js/61.2df18a41.js"><link rel="prefetch" href="/blog/assets/js/62.f167b5ca.js"><link rel="prefetch" href="/blog/assets/js/63.1a1ddafe.js"><link rel="prefetch" href="/blog/assets/js/64.4ba3449a.js"><link rel="prefetch" href="/blog/assets/js/65.8005097c.js"><link rel="prefetch" href="/blog/assets/js/66.5d3693a7.js"><link rel="prefetch" href="/blog/assets/js/67.e9d7bf30.js"><link rel="prefetch" href="/blog/assets/js/69.50f5445d.js"><link rel="prefetch" href="/blog/assets/js/7.9d95edae.js"><link rel="prefetch" href="/blog/assets/js/70.02047906.js"><link rel="prefetch" href="/blog/assets/js/71.634bd610.js"><link rel="prefetch" href="/blog/assets/js/72.a00660d0.js"><link rel="prefetch" href="/blog/assets/js/73.cb4a91db.js"><link rel="prefetch" href="/blog/assets/js/74.3f83725a.js"><link rel="prefetch" href="/blog/assets/js/75.89822bf9.js"><link rel="prefetch" href="/blog/assets/js/76.9c29fa27.js"><link rel="prefetch" href="/blog/assets/js/77.0e21a0d0.js"><link rel="prefetch" href="/blog/assets/js/78.83828550.js"><link rel="prefetch" href="/blog/assets/js/79.038d118d.js"><link rel="prefetch" href="/blog/assets/js/8.b3b24cde.js"><link rel="prefetch" href="/blog/assets/js/80.4ed5e1a3.js"><link rel="prefetch" href="/blog/assets/js/81.d08345df.js"><link rel="prefetch" href="/blog/assets/js/82.b6dfa43b.js"><link rel="prefetch" href="/blog/assets/js/83.78d8aa89.js"><link rel="prefetch" href="/blog/assets/js/84.9ecbf7a5.js"><link rel="prefetch" href="/blog/assets/js/85.49225f21.js"><link rel="prefetch" href="/blog/assets/js/86.29868731.js"><link rel="prefetch" href="/blog/assets/js/87.f05ddddc.js"><link rel="prefetch" href="/blog/assets/js/88.9703366d.js"><link rel="prefetch" href="/blog/assets/js/89.0a340baa.js"><link rel="prefetch" href="/blog/assets/js/9.5eb0e890.js"><link rel="prefetch" href="/blog/assets/js/90.af7d5cb4.js"><link rel="prefetch" href="/blog/assets/js/91.e94154f4.js"><link rel="prefetch" href="/blog/assets/js/92.32326a59.js"><link rel="prefetch" href="/blog/assets/js/93.12ad3fb5.js"><link rel="prefetch" href="/blog/assets/js/94.045060fa.js"><link rel="prefetch" href="/blog/assets/js/95.5c510610.js"><link rel="prefetch" href="/blog/assets/js/96.5bcee9fd.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.c59328e2.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">Android Nodes</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/zh/guide/" class="nav-link">
+  备忘录
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Android" class="dropdown-title"><span class="title">Android</span> <span class="arrow down"></span></button> <button type="button" aria-label="Android" class="mobile-dropdown-title"><span class="title">Android</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/zh/android/basic/" class="nav-link">
+  基础
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/ui/" class="nav-link">
+  高级UI
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/architecture/" class="nav-link">
+  架构设计
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/performance/" class="nav-link">
+  性能优化
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/ndk/" class="nav-link">
+  NDK
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/framework/" class="nav-link">
+  开源框架
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/jetpack/" class="nav-link">
+  Jetpack
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/kotlin/" class="nav-link">
+  Kotlin
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java" class="dropdown-title"><span class="title">Java</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java" class="mobile-dropdown-title"><span class="title">Java</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/zh/java/basic/" class="nav-link">
+  基础
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/structures/" class="nav-link">
+  数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/algorithms/" class="nav-link">
+  算法
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/exercise/" class="nav-link router-link-active">
+  算法练习
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/zh/net/" class="nav-link">
+  API
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具" class="mobile-dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          代码管理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/api/cli.html" class="nav-link">
+  git
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/api/node.html" class="nav-link">
+  分支管理
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发规范
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/local-development.html" class="nav-link">
+  代码规范
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/design-concepts.html" class="nav-link">
+  团队协作
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/faq/" class="nav-link">
+  需求与工作分配
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/glossary.html" class="nav-link">
+  文档沉淀
+</a></li></ul></li><li class="dropdown-item"><h4>
+          软实力
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/migration-guide.html" class="nav-link">
+  必备技能
+</a></li><li class="dropdown-subitem"><a href="https://github.com/vuejs/vuepress/blob/master/CHANGELOG.md" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  团队管理
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/zh/guide/" class="nav-link">
+  备忘录
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Android" class="dropdown-title"><span class="title">Android</span> <span class="arrow down"></span></button> <button type="button" aria-label="Android" class="mobile-dropdown-title"><span class="title">Android</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/zh/android/basic/" class="nav-link">
+  基础
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/ui/" class="nav-link">
+  高级UI
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/architecture/" class="nav-link">
+  架构设计
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/performance/" class="nav-link">
+  性能优化
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/ndk/" class="nav-link">
+  NDK
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/framework/" class="nav-link">
+  开源框架
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/jetpack/" class="nav-link">
+  Jetpack
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/kotlin/" class="nav-link">
+  Kotlin
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java" class="dropdown-title"><span class="title">Java</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java" class="mobile-dropdown-title"><span class="title">Java</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/zh/java/basic/" class="nav-link">
+  基础
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/structures/" class="nav-link">
+  数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/algorithms/" class="nav-link">
+  算法
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/exercise/" class="nav-link router-link-active">
+  算法练习
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/zh/net/" class="nav-link">
+  API
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具" class="mobile-dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          代码管理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/api/cli.html" class="nav-link">
+  git
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/api/node.html" class="nav-link">
+  分支管理
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发规范
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/local-development.html" class="nav-link">
+  代码规范
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/design-concepts.html" class="nav-link">
+  团队协作
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/faq/" class="nav-link">
+  需求与工作分配
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/glossary.html" class="nav-link">
+  文档沉淀
+</a></li></ul></li><li class="dropdown-item"><h4>
+          软实力
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/migration-guide.html" class="nav-link">
+  必备技能
+</a></li><li class="dropdown-subitem"><a href="https://github.com/vuejs/vuepress/blob/master/CHANGELOG.md" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  团队管理
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Exercise</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/zh/java/exercise/" aria-current="page" class="sidebar-link">练习大纲</a></li><li><a href="/blog/zh/java/exercise/list_sort.html" class="sidebar-link">数组排序</a></li><li><a href="/blog/zh/java/exercise/linklist.html" class="sidebar-link">链表</a></li><li><a href="/blog/zh/java/exercise/stack_queue.html" class="sidebar-link">栈_队列</a></li><li><a href="/blog/zh/java/exercise/string.html" class="sidebar-link">字符串</a></li><li><a href="/blog/zh/java/exercise/dynamic_programming.html" class="sidebar-link">动态规划（ Dynamic Programming）</a></li><li><a href="/blog/zh/java/exercise/binary_tree.html" aria-current="page" class="active sidebar-link">二叉树</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/zh/java/exercise/binary_tree.html#_236-二叉树的最近公共祖先" class="sidebar-link">236. 二叉树的最近公共祖先</a></li><li class="sidebar-sub-header"><a href="/blog/zh/java/exercise/binary_tree.html#_99-恢复二叉搜索树" class="sidebar-link">99. 恢复二叉搜索树</a></li><li class="sidebar-sub-header"><a href="/blog/zh/java/exercise/binary_tree.html#_333-最大bst子树" class="sidebar-link">333.最大BST子树</a></li><li class="sidebar-sub-header"><a href="/blog/zh/java/exercise/binary_tree.html#作业" class="sidebar-link">作业</a></li><li class="sidebar-sub-header"><a href="/blog/zh/java/exercise/binary_tree.html#思考题" class="sidebar-link">思考题</a></li></ul></li><li><a href="/blog/zh/java/exercise/dfs.html" class="sidebar-link">DFS(Depth First Search)</a></li><li><a href="/blog/zh/java/exercise/top.html" class="sidebar-link">高频题</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="二叉树"><a href="#二叉树" class="header-anchor">#</a> 二叉树</h1> <h2 id="_236-二叉树的最近公共祖先"><a href="#_236-二叉树的最近公共祖先" class="header-anchor">#</a> <a href="https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/" target="_blank" rel="noopener noreferrer">236. 二叉树的最近公共祖先<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></h2> <h3 id="题目"><a href="#题目" class="header-anchor">#</a> 题目</h3> <p>给定一个二叉树, 找到该树中两个指定节点的最近公共祖先。</p> <p><a href="https://baike.baidu.com/item/%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/8918834?fr=aladdin" target="_blank" rel="noopener noreferrer">百度百科<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>中最近公共祖先的定义为：“对于有根树 T 的两个结点 p、q，最近公共祖先表示为一个结点 x，满足 x 是 p、q 的祖先且 x 的深度尽可能大（<strong>一个节点也可以是它自己的祖先</strong>）。”</p> <p>例如，给定如下二叉树: root = [3,5,1,6,2,0,8,null,null,7,4]</p> <p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/15/binarytree.png" alt="img"></p> <p><strong>示例 1:</strong></p> <div class="language- extra-class"><pre class="language-text"><code>输入: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1
+输出: 3
+解释: 节点 5 和节点 1 的最近公共祖先是节点 3。
+</code></pre></div><p><strong>示例 2:</strong></p> <div class="language- extra-class"><pre class="language-text"><code>输入: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4
+输出: 5
+解释: 节点 5 和节点 4 的最近公共祖先是节点 5。因为根据定义最近公共祖先节点可以为节点本身。
+</code></pre></div><p><strong>说明:</strong></p> <ul><li>所有节点的值都是唯一的。</li> <li>p、q 为不同节点且均存在于给定的二叉树中。</li></ul> <p>一样的题目：<a href="https://leetcode-cn.com/problems/er-cha-shu-de-zui-jin-gong-gong-zu-xian-lcof/" target="_blank" rel="noopener noreferrer">剑指 Offer 68 - II. 二叉树的最近公共祖先<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <h3 id="思路"><a href="#思路" class="header-anchor">#</a> 思路</h3> <p>通过递归的方式在左右两边去找对应的节点；</p> <p>去以root为根节点的二叉树中查找p、q的最近公共祖先</p> <ul><li>① 如果p、q同时存在于这棵二叉树中，就能成功返回它们的最近公共祖先</li> <li>② 如果p、q都不存在于这棵二叉树中，返回null</li> <li>③ 如果只有p存在于这棵二叉树中，返回p</li> <li>④ 如果只有q存在于这棵二叉树中，返回q</li></ul> <h3 id="实现"><a href="#实现" class="header-anchor">#</a> 实现</h3> <div class="language-java extra-class"><pre class="language-java"><code> <span class="token comment">/**
+     * 去以root为根节点的二叉树中查找p、q的最近公共祖先
+     * ① 如果p、q同时存在于这棵二叉树中，就能成功返回它们的最近公共祖先
+     * ② 如果p、q都不存在于这棵二叉树中，返回null
+     * ③ 如果只有p存在于这棵二叉树中，返回p
+     * ④ 如果只有q存在于这棵二叉树中，返回q
+     */</span>
+    <span class="token keyword">public</span> <span class="token class-name">TreeNode</span> <span class="token function">lowestCommonAncestor</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">,</span> <span class="token class-name">TreeNode</span> p<span class="token punctuation">,</span> <span class="token class-name">TreeNode</span> q<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>root <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">||</span> root <span class="token operator">==</span> p <span class="token operator">||</span> root <span class="token operator">==</span> q<span class="token punctuation">)</span> <span class="token keyword">return</span> root<span class="token punctuation">;</span>
+        <span class="token comment">// 去以root.left为根节点的二叉树中查找p、q的最近公共祖先</span>
+        <span class="token class-name">TreeNode</span> left <span class="token operator">=</span> <span class="token function">lowestCommonAncestor</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">,</span> p<span class="token punctuation">,</span> q<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 去以root.right为根节点的二叉树中查找p、q的最近公共祖先</span>
+        <span class="token class-name">TreeNode</span> right <span class="token operator">=</span> <span class="token function">lowestCommonAncestor</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">,</span> p<span class="token punctuation">,</span> q<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>left <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> right <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token keyword">return</span> root<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>left <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token operator">?</span> left <span class="token operator">:</span> right<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</code></pre></div><h2 id="_99-恢复二叉搜索树"><a href="#_99-恢复二叉搜索树" class="header-anchor">#</a> <a href="https://leetcode-cn.com/problems/recover-binary-search-tree/" target="_blank" rel="noopener noreferrer">99. 恢复二叉搜索树<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></h2> <h3 id="题目-2"><a href="#题目-2" class="header-anchor">#</a> 题目</h3> <p>给你二叉搜索树的根节点 <code>root</code> ，该树中的两个节点被错误地交换。请在不改变其结构的情况下，恢复这棵树。</p> <p>**进阶：**使用 O(<em>n</em>) 空间复杂度的解法很容易实现。你能想出一个只使用常数空间的解决方案吗？</p> <p><strong>示例 1：</strong></p> <p><img src="https://assets.leetcode.com/uploads/2020/10/28/recover1.jpg" alt="img"></p> <div class="language- extra-class"><pre class="language-text"><code>输入：root = [1,3,null,null,2]
+输出：[3,1,null,null,2]
+解释：3 不能是 1 左孩子，因为 3 &gt; 1 。交换 1 和 3 使二叉搜索树有效。
+</code></pre></div><p><strong>示例 2：</strong></p> <p><img src="https://assets.leetcode.com/uploads/2020/10/28/recover2.jpg" alt="img"></p> <div class="language- extra-class"><pre class="language-text"><code>输入：root = [3,1,4,null,null,2]
+输出：[2,1,4,null,null,3]
+解释：2 不能在 3 的右子树中，因为 2 &lt; 3 。交换 2 和 3 使二叉搜索树有效。
+</code></pre></div><p><strong>提示：</strong></p> <ul><li>树上节点的数目在范围 <code>[2, 1000]</code> 内</li> <li><code>-231 &lt;= Node.val &lt;= 231 - 1</code></li></ul> <h3 id="思路-2"><a href="#思路-2" class="header-anchor">#</a> 思路</h3> <h4 id="_1-中序遍历"><a href="#_1-中序遍历" class="header-anchor">#</a> 1.中序遍历</h4> <p><img src="https://gitee.com/jarrysong/img/raw/master/img/image-20201113131516272.png" alt="image-20201113131516272"></p> <p>中序遍历的结果是升序的：11、17、18、22、28、37、42、44、62</p> <p><img src="https://gitee.com/jarrysong/img/raw/master/img/image-20201113131630550.png" alt="image-20201113131630550"></p> <p>中序遍历的结果：11、17、18、28、22、37、42、44、62</p> <p><img src="https://gitee.com/jarrysong/img/raw/master/img/image-20201113131645562.png" alt="image-20201113131645562"></p> <p>中序遍历的结果：11、17、44、22、28、37、42、18、62</p> <p><strong>第 1 个错误节点：第 1 个逆序对中的较大节点</strong></p> <p><strong>第 2个错误节点：最后 2 个逆序对中的较小节点</strong></p> <h4 id="_2-二叉树的-morris-遍历"><a href="#_2-二叉树的-morris-遍历" class="header-anchor">#</a> 2.二叉树的 Morris 遍历</h4> <p>使用 Morris 方法遍历二叉树，可以实现时间复杂度 O(n)、空间复杂度 O(1)</p> <p>这里只演示二叉树的 Morris 中序遍历。前序遍历、后序遍历在此基础上做一些调整即可</p> <p><img src="https://gitee.com/jarrysong/img/raw/master/img/image-20201113205110929.png" alt="image-20201113205110929"></p> <p>执行步骤（假设遍历到当前节点是 N）</p> <p>① 如果 N.left != null，找到 N 的前驱节点 P</p> <ul><li>如果 P.right == null</li></ul> <blockquote><p>✓P.right = N</p> <p>✓ N = N.left</p> <p>✓回到①</p></blockquote> <ul><li>如果P.right == N</li></ul> <blockquote><p>✓P.right = null</p> <p>✓打印N</p> <p>✓N = N.right</p> <p>✓回到①</p></blockquote> <p>②如果N.left == null</p> <blockquote><p>打印N</p> <p>N = N.right</p> <p>回到①</p></blockquote> <p>③重复①、②直到Ｎ == null</p> <h3 id="实现-2"><a href="#实现-2" class="header-anchor">#</a> 实现</h3> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> _99_恢复二叉搜索树 <span class="token punctuation">{</span>
+    <span class="token comment">// 中序遍历：时间复杂度O(n)、空间复杂度O(1)</span>
+    <span class="token comment">/**
+     * 上一次中序遍历过的节点
+     */</span>
+    <span class="token keyword">private</span> <span class="token class-name">TreeNode</span> prev<span class="token punctuation">;</span>
+    <span class="token comment">/**
+     * 第一个错误节点
+     */</span>
+    <span class="token keyword">private</span> <span class="token class-name">TreeNode</span> first<span class="token punctuation">;</span>
+    <span class="token comment">/**
+     * 第二个错误节点
+     */</span>
+    <span class="token keyword">private</span> <span class="token class-name">TreeNode</span> second<span class="token punctuation">;</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">find</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> node<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 出现了逆序对</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>prev <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> prev<span class="token punctuation">.</span>val <span class="token operator">&gt;</span> node<span class="token punctuation">.</span>val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 第2个错误节点：最后一个逆序对中较小的那个节点</span>
+            second <span class="token operator">=</span> node<span class="token punctuation">;</span>
+
+            <span class="token comment">// 第1个错误节点：第一个逆序对中较大的那个节点</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>first <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+            first <span class="token operator">=</span> prev<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        prev <span class="token operator">=</span> node<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+      <span class="token comment">/**
+      * Morris遍历
+      */</span>
+      <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">recoverTree</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">TreeNode</span> node <span class="token operator">=</span> root<span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>node <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>node<span class="token punctuation">.</span>left <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment">// 找到前驱节点(predecessor)、后继节点(successor)</span>
+                <span class="token class-name">TreeNode</span> pred <span class="token operator">=</span> node<span class="token punctuation">.</span>left<span class="token punctuation">;</span>
+                <span class="token keyword">while</span> <span class="token punctuation">(</span>pred<span class="token punctuation">.</span>right <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> pred<span class="token punctuation">.</span>right <span class="token operator">!=</span> node<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    pred <span class="token operator">=</span> pred<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>pred<span class="token punctuation">.</span>right <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    pred<span class="token punctuation">.</span>right <span class="token operator">=</span> node<span class="token punctuation">;</span>
+                    node <span class="token operator">=</span> node<span class="token punctuation">.</span>left<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span> <span class="token comment">// pred.right == node</span>
+                    <span class="token function">find</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    pred<span class="token punctuation">.</span>right <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+                    node <span class="token operator">=</span> node<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                <span class="token function">find</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                node <span class="token operator">=</span> node<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">// 交换2个错误节点的值</span>
+        <span class="token keyword">int</span> tmp <span class="token operator">=</span> first<span class="token punctuation">.</span>val<span class="token punctuation">;</span>
+        first<span class="token punctuation">.</span>val <span class="token operator">=</span> second<span class="token punctuation">.</span>val<span class="token punctuation">;</span>
+        second<span class="token punctuation">.</span>val <span class="token operator">=</span> tmp<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+
+
+    <span class="token comment">/**
+     * @param root 是一棵错误的二叉搜索树（有2个节点被错误交换）
+     * 递归的方式中序遍历
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">recoverTree1</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">findWrongNodes</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 交换2个错误节点的值</span>
+        <span class="token keyword">int</span> tmp <span class="token operator">=</span> first<span class="token punctuation">.</span>val<span class="token punctuation">;</span>
+        first<span class="token punctuation">.</span>val <span class="token operator">=</span> second<span class="token punctuation">.</span>val<span class="token punctuation">;</span>
+        second<span class="token punctuation">.</span>val <span class="token operator">=</span> tmp<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">findWrongNodes</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>root <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token function">findWrongNodes</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">find</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">findWrongNodes</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TestMorris</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">MorrisTree</span> <span class="token keyword">extends</span> <span class="token class-name">BinarySearchTree</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> <span class="token punctuation">{</span>
+        <span class="token comment">/**
+         * 利用Morris进行中序遍历
+         */</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">inorder</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> node <span class="token operator">=</span> root<span class="token punctuation">;</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span>node <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>node<span class="token punctuation">.</span>left <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token comment">// 找到前驱节点(predecessor)、后继节点(successor)</span>
+                    <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> pred <span class="token operator">=</span> node<span class="token punctuation">.</span>left<span class="token punctuation">;</span>
+                    <span class="token keyword">while</span> <span class="token punctuation">(</span>pred<span class="token punctuation">.</span>right <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> pred<span class="token punctuation">.</span>right <span class="token operator">!=</span> node<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        pred <span class="token operator">=</span> pred<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span>pred<span class="token punctuation">.</span>right <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        pred<span class="token punctuation">.</span>right <span class="token operator">=</span> node<span class="token punctuation">;</span>
+                        node <span class="token operator">=</span> node<span class="token punctuation">.</span>left<span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span> <span class="token comment">// pred.right == node</span>
+                        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>element <span class="token operator">+</span> <span class="token string">&quot; &quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        pred<span class="token punctuation">.</span>right <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+                        node <span class="token operator">=</span> node<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>element <span class="token operator">+</span> <span class="token string">&quot; &quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    node <span class="token operator">=</span> node<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">MorrisTree</span> tree <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MorrisTree</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            tree<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token class-name">BinaryTrees</span><span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>tree<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;------------------&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        tree<span class="token punctuation">.</span><span class="token function">inorder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;------------------&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">BinaryTrees</span><span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>tree<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div><h2 id="_333-最大bst子树"><a href="#_333-最大bst子树" class="header-anchor">#</a> <a href="https://leetcode-cn.com/problems/largest-bst-subtree/" target="_blank" rel="noopener noreferrer">333.最大BST子树<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></h2> <h3 id="题目-3"><a href="#题目-3" class="header-anchor">#</a> 题目</h3> <p>给定一个二叉树，找出其中最大的二叉搜索树（BST）子树，其中最大指的子树节点最多的。</p> <p>注意：子树必须包含所有后代。</p> <div class="language- extra-class"><pre class="language-text"><code>输入：[10,5,15,1,8,null,7]
+     10
+     /\
+   5   15
+  /\     \
+ 1  8     7   
+输出：3
+解释：高亮部分为最大的BST子树。返回值3在这个样例中为子树大小。
+</code></pre></div><p><img src="https://gitee.com/jarrysong/img/raw/master/img/image-20201116091625570.png" alt="image-20201116091625570"></p> <p>输出：7（以16为根节点的子树）</p> <p>你能想出用O(n)的时间浮躁度解决这个问题吗？</p> <h3 id="思路-3"><a href="#思路-3" class="header-anchor">#</a> 思路</h3> <h4 id="自顶向下"><a href="#自顶向下" class="header-anchor">#</a> 自顶向下</h4> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>func的作用：返回以 root 为根节点的二叉树的最大BST子树的节点数量</p> <p>func的实现：</p> <ul><li><p>如果以 root 为根节点的二叉树 S 是 BST，就返回 S 的节点数量</p></li> <li><p>否则，就返回 func(root.left)、func(root.right) 中的最大值</p></li></ul> <p>时间复杂度分析：</p> <ul><li>func使用了前序遍历，时间复杂度是 O(n)</li> <li>判断一棵树是否为 ，时间复杂度是 O(n)</li> <li>所以，总体时间复杂度是O(n^2)</li></ul> <p>如何优化？</p> <ul><li>由于是自顶向下的遍历方式，所以在判断一棵树是否为BST方便，存在重复的遍历判断</li> <li>可以考虑改为自底向上的遍历方式：后续遍历</li></ul> <h4 id="自底向上"><a href="#自底向上" class="header-anchor">#</a> 自底向上</h4> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">private</span> <span class="token class-name">Info</span> <span class="token function">getInfo</span><span class="token punctuation">(</span><span class="token class-name">TreeNMode</span> tree<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">Info</span><span class="token punctuation">(</span><span class="token punctuation">)</span>｛
+    <span class="token comment">/** 根节点*/</span>
+    <span class="token keyword">public</span> <span class="token class-name">TreeNode</span> root<span class="token punctuation">;</span>
+     <span class="token comment">/** 节点总数*/</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> size <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+     <span class="token comment">/** 最大值*/</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> max<span class="token punctuation">;</span>
+     <span class="token comment">/** 最小值*/</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> min<span class="token punctuation">;</span>
+｝
+</code></pre></div><p>getInfo 的作用：返回以root为根节点的二叉树的最大BST子树的信息</p> <p>getInfo的实现</p> <ul><li><p>计算 li = getInfo(root.left),ri = getInfo(root.right)</p></li> <li><p>如果下面的条件成立，说明以root为根节点的二叉树就是最大BST子树</p> <blockquote><p>li == null || (li.root == root.left &amp;&amp; li.max &lt; root.val)</p> <p>ri == null || (ri.root == root.right &amp;&amp; ri.min &gt; root.val)</p></blockquote></li> <li><p>如果li != null &amp;&amp; ri !=null</p> <blockquote><p>如果li.size &gt; ri.size，返回 li；否则返回ri</p></blockquote></li> <li><p>如果li != null，返回li；否则返回ri</p></li></ul> <h3 id="实现-3"><a href="#实现-3" class="header-anchor">#</a> 实现</h3> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> _333_最大BST子树 <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">largestBSTSubtree</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>root <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token number">0</span> <span class="token operator">:</span> <span class="token function">getInfo</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">.</span>size<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 返回以root为根节点的二叉树的最大BST子树信息
+     * @param root
+     * @return
+     */</span>
+    <span class="token keyword">private</span> <span class="token class-name">Info</span> <span class="token function">getInfo</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>root <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token comment">// li(left info)：左子树的最大BST子树信息</span>
+        <span class="token class-name">Info</span> li <span class="token operator">=</span> <span class="token function">getInfo</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// ri(right info)：右子树的最大BST子树信息</span>
+        <span class="token class-name">Info</span> ri <span class="token operator">=</span> <span class="token function">getInfo</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">/*
+        有4种情况，以root为根节点的二叉树就是一棵BST，最大BST子树就是其本身
+        ① li != null &amp;&amp; ri != null
+        &amp;&amp; li.root == root.left &amp;&amp; root.val &gt; li.max
+        &amp;&amp; ri.root == root.right &amp;&amp; root.val &lt; ri.min
+
+        ② li != null &amp;&amp; ri == null
+        &amp;&amp; li.root == root.left &amp;&amp; root.val &gt; li.max
+
+        ③ li == null &amp;&amp; ri != null
+        &amp;&amp; ri.root == root.right &amp;&amp; root.val &lt; ri.min
+
+        ④ li == null &amp;&amp; ri == null
+         */</span>
+
+        <span class="token keyword">int</span> leftBstSize <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> rightBstSize <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> max <span class="token operator">=</span> root<span class="token punctuation">.</span>val<span class="token punctuation">,</span> min <span class="token operator">=</span> root<span class="token punctuation">.</span>val<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>li <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            leftBstSize <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>li<span class="token punctuation">.</span>root <span class="token operator">==</span> root<span class="token punctuation">.</span>left <span class="token operator">&amp;&amp;</span> root<span class="token punctuation">.</span>val <span class="token operator">&gt;</span> li<span class="token punctuation">.</span>max<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            leftBstSize <span class="token operator">=</span> li<span class="token punctuation">.</span>size<span class="token punctuation">;</span>
+            min <span class="token operator">=</span> li<span class="token punctuation">.</span>min<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>ri <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            rightBstSize <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>ri<span class="token punctuation">.</span>root <span class="token operator">==</span> root<span class="token punctuation">.</span>right <span class="token operator">&amp;&amp;</span> root<span class="token punctuation">.</span>val <span class="token operator">&lt;</span> ri<span class="token punctuation">.</span>min<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            rightBstSize <span class="token operator">=</span> ri<span class="token punctuation">.</span>size<span class="token punctuation">;</span>
+            max <span class="token operator">=</span> ri<span class="token punctuation">.</span>max<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>leftBstSize <span class="token operator">&gt;=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> rightBstSize <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Info</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span> <span class="token number">1</span> <span class="token operator">+</span> leftBstSize <span class="token operator">+</span> rightBstSize<span class="token punctuation">,</span> max<span class="token punctuation">,</span> min<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">// 以root为根节点的二叉树并不是BST</span>
+
+        <span class="token comment">// 返回最大BST子树的节点数量较多的那个Info</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>li <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> ri <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token punctuation">(</span>li<span class="token punctuation">.</span>size <span class="token operator">&gt;</span> ri<span class="token punctuation">.</span>size<span class="token punctuation">)</span> <span class="token operator">?</span> li <span class="token operator">:</span> ri<span class="token punctuation">;</span>
+
+        <span class="token comment">// 返回li、ri中不为null的那个Info</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>li <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token operator">?</span> li <span class="token operator">:</span> ri<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 最大BST子树的信息
+     */</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">Info</span> <span class="token punctuation">{</span>
+        <span class="token comment">/** 根节点 */</span>
+        <span class="token keyword">public</span> <span class="token class-name">TreeNode</span> root<span class="token punctuation">;</span>
+        <span class="token comment">/** 节点总数 */</span>
+        <span class="token keyword">public</span> <span class="token keyword">int</span> size<span class="token punctuation">;</span>
+        <span class="token comment">/** 最大值 */</span>
+        <span class="token keyword">public</span> <span class="token keyword">int</span> max<span class="token punctuation">;</span>
+        <span class="token comment">/** 最小值 */</span>
+        <span class="token keyword">public</span> <span class="token keyword">int</span> min<span class="token punctuation">;</span>
+
+        <span class="token keyword">public</span> <span class="token class-name">Info</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">,</span> <span class="token keyword">int</span> size<span class="token punctuation">,</span> <span class="token keyword">int</span> max<span class="token punctuation">,</span> <span class="token keyword">int</span> min<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>root <span class="token operator">=</span> root<span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>size <span class="token operator">=</span> size<span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>max <span class="token operator">=</span> max<span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>min <span class="token operator">=</span> min<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+<span class="token comment">//    private boolean isBST(TreeNode root) {</span>
+<span class="token comment">//        return false;</span>
+<span class="token comment">//    }</span>
+<span class="token comment">//</span>
+<span class="token comment">//    private int nodesCount(TreeNode root) {</span>
+<span class="token comment">//        return 0;</span>
+<span class="token comment">//    }</span>
+<span class="token comment">//</span>
+<span class="token comment">//    public int largestBSTSubtree(TreeNode root) {</span>
+<span class="token comment">//        if (root == null) return 0;</span>
+<span class="token comment">//        if (isBST(root)) return nodesCount(root);</span>
+<span class="token comment">//        return Math.max(largestBSTSubtree(root.left), largestBSTSubtree(root.right));</span>
+<span class="token comment">//    }</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="作业"><a href="#作业" class="header-anchor">#</a> 作业</h2> <ul><li><a href="https://leetcode-cn.com/problems/binary-tree-inorder-traversal/" target="_blank" rel="noopener noreferrer">94. 二叉树的中序遍历<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>（第一季中讲过）</li> <li><a href="https://leetcode-cn.com/problems/validate-binary-search-tree/" target="_blank" rel="noopener noreferrer">98. 验证二叉搜索树<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>（第一季中讲过）</li> <li><a href="https://leetcode-cn.com/problems/kth-smallest-element-in-a-bst/" target="_blank" rel="noopener noreferrer">230. 二叉搜索树中第K小的元素<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li><a href="https://leetcode-cn.com/problems/symmetric-tree/" target="_blank" rel="noopener noreferrer">101. 对称二叉树<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li><a href="https://leetcode-cn.com/problems/convert-sorted-array-to-binary-search-tree/" target="_blank" rel="noopener noreferrer">108. 将有序数组转换为二叉搜索树<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li><a href="https://leetcode-cn.com/problems/binary-tree-level-order-traversal/" target="_blank" rel="noopener noreferrer">102. 二叉树的层序遍历<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>（第一季中讲过）</li> <li><a href="https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/" target="_blank" rel="noopener noreferrer">104. 二叉树的最大深度<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>（第一季中讲过）</li></ul> <h2 id="思考题"><a href="#思考题" class="header-anchor">#</a> 思考题</h2> <ul><li><a href="https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/" target="_blank" rel="noopener noreferrer">105. 从前序与中序遍历序列构造二叉树<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li><a href="https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/" target="_blank" rel="noopener noreferrer">106. 从中序与后序遍历序列构造二叉树<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li><a href="https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/" target="_blank" rel="noopener noreferrer">297. 二叉树的序列化与反序列化<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li><a href="https://leetcode-cn.com/problems/serialize-and-deserialize-bst/" target="_blank" rel="noopener noreferrer">449. 序列化和反序列化二叉搜索树<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">12/1/2020, 1:03:12 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/zh/java/exercise/dynamic_programming.html" class="prev">
+        动态规划（ Dynamic Programming）
+      </a></span> <span class="next"><a href="/blog/zh/java/exercise/dfs.html">
+        DFS(Depth First Search)
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.b29a8dd7.js" defer></script><script src="/blog/assets/js/2.f6cef42b.js" defer></script><script src="/blog/assets/js/68.1efe09bb.js" defer></script>
+  </body>
+</html>

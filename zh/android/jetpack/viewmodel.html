@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ViewModel 组件架构原理解析 | Android Nodes</title>
+    <meta name="generator" content="VuePress 1.5.4">
+    <link rel="icon" href="/blog/logo.png">
+    <link rel="manifest" href="/blog/manifest.json">
+    <link rel="apple-touch-icon" href="/blog/icons/apple-touch-icon-152x152.png">
+    <link rel="mask-icon" href="/blog/icons/safari-pinned-tab.svg" color="#3eaf7c">
+    <meta name="description" content="欲速则不达，起于累土">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    <link rel="preload" href="/blog/assets/css/0.styles.c59328e2.css" as="style"><link rel="preload" href="/blog/assets/js/app.b29a8dd7.js" as="script"><link rel="preload" href="/blog/assets/js/2.f6cef42b.js" as="script"><link rel="preload" href="/blog/assets/js/19.89281622.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.7a48b7c5.js"><link rel="prefetch" href="/blog/assets/js/11.eac2ba23.js"><link rel="prefetch" href="/blog/assets/js/12.0f90fab7.js"><link rel="prefetch" href="/blog/assets/js/13.bec57e62.js"><link rel="prefetch" href="/blog/assets/js/14.3ae2a79a.js"><link rel="prefetch" href="/blog/assets/js/15.a791971b.js"><link rel="prefetch" href="/blog/assets/js/16.e5da048d.js"><link rel="prefetch" href="/blog/assets/js/17.4908b8a7.js"><link rel="prefetch" href="/blog/assets/js/18.46af3ffd.js"><link rel="prefetch" href="/blog/assets/js/20.cd52446d.js"><link rel="prefetch" href="/blog/assets/js/21.82cce5e6.js"><link rel="prefetch" href="/blog/assets/js/22.80975ead.js"><link rel="prefetch" href="/blog/assets/js/23.96416586.js"><link rel="prefetch" href="/blog/assets/js/24.2c36cba8.js"><link rel="prefetch" href="/blog/assets/js/25.367808ef.js"><link rel="prefetch" href="/blog/assets/js/26.be8af843.js"><link rel="prefetch" href="/blog/assets/js/27.b222d373.js"><link rel="prefetch" href="/blog/assets/js/28.a12c5df9.js"><link rel="prefetch" href="/blog/assets/js/29.d5ff3c40.js"><link rel="prefetch" href="/blog/assets/js/3.6d59dab0.js"><link rel="prefetch" href="/blog/assets/js/30.cbbb74b5.js"><link rel="prefetch" href="/blog/assets/js/31.b75f6d67.js"><link rel="prefetch" href="/blog/assets/js/32.86d96ea4.js"><link rel="prefetch" href="/blog/assets/js/33.46446d62.js"><link rel="prefetch" href="/blog/assets/js/34.8408a108.js"><link rel="prefetch" href="/blog/assets/js/35.98c56f35.js"><link rel="prefetch" href="/blog/assets/js/36.bdaeac6f.js"><link rel="prefetch" href="/blog/assets/js/37.533f8161.js"><link rel="prefetch" href="/blog/assets/js/38.0200746e.js"><link rel="prefetch" href="/blog/assets/js/39.c88574ea.js"><link rel="prefetch" href="/blog/assets/js/4.1ea1eeff.js"><link rel="prefetch" href="/blog/assets/js/40.45749e2b.js"><link rel="prefetch" href="/blog/assets/js/41.f908dd77.js"><link rel="prefetch" href="/blog/assets/js/42.6a921fb9.js"><link rel="prefetch" href="/blog/assets/js/43.a545ead3.js"><link rel="prefetch" href="/blog/assets/js/44.599973fd.js"><link rel="prefetch" href="/blog/assets/js/45.4f5aa578.js"><link rel="prefetch" href="/blog/assets/js/46.bc77698b.js"><link rel="prefetch" href="/blog/assets/js/47.6fab262f.js"><link rel="prefetch" href="/blog/assets/js/48.06721492.js"><link rel="prefetch" href="/blog/assets/js/49.ddd2004c.js"><link rel="prefetch" href="/blog/assets/js/5.7d990afd.js"><link rel="prefetch" href="/blog/assets/js/50.68d30b00.js"><link rel="prefetch" href="/blog/assets/js/51.1e95b300.js"><link rel="prefetch" href="/blog/assets/js/52.7e58153e.js"><link rel="prefetch" href="/blog/assets/js/53.49c83746.js"><link rel="prefetch" href="/blog/assets/js/54.cafb7c5d.js"><link rel="prefetch" href="/blog/assets/js/55.e3a5298e.js"><link rel="prefetch" href="/blog/assets/js/56.16a6fa14.js"><link rel="prefetch" href="/blog/assets/js/57.a5849246.js"><link rel="prefetch" href="/blog/assets/js/58.21f63823.js"><link rel="prefetch" href="/blog/assets/js/59.1de0dd4e.js"><link rel="prefetch" href="/blog/assets/js/6.cec4111c.js"><link rel="prefetch" href="/blog/assets/js/60.d486fda7.js"><link rel="prefetch" href="/blog/assets/js/61.2df18a41.js"><link rel="prefetch" href="/blog/assets/js/62.f167b5ca.js"><link rel="prefetch" href="/blog/assets/js/63.1a1ddafe.js"><link rel="prefetch" href="/blog/assets/js/64.4ba3449a.js"><link rel="prefetch" href="/blog/assets/js/65.8005097c.js"><link rel="prefetch" href="/blog/assets/js/66.5d3693a7.js"><link rel="prefetch" href="/blog/assets/js/67.e9d7bf30.js"><link rel="prefetch" href="/blog/assets/js/68.1efe09bb.js"><link rel="prefetch" href="/blog/assets/js/69.50f5445d.js"><link rel="prefetch" href="/blog/assets/js/7.9d95edae.js"><link rel="prefetch" href="/blog/assets/js/70.02047906.js"><link rel="prefetch" href="/blog/assets/js/71.634bd610.js"><link rel="prefetch" href="/blog/assets/js/72.a00660d0.js"><link rel="prefetch" href="/blog/assets/js/73.cb4a91db.js"><link rel="prefetch" href="/blog/assets/js/74.3f83725a.js"><link rel="prefetch" href="/blog/assets/js/75.89822bf9.js"><link rel="prefetch" href="/blog/assets/js/76.9c29fa27.js"><link rel="prefetch" href="/blog/assets/js/77.0e21a0d0.js"><link rel="prefetch" href="/blog/assets/js/78.83828550.js"><link rel="prefetch" href="/blog/assets/js/79.038d118d.js"><link rel="prefetch" href="/blog/assets/js/8.b3b24cde.js"><link rel="prefetch" href="/blog/assets/js/80.4ed5e1a3.js"><link rel="prefetch" href="/blog/assets/js/81.d08345df.js"><link rel="prefetch" href="/blog/assets/js/82.b6dfa43b.js"><link rel="prefetch" href="/blog/assets/js/83.78d8aa89.js"><link rel="prefetch" href="/blog/assets/js/84.9ecbf7a5.js"><link rel="prefetch" href="/blog/assets/js/85.49225f21.js"><link rel="prefetch" href="/blog/assets/js/86.29868731.js"><link rel="prefetch" href="/blog/assets/js/87.f05ddddc.js"><link rel="prefetch" href="/blog/assets/js/88.9703366d.js"><link rel="prefetch" href="/blog/assets/js/89.0a340baa.js"><link rel="prefetch" href="/blog/assets/js/9.5eb0e890.js"><link rel="prefetch" href="/blog/assets/js/90.af7d5cb4.js"><link rel="prefetch" href="/blog/assets/js/91.e94154f4.js"><link rel="prefetch" href="/blog/assets/js/92.32326a59.js"><link rel="prefetch" href="/blog/assets/js/93.12ad3fb5.js"><link rel="prefetch" href="/blog/assets/js/94.045060fa.js"><link rel="prefetch" href="/blog/assets/js/95.5c510610.js"><link rel="prefetch" href="/blog/assets/js/96.5bcee9fd.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.c59328e2.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">Android Nodes</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/zh/guide/" class="nav-link">
+  备忘录
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Android" class="dropdown-title"><span class="title">Android</span> <span class="arrow down"></span></button> <button type="button" aria-label="Android" class="mobile-dropdown-title"><span class="title">Android</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/zh/android/basic/" class="nav-link">
+  基础
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/ui/" class="nav-link">
+  高级UI
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/architecture/" class="nav-link">
+  架构设计
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/performance/" class="nav-link">
+  性能优化
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/ndk/" class="nav-link">
+  NDK
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/framework/" class="nav-link">
+  开源框架
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/jetpack/" class="nav-link router-link-active">
+  Jetpack
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/kotlin/" class="nav-link">
+  Kotlin
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java" class="dropdown-title"><span class="title">Java</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java" class="mobile-dropdown-title"><span class="title">Java</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/zh/java/basic/" class="nav-link">
+  基础
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/structures/" class="nav-link">
+  数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/algorithms/" class="nav-link">
+  算法
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/exercise/" class="nav-link">
+  算法练习
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/zh/net/" class="nav-link">
+  API
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具" class="mobile-dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          代码管理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/api/cli.html" class="nav-link">
+  git
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/api/node.html" class="nav-link">
+  分支管理
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发规范
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/local-development.html" class="nav-link">
+  代码规范
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/design-concepts.html" class="nav-link">
+  团队协作
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/faq/" class="nav-link">
+  需求与工作分配
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/glossary.html" class="nav-link">
+  文档沉淀
+</a></li></ul></li><li class="dropdown-item"><h4>
+          软实力
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/migration-guide.html" class="nav-link">
+  必备技能
+</a></li><li class="dropdown-subitem"><a href="https://github.com/vuejs/vuepress/blob/master/CHANGELOG.md" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  团队管理
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/zh/guide/" class="nav-link">
+  备忘录
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Android" class="dropdown-title"><span class="title">Android</span> <span class="arrow down"></span></button> <button type="button" aria-label="Android" class="mobile-dropdown-title"><span class="title">Android</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/zh/android/basic/" class="nav-link">
+  基础
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/ui/" class="nav-link">
+  高级UI
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/architecture/" class="nav-link">
+  架构设计
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/performance/" class="nav-link">
+  性能优化
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/ndk/" class="nav-link">
+  NDK
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/framework/" class="nav-link">
+  开源框架
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/jetpack/" class="nav-link router-link-active">
+  Jetpack
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/kotlin/" class="nav-link">
+  Kotlin
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java" class="dropdown-title"><span class="title">Java</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java" class="mobile-dropdown-title"><span class="title">Java</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/zh/java/basic/" class="nav-link">
+  基础
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/structures/" class="nav-link">
+  数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/algorithms/" class="nav-link">
+  算法
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/exercise/" class="nav-link">
+  算法练习
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/zh/net/" class="nav-link">
+  API
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具" class="mobile-dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          代码管理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/api/cli.html" class="nav-link">
+  git
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/api/node.html" class="nav-link">
+  分支管理
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发规范
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/local-development.html" class="nav-link">
+  代码规范
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/design-concepts.html" class="nav-link">
+  团队协作
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/faq/" class="nav-link">
+  需求与工作分配
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/glossary.html" class="nav-link">
+  文档沉淀
+</a></li></ul></li><li class="dropdown-item"><h4>
+          软实力
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/migration-guide.html" class="nav-link">
+  必备技能
+</a></li><li class="dropdown-subitem"><a href="https://github.com/vuejs/vuepress/blob/master/CHANGELOG.md" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  团队管理
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Jetpack</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/zh/android/jetpack/" aria-current="page" class="sidebar-link">走进Jetpack框架组件库</a></li><li><a href="/blog/zh/android/jetpack/livecycle.html" class="sidebar-link">Livecycle</a></li><li><a href="/blog/zh/android/jetpack/livedata-1.html" class="sidebar-link">LiveData架构组件原理解析</a></li><li><a href="/blog/zh/android/jetpack/livedata-2.html" class="sidebar-link">LiveData实战与应用</a></li><li><a href="/blog/zh/android/jetpack/viewmodel.html" aria-current="page" class="active sidebar-link">ViewModel 组件架构原理解析</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/zh/android/jetpack/viewmodel.html#前言" class="sidebar-link">前言</a></li><li class="sidebar-sub-header"><a href="/blog/zh/android/jetpack/viewmodel.html#提纲" class="sidebar-link">提纲</a></li><li class="sidebar-sub-header"><a href="/blog/zh/android/jetpack/viewmodel.html#什么是viewmodel" class="sidebar-link">什么是ViewModel？</a></li><li class="sidebar-sub-header"><a href="/blog/zh/android/jetpack/viewmodel.html#viewmodel的优势" class="sidebar-link">ViewModel的优势</a></li><li class="sidebar-sub-header"><a href="/blog/zh/android/jetpack/viewmodel.html#viewmodel的用法" class="sidebar-link">ViewModel的用法</a></li><li class="sidebar-sub-header"><a href="/blog/zh/android/jetpack/viewmodel.html#viewmodel复用实现原理" class="sidebar-link">ViewModel复用实现原理</a></li><li class="sidebar-sub-header"><a href="/blog/zh/android/jetpack/viewmodel.html#总结" class="sidebar-link">总结</a></li></ul></li><li><a href="/blog/zh/android/jetpack/savedstate.html" class="sidebar-link">SaveState组件架构原理解析</a></li><li><a href="/blog/zh/android/jetpack/room.html" class="sidebar-link">Room组件架构原理解析</a></li><li><a href="/blog/zh/android/jetpack/workmanager.html" class="sidebar-link">WorkManager组件架构应用</a></li><li><a href="/blog/zh/android/jetpack/databinding.html" class="sidebar-link">DataBinding组件架构应用</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="viewmodel-组件架构原理解析"><a href="#viewmodel-组件架构原理解析" class="header-anchor">#</a> ViewModel 组件架构原理解析</h1> <h2 id="前言"><a href="#前言" class="header-anchor">#</a> 前言</h2> <p>ViewModel作为Jetpack组件库首屈一指的高频组件之一，我们有必要去了解他背后的工作原理，才能真正掌握它是如何实现存储数据的。它的出现释放了
+Activity/Fragment管理数据的压力，ViewModel经常会搭配LiveData一起用于MVVM的开发模式。</p> <h2 id="提纲"><a href="#提纲" class="header-anchor">#</a> 提纲</h2> <ul><li>什么是ViewModel；</li> <li>ViewModel的用法；</li> <li>ViewModel数据存储实现原理；</li></ul> <h2 id="什么是viewmodel"><a href="#什么是viewmodel" class="header-anchor">#</a> 什么是ViewModel？</h2> <p>ViewModel具备宿主生命后期感知能力的数据存储组件，使用ViewModel保存的数据，在页面因<strong>配置变更导致页面销毁重建</strong>之后依然也是存在的。</p> <blockquote><p>Tips：配置变更主要是指：横竖屏切换、分辨率调整、权限变更、系统字体样式变更...</p></blockquote> <h2 id="viewmodel的优势"><a href="#viewmodel的优势" class="header-anchor">#</a> ViewModel的优势</h2> <p><strong>页面配置更改数据不丢失</strong></p> <p>当设备因配置更改导致Activiy/Fragment重建，ViewModel中的数据并不会因此丢失，配合LiveData可以在页面重建后立马能收到最新保存的数据用以重新渲染页面。</p> <p><strong>生命周期感应</strong></p> <p>在ViewModel中难免会做一些网络请求或数据的处理，可以复写onCleared()方法，终止清理一些操作，释放内存，该方法在宿主onDestory时被调用。</p> <p><strong>数据共享</strong></p> <p>对于单Activity对Fragment的页面，可以使用ViewModel实现页面之间的数据共享，实际上不同的Activity也可以实现数据共享。</p> <h2 id="viewmodel的用法"><a href="#viewmodel的用法" class="header-anchor">#</a> ViewModel的用法</h2> <p>使用ViewModel之前需要先添加依赖：</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token comment">//通常情况下，只需要添加appcompat就可以了</span>
+api <span class="token string">'androidx.appcompat:appcompat:1.1.0'</span>
+<span class="token comment">//如果想单独使用，可引入下面的依赖</span>
+api <span class="token string">'androidx.lifecycler:lifecycle-viewmodel:2.0.0'</span>
+</code></pre></div><p><strong>基本用法</strong></p> <p>存储的数据<strong>只能当页面因为配置变更导致的销毁再重建时刻复用</strong>，复用的是ViewModel的实例对象整体：</p> <div class="language-kotlin extra-class"><pre class="language-kotlin"><code><span class="token keyword">class</span> <span class="token function">HiViewModel</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">ViewModel</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">val</span> liveData <span class="token operator">=</span> MutableLiveData<span class="token operator">&lt;</span>List<span class="token operator">&lt;</span>GoodsModel<span class="token operator">&gt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">fun</span> <span class="token function">loadInitData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span>LiveData<span class="token operator">&lt;</span>List<span class="token operator">&lt;</span>GoodsModel<span class="token operator">&gt;</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        <span class="token comment">//from remote</span>
+        <span class="token comment">//为了适配因配置变更而导致的页面重建, 重复利用之前的数据,加快  新页面渲染，不再请求接口</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>liveData<span class="token punctuation">.</span>value<span class="token operator">==</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+           <span class="token keyword">val</span> remoteData <span class="token operator">=</span> <span class="token function">fetchDataFromRemote</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+           liveData<span class="token punctuation">.</span><span class="token function">postValue</span><span class="token punctuation">(</span>remoteData<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> liveData
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">//通过ViewModelProvider来获取viewmodel对象</span>
+<span class="token comment">//如果在单Activity,多Fragment的页面，只需要都传递所在的Activity对象就可以获取到同一个ViewModel实例，从而实现数据共享。。</span>
+<span class="token keyword">val</span> viewModel <span class="token operator">=</span> <span class="token function">ViewModelProvider</span><span class="token punctuation">(</span>Activity<span class="token operator">/</span>Fragment<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>HiViewModel<span class="token operator">::</span><span class="token keyword">class</span><span class="token punctuation">.</span>java<span class="token punctuation">)</span>
+
+viewModel<span class="token punctuation">.</span><span class="token function">loadPageData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">observer</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span>Observer<span class="token punctuation">{</span>
+      <span class="token comment">//渲染列表  </span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+</code></pre></div><p><strong>ViewModel实现跨页面不同的（Activity）的数据共享</strong></p> <div class="language-kotlin extra-class"><pre class="language-kotlin"><code><span class="token comment">//让Application实现ViewModelStoreOwner 接口</span>
+<span class="token keyword">class</span> MyApp<span class="token operator">:</span> <span class="token function">Application</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> ViewModelStoreOwner <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">val</span> appViewModelStore<span class="token operator">:</span> ViewModelStore <span class="token keyword">by</span> lazy <span class="token punctuation">{</span>
+        <span class="token function">ViewModelStore</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">override</span> <span class="token keyword">fun</span> <span class="token function">getViewModelStore</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> ViewModelStore <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> appViewModelStore
+    <span class="token punctuation">}</span> 
+<span class="token punctuation">}</span>
+
+<span class="token keyword">val</span> viewmodel <span class="token operator">=</span> <span class="token function">ViewProvider</span><span class="token punctuation">(</span>application<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>HiViewModel<span class="token operator">::</span><span class="token keyword">class</span><span class="token punctuation">.</span>java<span class="token punctuation">)</span>
+
+</code></pre></div><h2 id="viewmodel复用实现原理"><a href="#viewmodel复用实现原理" class="header-anchor">#</a> ViewModel复用实现原理</h2> <p>上面说到，ViewModel可以实现因<strong>配置变更而导致页面销毁重建</strong>之后依然可以复用。准确点来说，应该是<strong>页面回复重建前后获取到的是同一个Viewmodel实例对象</strong>，以至于页面恢复重建后还能接着复用。那么这是为什么呢？</p> <p>获取ViewModel实例的方式如下：</p> <p>ViewModelProvider本质是从传递进去的ViewModelStore来获取实例。如果没有传递，则利用factory去创建一个新的，并存储到ViewModelStore。</p> <div class="language-kotlin extra-class"><pre class="language-kotlin"><code><span class="token keyword">val</span> viewmodel <span class="token operator">=</span>  <span class="token function">ViewModelProvider</span><span class="token punctuation">(</span>viewModelStore<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>HiViewModel<span class="token operator">::</span><span class="token keyword">class</span><span class="token punctuation">.</span>java<span class="token punctuation">)</span>
+<span class="token comment">//或者指定factory</span>
+<span class="token keyword">val</span> viewmodel <span class="token operator">=</span>  <span class="token function">ViewModelProvider</span><span class="token punctuation">(</span>viewModelStore<span class="token punctuation">,</span>factory<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>HiViewModel<span class="token operator">::</span><span class="token keyword">class</span><span class="token punctuation">.</span>java<span class="token punctuation">)</span> 
+</code></pre></div><p>不同的ViewModelFactory创建Viewmodel实例的方式不同：</p> <p><img src="https://gitee.com/jarrysong/img/raw/master/img/20201128174926.png" alt=""></p> <p><strong>ViewModelProvider获取ViewModel实例源码分析</strong></p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">class</span> <span class="token class-name">ViewModelProvider</span><span class="token punctuation">{</span>
+    
+  <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">String</span> DEFAULT_KEY <span class="token operator">=</span><span class="token string">&quot;androidx.lifecycle.ViewModelProvider.DefaultKey&quot;</span><span class="token punctuation">;</span>
+
+  <span class="token comment">//根据传递的modelClass 构建一个默认的Key</span>
+  <span class="token keyword">public</span> <span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span> <span class="token keyword">extends</span> <span class="token class-name">ViewModel</span><span class="token punctuation">&gt;</span></span> <span class="token class-name">T</span> <span class="token function">get</span><span class="token punctuation">(</span><span class="token class-name">Class</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">&gt;</span></span> modelClass<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">String</span> canonicalName <span class="token operator">=</span> modelClass<span class="token punctuation">.</span><span class="token function">getCanonicalName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token function">get</span><span class="token punctuation">(</span>DEFAULT_KEY <span class="token operator">+</span> <span class="token string">&quot;:&quot;</span> <span class="token operator">+</span> canonicalName<span class="token punctuation">,</span> modelClass<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">//获取viewmodel实例时，也可以自行指定Key</span>
+  <span class="token keyword">public</span> <span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span> <span class="token keyword">extends</span> <span class="token class-name">ViewModel</span><span class="token punctuation">&gt;</span></span> <span class="token class-name">T</span> <span class="token function">get</span><span class="token punctuation">(</span><span class="token class-name">String</span> key<span class="token punctuation">,</span> <span class="token class-name">Class</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">&gt;</span></span> modelClass<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">ViewModel</span> viewModel <span class="token operator">=</span> mViewModelStore<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>mFactory <span class="token keyword">instanceof</span> <span class="token class-name">KeyedFactory</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            viewModel <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">KeyedFactory</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>mFactory<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> modelClass<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            viewModel <span class="token operator">=</span> <span class="token punctuation">(</span>mFactory<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>modelClass<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        mViewModelStore<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> viewModel<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token class-name">T</span><span class="token punctuation">)</span> viewModel<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><blockquote><p>ViewModelStore 一个真正用来存储ViewModel实例的集合。本质上是HashMap&lt;String,ViewModel&gt;</p></blockquote> <p><strong>getViewModelStore源码分析</strong></p> <p>关键点来，想要ViewModel实例对象不随着宿主重建而销毁，那就要保证ViewModelStore实例对象不随着宿主重建而销毁。</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">class</span> <span class="token class-name">ComponentActivity</span> <span class="token keyword">extends</span> <span class="token class-name">ViewModelStoreOwner</span><span class="token punctuation">{</span>
+    <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">class</span> <span class="token class-name">NonConfigurationInstances</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Object</span> custom<span class="token punctuation">;</span>
+        <span class="token class-name">ViewModelStore</span> viewModelStore<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token class-name">ViewModelStore</span> <span class="token function">getViewModelStore</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+       <span class="token keyword">if</span> <span class="token punctuation">(</span>mViewModelStore <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+       <span class="token comment">//从源码上可以看出，会首先从`NonConfigurationInstances`来获取`ViewModelStore`实例对象，</span>
+       <span class="token comment">//如果不为空那是不是就能做到复用了 ？</span>
+       <span class="token comment">//所以重点在于`ViewModelStore`何时被存储到`NonConfigurationInstances`里面的.</span>
+           <span class="token class-name">NonConfigurationInstances</span> nc <span class="token operator">=</span>
+                   <span class="token punctuation">(</span><span class="token class-name">NonConfigurationInstances</span><span class="token punctuation">)</span> <span class="token function">getLastNonConfigurationInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+           <span class="token keyword">if</span> <span class="token punctuation">(</span>nc <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+               mViewModelStore <span class="token operator">=</span> nc<span class="token punctuation">.</span>viewModelStore<span class="token punctuation">;</span>
+           <span class="token punctuation">}</span>
+           <span class="token keyword">if</span> <span class="token punctuation">(</span>mViewModelStore <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+               mViewModelStore <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ViewModelStore</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+           <span class="token punctuation">}</span>
+       <span class="token punctuation">}</span>
+     
+       <span class="token keyword">return</span> mViewModelStore<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><strong>onRetainNonConfigurationInstance源码分析</strong></p> <p>因系统原因页面被回收时，会触发该方法，所以ViewModelStore对象此时会被存储在NonConfigurationInstance中。在页面恢复重建时，会再次把这个NonConfigurationInstance 对象传递到新的Activity中实现对象复用。</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">class</span> <span class="token class-name">ComponentActivity</span><span class="token punctuation">{</span>
+<span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token class-name">Object</span> <span class="token function">onRetainNonConfigurationInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token class-name">Object</span> custom <span class="token operator">=</span> <span class="token function">onRetainCustomNonConfigurationInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token class-name">ViewModelStore</span> viewModelStore <span class="token operator">=</span> mViewModelStore<span class="token punctuation">;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>viewModelStore <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token comment">// 如果NonConfigurationInstance保存了viewModelStore，把它取出来</span>
+          <span class="token class-name">NonConfigurationInstances</span> nc <span class="token operator">=</span>
+                  <span class="token punctuation">(</span><span class="token class-name">NonConfigurationInstances</span><span class="token punctuation">)</span> <span class="token function">getLastNonConfigurationInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">if</span> <span class="token punctuation">(</span>nc <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              viewModelStore <span class="token operator">=</span> nc<span class="token punctuation">.</span>viewModelStore<span class="token punctuation">;</span>
+          <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>viewModelStore <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> custom <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token class-name">NonConfigurationInstances</span> nci <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">NonConfigurationInstances</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      nci<span class="token punctuation">.</span>custom <span class="token operator">=</span> custom<span class="token punctuation">;</span> 
+        <span class="token comment">//把viewModelStore放到NonConfigurationInstances中并返回</span>
+      nci<span class="token punctuation">.</span>viewModelStore <span class="token operator">=</span> viewModelStore<span class="token punctuation">;</span>
+       <span class="token comment">//这样当页面被销毁时ViewModelStore就被保存起来了。</span>
+      <span class="token keyword">return</span> nci<span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="总结"><a href="#总结" class="header-anchor">#</a> 总结</h2> <p>ViewModel和onSaveInstanceState方法有什么区别？</p> <ul><li>onSavedInstanceState只能存储轻量级的key-value键值对数据，非配置变更导致的页面被回收时才被触发，此时数据存储在ActivityRecord中；</li> <li>ViewModel可以存放任意Object数据，因配置变更导致的页面被回收才有效。此时存在ActivityTheard#ActivityClientRecord中。</li></ul> <p>但是，如果是内存不足或者因为电量不足导致页面被回收，这种情况不是配置变更，所以ViewModel就无法实现复用了，<strong>那能不能让ViewModel在这种情况下也能实现数据的存储呢？必须可以，答案就在下一节！</strong></p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">12/1/2020, 1:03:12 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/zh/android/jetpack/livedata-2.html" class="prev">
+        LiveData实战与应用
+      </a></span> <span class="next"><a href="/blog/zh/android/jetpack/savedstate.html">
+        SaveState组件架构原理解析
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.b29a8dd7.js" defer></script><script src="/blog/assets/js/2.f6cef42b.js" defer></script><script src="/blog/assets/js/19.89281622.js" defer></script>
+  </body>
+</html>

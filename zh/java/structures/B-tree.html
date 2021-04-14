@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>B树 | Android Nodes</title>
+    <meta name="generator" content="VuePress 1.5.4">
+    <link rel="icon" href="/blog/logo.png">
+    <link rel="manifest" href="/blog/manifest.json">
+    <link rel="apple-touch-icon" href="/blog/icons/apple-touch-icon-152x152.png">
+    <link rel="mask-icon" href="/blog/icons/safari-pinned-tab.svg" color="#3eaf7c">
+    <meta name="description" content="欲速则不达，起于累土">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    <link rel="preload" href="/blog/assets/css/0.styles.c59328e2.css" as="style"><link rel="preload" href="/blog/assets/js/app.b29a8dd7.js" as="script"><link rel="preload" href="/blog/assets/js/2.f6cef42b.js" as="script"><link rel="preload" href="/blog/assets/js/78.83828550.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.7a48b7c5.js"><link rel="prefetch" href="/blog/assets/js/11.eac2ba23.js"><link rel="prefetch" href="/blog/assets/js/12.0f90fab7.js"><link rel="prefetch" href="/blog/assets/js/13.bec57e62.js"><link rel="prefetch" href="/blog/assets/js/14.3ae2a79a.js"><link rel="prefetch" href="/blog/assets/js/15.a791971b.js"><link rel="prefetch" href="/blog/assets/js/16.e5da048d.js"><link rel="prefetch" href="/blog/assets/js/17.4908b8a7.js"><link rel="prefetch" href="/blog/assets/js/18.46af3ffd.js"><link rel="prefetch" href="/blog/assets/js/19.89281622.js"><link rel="prefetch" href="/blog/assets/js/20.cd52446d.js"><link rel="prefetch" href="/blog/assets/js/21.82cce5e6.js"><link rel="prefetch" href="/blog/assets/js/22.80975ead.js"><link rel="prefetch" href="/blog/assets/js/23.96416586.js"><link rel="prefetch" href="/blog/assets/js/24.2c36cba8.js"><link rel="prefetch" href="/blog/assets/js/25.367808ef.js"><link rel="prefetch" href="/blog/assets/js/26.be8af843.js"><link rel="prefetch" href="/blog/assets/js/27.b222d373.js"><link rel="prefetch" href="/blog/assets/js/28.a12c5df9.js"><link rel="prefetch" href="/blog/assets/js/29.d5ff3c40.js"><link rel="prefetch" href="/blog/assets/js/3.6d59dab0.js"><link rel="prefetch" href="/blog/assets/js/30.cbbb74b5.js"><link rel="prefetch" href="/blog/assets/js/31.b75f6d67.js"><link rel="prefetch" href="/blog/assets/js/32.86d96ea4.js"><link rel="prefetch" href="/blog/assets/js/33.46446d62.js"><link rel="prefetch" href="/blog/assets/js/34.8408a108.js"><link rel="prefetch" href="/blog/assets/js/35.98c56f35.js"><link rel="prefetch" href="/blog/assets/js/36.bdaeac6f.js"><link rel="prefetch" href="/blog/assets/js/37.533f8161.js"><link rel="prefetch" href="/blog/assets/js/38.0200746e.js"><link rel="prefetch" href="/blog/assets/js/39.c88574ea.js"><link rel="prefetch" href="/blog/assets/js/4.1ea1eeff.js"><link rel="prefetch" href="/blog/assets/js/40.45749e2b.js"><link rel="prefetch" href="/blog/assets/js/41.f908dd77.js"><link rel="prefetch" href="/blog/assets/js/42.6a921fb9.js"><link rel="prefetch" href="/blog/assets/js/43.a545ead3.js"><link rel="prefetch" href="/blog/assets/js/44.599973fd.js"><link rel="prefetch" href="/blog/assets/js/45.4f5aa578.js"><link rel="prefetch" href="/blog/assets/js/46.bc77698b.js"><link rel="prefetch" href="/blog/assets/js/47.6fab262f.js"><link rel="prefetch" href="/blog/assets/js/48.06721492.js"><link rel="prefetch" href="/blog/assets/js/49.ddd2004c.js"><link rel="prefetch" href="/blog/assets/js/5.7d990afd.js"><link rel="prefetch" href="/blog/assets/js/50.68d30b00.js"><link rel="prefetch" href="/blog/assets/js/51.1e95b300.js"><link rel="prefetch" href="/blog/assets/js/52.7e58153e.js"><link rel="prefetch" href="/blog/assets/js/53.49c83746.js"><link rel="prefetch" href="/blog/assets/js/54.cafb7c5d.js"><link rel="prefetch" href="/blog/assets/js/55.e3a5298e.js"><link rel="prefetch" href="/blog/assets/js/56.16a6fa14.js"><link rel="prefetch" href="/blog/assets/js/57.a5849246.js"><link rel="prefetch" href="/blog/assets/js/58.21f63823.js"><link rel="prefetch" href="/blog/assets/js/59.1de0dd4e.js"><link rel="prefetch" href="/blog/assets/js/6.cec4111c.js"><link rel="prefetch" href="/blog/assets/js/60.d486fda7.js"><link rel="prefetch" href="/blog/assets/js/61.2df18a41.js"><link rel="prefetch" href="/blog/assets/js/62.f167b5ca.js"><link rel="prefetch" href="/blog/assets/js/63.1a1ddafe.js"><link rel="prefetch" href="/blog/assets/js/64.4ba3449a.js"><link rel="prefetch" href="/blog/assets/js/65.8005097c.js"><link rel="prefetch" href="/blog/assets/js/66.5d3693a7.js"><link rel="prefetch" href="/blog/assets/js/67.e9d7bf30.js"><link rel="prefetch" href="/blog/assets/js/68.1efe09bb.js"><link rel="prefetch" href="/blog/assets/js/69.50f5445d.js"><link rel="prefetch" href="/blog/assets/js/7.9d95edae.js"><link rel="prefetch" href="/blog/assets/js/70.02047906.js"><link rel="prefetch" href="/blog/assets/js/71.634bd610.js"><link rel="prefetch" href="/blog/assets/js/72.a00660d0.js"><link rel="prefetch" href="/blog/assets/js/73.cb4a91db.js"><link rel="prefetch" href="/blog/assets/js/74.3f83725a.js"><link rel="prefetch" href="/blog/assets/js/75.89822bf9.js"><link rel="prefetch" href="/blog/assets/js/76.9c29fa27.js"><link rel="prefetch" href="/blog/assets/js/77.0e21a0d0.js"><link rel="prefetch" href="/blog/assets/js/79.038d118d.js"><link rel="prefetch" href="/blog/assets/js/8.b3b24cde.js"><link rel="prefetch" href="/blog/assets/js/80.4ed5e1a3.js"><link rel="prefetch" href="/blog/assets/js/81.d08345df.js"><link rel="prefetch" href="/blog/assets/js/82.b6dfa43b.js"><link rel="prefetch" href="/blog/assets/js/83.78d8aa89.js"><link rel="prefetch" href="/blog/assets/js/84.9ecbf7a5.js"><link rel="prefetch" href="/blog/assets/js/85.49225f21.js"><link rel="prefetch" href="/blog/assets/js/86.29868731.js"><link rel="prefetch" href="/blog/assets/js/87.f05ddddc.js"><link rel="prefetch" href="/blog/assets/js/88.9703366d.js"><link rel="prefetch" href="/blog/assets/js/89.0a340baa.js"><link rel="prefetch" href="/blog/assets/js/9.5eb0e890.js"><link rel="prefetch" href="/blog/assets/js/90.af7d5cb4.js"><link rel="prefetch" href="/blog/assets/js/91.e94154f4.js"><link rel="prefetch" href="/blog/assets/js/92.32326a59.js"><link rel="prefetch" href="/blog/assets/js/93.12ad3fb5.js"><link rel="prefetch" href="/blog/assets/js/94.045060fa.js"><link rel="prefetch" href="/blog/assets/js/95.5c510610.js"><link rel="prefetch" href="/blog/assets/js/96.5bcee9fd.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.c59328e2.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">Android Nodes</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/zh/guide/" class="nav-link">
+  备忘录
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Android" class="dropdown-title"><span class="title">Android</span> <span class="arrow down"></span></button> <button type="button" aria-label="Android" class="mobile-dropdown-title"><span class="title">Android</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/zh/android/basic/" class="nav-link">
+  基础
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/ui/" class="nav-link">
+  高级UI
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/architecture/" class="nav-link">
+  架构设计
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/performance/" class="nav-link">
+  性能优化
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/ndk/" class="nav-link">
+  NDK
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/framework/" class="nav-link">
+  开源框架
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/jetpack/" class="nav-link">
+  Jetpack
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/kotlin/" class="nav-link">
+  Kotlin
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java" class="dropdown-title"><span class="title">Java</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java" class="mobile-dropdown-title"><span class="title">Java</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/zh/java/basic/" class="nav-link">
+  基础
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/structures/" class="nav-link router-link-active">
+  数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/algorithms/" class="nav-link">
+  算法
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/exercise/" class="nav-link">
+  算法练习
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/zh/net/" class="nav-link">
+  API
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具" class="mobile-dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          代码管理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/api/cli.html" class="nav-link">
+  git
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/api/node.html" class="nav-link">
+  分支管理
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发规范
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/local-development.html" class="nav-link">
+  代码规范
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/design-concepts.html" class="nav-link">
+  团队协作
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/faq/" class="nav-link">
+  需求与工作分配
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/glossary.html" class="nav-link">
+  文档沉淀
+</a></li></ul></li><li class="dropdown-item"><h4>
+          软实力
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/migration-guide.html" class="nav-link">
+  必备技能
+</a></li><li class="dropdown-subitem"><a href="https://github.com/vuejs/vuepress/blob/master/CHANGELOG.md" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  团队管理
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/zh/guide/" class="nav-link">
+  备忘录
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Android" class="dropdown-title"><span class="title">Android</span> <span class="arrow down"></span></button> <button type="button" aria-label="Android" class="mobile-dropdown-title"><span class="title">Android</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/zh/android/basic/" class="nav-link">
+  基础
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/ui/" class="nav-link">
+  高级UI
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/architecture/" class="nav-link">
+  架构设计
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/performance/" class="nav-link">
+  性能优化
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/ndk/" class="nav-link">
+  NDK
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/framework/" class="nav-link">
+  开源框架
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/jetpack/" class="nav-link">
+  Jetpack
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/kotlin/" class="nav-link">
+  Kotlin
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java" class="dropdown-title"><span class="title">Java</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java" class="mobile-dropdown-title"><span class="title">Java</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/zh/java/basic/" class="nav-link">
+  基础
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/structures/" class="nav-link router-link-active">
+  数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/algorithms/" class="nav-link">
+  算法
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/exercise/" class="nav-link">
+  算法练习
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/zh/net/" class="nav-link">
+  API
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具" class="mobile-dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          代码管理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/api/cli.html" class="nav-link">
+  git
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/api/node.html" class="nav-link">
+  分支管理
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发规范
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/local-development.html" class="nav-link">
+  代码规范
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/design-concepts.html" class="nav-link">
+  团队协作
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/faq/" class="nav-link">
+  需求与工作分配
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/glossary.html" class="nav-link">
+  文档沉淀
+</a></li></ul></li><li class="dropdown-item"><h4>
+          软实力
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/migration-guide.html" class="nav-link">
+  必备技能
+</a></li><li class="dropdown-subitem"><a href="https://github.com/vuejs/vuepress/blob/master/CHANGELOG.md" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  团队管理
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Structures</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/zh/java/structures/" aria-current="page" class="sidebar-link">大纲</a></li><li><a href="/blog/zh/java/structures/complexity.html" class="sidebar-link">复杂度</a></li><li><a href="/blog/zh/java/structures/array.html" class="sidebar-link">动态数组</a></li><li><a href="/blog/zh/java/structures/linked-list.html" class="sidebar-link">链表</a></li><li><a href="/blog/zh/java/structures/stack.html" class="sidebar-link">栈</a></li><li><a href="/blog/zh/java/structures/queue.html" class="sidebar-link">队列</a></li><li><a href="/blog/zh/java/structures/binary-tree.html" class="sidebar-link">二叉树</a></li><li><a href="/blog/zh/java/structures/binary-serch-tree.html" class="sidebar-link">二叉搜索树</a></li><li><a href="/blog/zh/java/structures/AVL.html" class="sidebar-link">平衡搜索树_AVL树</a></li><li><a href="/blog/zh/java/structures/B-tree.html" aria-current="page" class="active sidebar-link">B树</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/zh/java/structures/B-tree.html#红黑树-red-black-tree" class="sidebar-link">红黑树（Red Black Tree）</a></li><li class="sidebar-sub-header"><a href="/blog/zh/java/structures/B-tree.html#b树-b-tree、b-树" class="sidebar-link">B树（B-tree、B-树）</a></li></ul></li><li><a href="/blog/zh/java/structures/red-black-tree.html" class="sidebar-link">红黑树（Red Black Tree）</a></li><li><a href="/blog/zh/java/structures/set.html" class="sidebar-link">集合</a></li><li><a href="/blog/zh/java/structures/map.html" class="sidebar-link">映射</a></li><li><a href="/blog/zh/java/structures/hashmap.html" class="sidebar-link">哈希表</a></li><li><a href="/blog/zh/java/structures/heap.html" class="sidebar-link">二插堆</a></li><li><a href="/blog/zh/java/structures/priority-queue.html" class="sidebar-link">优先级队列</a></li><li><a href="/blog/zh/java/structures/huffman.html" class="sidebar-link">哈夫曼树</a></li><li><a href="/blog/zh/java/structures/tire.html" class="sidebar-link">tire</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="b树"><a href="#b树" class="header-anchor">#</a> B树</h1> <h2 id="红黑树-red-black-tree"><a href="#红黑树-red-black-tree" class="header-anchor">#</a> 红黑树（Red Black Tree）</h2> <p><strong>红黑树也是一种自平衡的二叉搜索树</strong></p> <ul><li>以前也叫做平衡二叉B树（Symmetric Binary B-tree）</li></ul> <p><strong>红黑树必须满足以下 5 条性质</strong></p> <p>1.节点是 RED 或者 BLACK</p> <p>2.根节点是 BLACK</p> <p>3.叶子节点（外部节点，空节点）都是 BLACK</p> <p>4.RED 节点的子节点都是 BLACK</p> <ul><li>✓ RED 节点的 parent 都是 BLACK</li> <li>✓从根节点到叶子节点的所有路径上不能有 2 个连续的 RED 节点</li></ul> <p>5.从任一节点到叶子节点的所有路径都包含相同数目的 BLACK 节点</p> <p>为何这些规则下，就能保证平衡?</p> <p><img src="https://upload-images.jianshu.io/upload_images/1128757-d68ba38cec143a62.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p> <h2 id="b树-b-tree、b-树"><a href="#b树-b-tree、b-树" class="header-anchor">#</a> B树（B-tree、B-树）</h2> <p>B树是一种平衡的多路搜索树，多用于文件系统、数据库的实现</p> <p><img src="https://upload-images.jianshu.io/upload_images/1128757-76e011a351468534.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p> <p><img src="https://upload-images.jianshu.io/upload_images/1128757-f27de09e94869922.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p> <p><img src="https://upload-images.jianshu.io/upload_images/1128757-d9b7defe83a8e06d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p> <p>仔细观察B树，有什么眼前一亮的特点？</p> <ul><li>1 个节点可以存储超过 2 个元素、可以拥有超过 2 个子节点</li> <li>拥有二叉搜索树的一些性质</li> <li>平衡，每个节点的所有子树高度一致</li> <li>比较矮</li></ul> <h3 id="m阶b树的性质-m≥2"><a href="#m阶b树的性质-m≥2" class="header-anchor">#</a> m阶B树的性质（m≥2）</h3> <p>假设一个节点存储的元素个数为 x</p> <p>1.根节点：1 ≤ x ≤ m − 1</p> <p>2.非根节点：┌ m/2 ┐ − 1 ≤ x ≤ m − 1</p> <p>3.如果有子节点，子节点个数 y = x + 1</p> <ul><li>✓根节点：2 ≤ y ≤ m</li> <li>✓非根节点：┌ m/2 ┐ ≤ y ≤ m
+<ul><li>➢比如 m = 3，2 ≤ y ≤ 3，因此可以称为（2, 3）树、2-3树</li> <li>➢比如 m = 4，2 ≤ y ≤ 4，因此可以称为（2, 4）树、2-3-4树</li> <li>➢比如 m = 5，3 ≤ y ≤ 5，因此可以称为（3, 5）树</li> <li>➢比如 m = 6，3 ≤ y ≤ 6，因此可以称为（3, 6）树</li> <li>➢比如 m = 7，4 ≤ y ≤ 7，因此可以称为（4, 7）树</li></ul></li></ul> <p>思考：如果 m = 2，那B树是什么样子？</p> <ul><li>你猜数据库实现中一般用几阶B树？ 200 ~ 300</li></ul> <h3 id="b树-vs-二叉搜索树"><a href="#b树-vs-二叉搜索树" class="header-anchor">#</a> B树 VS 二叉搜索树</h3> <p>1.B树 和 二叉搜索树，在逻辑上是等价的</p> <p>2.多代节点合并，可以获得一个超级节点</p> <ul><li>2代合并的超级节点，最多拥有 4 个子节点（至少是 4阶B树）</li> <li>3代合并的超级节点，最多拥有 8 个子节点（至少是 8阶B树）</li> <li>n代合并的超级节点，最多拥有 2n个子节点（ 至少是 2n阶B树）</li></ul> <p>3.m阶B树，最多需要 log2m 代合</p> <p><img src="https://upload-images.jianshu.io/upload_images/1128757-f332ed1a97e91391.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p> <h3 id="搜索"><a href="#搜索" class="header-anchor">#</a> 搜索</h3> <p>跟二叉搜索树的搜索类似</p> <p><img src="https://upload-images.jianshu.io/upload_images/1128757-e2d2d282fe09b5c3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p> <p>1.先在节点内部从小到大开始搜索元素</p> <p>2.如果命中，搜索结束</p> <p>3.如果未命中，再去对应的子节点中搜索元素，重复步骤1</p> <h3 id="添加"><a href="#添加" class="header-anchor">#</a> 添加</h3> <h4 id="添加叶子节点"><a href="#添加叶子节点" class="header-anchor">#</a> 添加叶子节点</h4> <p>新添加的元素必定是添加到叶子节点</p> <p><img src="https://upload-images.jianshu.io/upload_images/1128757-6e8bff4b024f8e8c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p> <p>1.插入55</p> <p><img src="https://upload-images.jianshu.io/upload_images/1128757-3a8c6bffb0267841.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p> <p>2.插入95</p> <p><img src="https://upload-images.jianshu.io/upload_images/1128757-b7d786ddf569cef6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p> <p>3.再插入 98 呢？（假设这是一棵 4阶B树）</p> <ul><li>最右下角的叶子节点的元素个数将超过限制</li> <li>这种现象可以称之为：上溢（overflow）</li></ul> <h4 id="上溢的解决-假设5阶"><a href="#上溢的解决-假设5阶" class="header-anchor">#</a> 上溢的解决(假设5阶)</h4> <p><img src="https://upload-images.jianshu.io/upload_images/1128757-64f1b09f7cbe6817.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p> <p>1.上溢节点的元素个数必然等于 m</p> <p>2.假设上溢节点最中间元素的位置为 k</p> <ul><li>将 k 位置的元素向上与父节点合并</li> <li>将 [0, k-1] 和 [k + 1, m - 1] 位置的元素分裂成 2 个子节点</li> <li>这 2 个子节点的元素个数，必然都不会低于最低限制（┌ m/2 ┐ − 1）</li></ul> <p><img src="https://upload-images.jianshu.io/upload_images/1128757-ba05ff85d7619bf5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p> <p>3.一次分裂完毕后，有可能导致父节点上溢，依然按照上述方法解决</p> <ul><li>最极端的情况，有可能一直分裂到根节点</li></ul> <p><img src="https://upload-images.jianshu.io/upload_images/1128757-6c5cd4b6a9345330.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p> <p><img src="https://upload-images.jianshu.io/upload_images/1128757-61d88946b36fc8b4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p> <h3 id="删除"><a href="#删除" class="header-anchor">#</a> 删除</h3> <h4 id="删除-叶子节点"><a href="#删除-叶子节点" class="header-anchor">#</a> 删除 – 叶子节点</h4> <p>假如需要删除的元素在叶子节点中，那么直接删除即可</p> <p><img src="https://upload-images.jianshu.io/upload_images/1128757-db88e06d94511189.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p> <p>删除 30</p> <p><img src="https://upload-images.jianshu.io/upload_images/1128757-a77d639210ae2ddc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p> <h4 id="删除-非叶子节点"><a href="#删除-非叶子节点" class="header-anchor">#</a> 删除 – 非叶子节点</h4> <p>1.假如需要删除的元素在非叶子节点中</p> <ul><li>先找到前驱或后继元素，覆盖所需删除元素的值</li> <li>再把前驱或后继元素删除</li></ul> <p>删除 60</p> <p><img src="https://upload-images.jianshu.io/upload_images/1128757-c349804122d1e393.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p> <p>2.非叶子节点的前驱或后继元素，必定在叶子节点中</p> <ul><li>所以这里的删除前驱或后继元素 ，就是最开始提到的情况：删除的元素在叶子节点中</li> <li>真正的删除元素都是发生在叶子节点中</li></ul> <h4 id="删除-下溢"><a href="#删除-下溢" class="header-anchor">#</a> 删除 – 下溢</h4> <p><img src="https://upload-images.jianshu.io/upload_images/1128757-64a74fa98b805ae5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p> <p>◼ 删除 22 ？（假设这是一棵 5阶B树）</p> <ul><li><p>叶子节点被删掉一个元素后，元素个数可能会低于最低限制（ ≥ ┌ m/2 ┐ − 1 ）</p></li> <li><p>这种现象称为：下溢（underflow）</p></li></ul> <p><strong>删除 – 下溢的解决</strong></p> <p>1.下溢节点的元素数量必然等于 ┌ m/2 ┐ − 2</p> <p>2.如果下溢节点临近的兄弟节点，有至少 ┌ m/2 ┐ 个元素，可以向其借一个元素</p> <ul><li>将父节点的元素 b 插入到下溢节点的 0 位置（最小位置）</li> <li>用兄弟节点的元素 a（最大的元素）替代父节点的元素 b</li> <li>这种操作其实就是：旋转</li></ul> <p><img src="https://upload-images.jianshu.io/upload_images/1128757-6074b3799c0ae23c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p> <p>3.如果下溢节点临近的兄弟节点，只有 ┌ m/2 ┐ − 1 个元素</p> <ul><li>将父节点的元素 b 挪下来跟左右子节点进行合并</li> <li>合并后的节点元素个数等于┌ m/2 ┐ + ┌ m/2 ┐ − 2，不超过 m − 1</li> <li>这个操作可能会导致父节点下溢，依然按照上述方法解决，下溢现象可能会一直往上传播</li></ul> <p><img src="https://upload-images.jianshu.io/upload_images/1128757-cb43077ff4b35456.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p> <p>删除 22 ？（假设这是一棵 5阶B树）</p> <p><img src="https://upload-images.jianshu.io/upload_images/1128757-e9b5d00474f0c645.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p> <p><img src="https://upload-images.jianshu.io/upload_images/1128757-ffde88b5e289bf67.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p> <h3 id="_4阶b树"><a href="#_4阶b树" class="header-anchor">#</a> 4阶B树</h3> <p>1.如果先学习4阶B树（2-3-4树），将能更好地学习理解红黑树</p> <p>2.4阶B树的性质</p> <ul><li>所有节点能存储的元素个数 x ：1 ≤ x ≤ 3</li> <li>所有非叶子节点的子节点个数 y ：2 ≤ y ≤ 4</li></ul> <p>3.添加</p> <ul><li>从 1 添加到 22</li></ul> <p>4.删除</p> <ul><li>从 1 删除到 22</li></ul> <p><img src="https://upload-images.jianshu.io/upload_images/1128757-91b2afbaa0fef898.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">9/26/2020, 8:44:05 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/zh/java/structures/AVL.html" class="prev">
+        平衡搜索树_AVL树
+      </a></span> <span class="next"><a href="/blog/zh/java/structures/red-black-tree.html">
+        红黑树（Red Black Tree）
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.b29a8dd7.js" defer></script><script src="/blog/assets/js/2.f6cef42b.js" defer></script><script src="/blog/assets/js/78.83828550.js" defer></script>
+  </body>
+</html>

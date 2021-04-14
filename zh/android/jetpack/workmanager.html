@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>WorkManager组件架构应用 | Android Nodes</title>
+    <meta name="generator" content="VuePress 1.5.4">
+    <link rel="icon" href="/blog/logo.png">
+    <link rel="manifest" href="/blog/manifest.json">
+    <link rel="apple-touch-icon" href="/blog/icons/apple-touch-icon-152x152.png">
+    <link rel="mask-icon" href="/blog/icons/safari-pinned-tab.svg" color="#3eaf7c">
+    <meta name="description" content="欲速则不达，起于累土">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    <link rel="preload" href="/blog/assets/css/0.styles.c59328e2.css" as="style"><link rel="preload" href="/blog/assets/js/app.b29a8dd7.js" as="script"><link rel="preload" href="/blog/assets/js/2.f6cef42b.js" as="script"><link rel="preload" href="/blog/assets/js/20.cd52446d.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.7a48b7c5.js"><link rel="prefetch" href="/blog/assets/js/11.eac2ba23.js"><link rel="prefetch" href="/blog/assets/js/12.0f90fab7.js"><link rel="prefetch" href="/blog/assets/js/13.bec57e62.js"><link rel="prefetch" href="/blog/assets/js/14.3ae2a79a.js"><link rel="prefetch" href="/blog/assets/js/15.a791971b.js"><link rel="prefetch" href="/blog/assets/js/16.e5da048d.js"><link rel="prefetch" href="/blog/assets/js/17.4908b8a7.js"><link rel="prefetch" href="/blog/assets/js/18.46af3ffd.js"><link rel="prefetch" href="/blog/assets/js/19.89281622.js"><link rel="prefetch" href="/blog/assets/js/21.82cce5e6.js"><link rel="prefetch" href="/blog/assets/js/22.80975ead.js"><link rel="prefetch" href="/blog/assets/js/23.96416586.js"><link rel="prefetch" href="/blog/assets/js/24.2c36cba8.js"><link rel="prefetch" href="/blog/assets/js/25.367808ef.js"><link rel="prefetch" href="/blog/assets/js/26.be8af843.js"><link rel="prefetch" href="/blog/assets/js/27.b222d373.js"><link rel="prefetch" href="/blog/assets/js/28.a12c5df9.js"><link rel="prefetch" href="/blog/assets/js/29.d5ff3c40.js"><link rel="prefetch" href="/blog/assets/js/3.6d59dab0.js"><link rel="prefetch" href="/blog/assets/js/30.cbbb74b5.js"><link rel="prefetch" href="/blog/assets/js/31.b75f6d67.js"><link rel="prefetch" href="/blog/assets/js/32.86d96ea4.js"><link rel="prefetch" href="/blog/assets/js/33.46446d62.js"><link rel="prefetch" href="/blog/assets/js/34.8408a108.js"><link rel="prefetch" href="/blog/assets/js/35.98c56f35.js"><link rel="prefetch" href="/blog/assets/js/36.bdaeac6f.js"><link rel="prefetch" href="/blog/assets/js/37.533f8161.js"><link rel="prefetch" href="/blog/assets/js/38.0200746e.js"><link rel="prefetch" href="/blog/assets/js/39.c88574ea.js"><link rel="prefetch" href="/blog/assets/js/4.1ea1eeff.js"><link rel="prefetch" href="/blog/assets/js/40.45749e2b.js"><link rel="prefetch" href="/blog/assets/js/41.f908dd77.js"><link rel="prefetch" href="/blog/assets/js/42.6a921fb9.js"><link rel="prefetch" href="/blog/assets/js/43.a545ead3.js"><link rel="prefetch" href="/blog/assets/js/44.599973fd.js"><link rel="prefetch" href="/blog/assets/js/45.4f5aa578.js"><link rel="prefetch" href="/blog/assets/js/46.bc77698b.js"><link rel="prefetch" href="/blog/assets/js/47.6fab262f.js"><link rel="prefetch" href="/blog/assets/js/48.06721492.js"><link rel="prefetch" href="/blog/assets/js/49.ddd2004c.js"><link rel="prefetch" href="/blog/assets/js/5.7d990afd.js"><link rel="prefetch" href="/blog/assets/js/50.68d30b00.js"><link rel="prefetch" href="/blog/assets/js/51.1e95b300.js"><link rel="prefetch" href="/blog/assets/js/52.7e58153e.js"><link rel="prefetch" href="/blog/assets/js/53.49c83746.js"><link rel="prefetch" href="/blog/assets/js/54.cafb7c5d.js"><link rel="prefetch" href="/blog/assets/js/55.e3a5298e.js"><link rel="prefetch" href="/blog/assets/js/56.16a6fa14.js"><link rel="prefetch" href="/blog/assets/js/57.a5849246.js"><link rel="prefetch" href="/blog/assets/js/58.21f63823.js"><link rel="prefetch" href="/blog/assets/js/59.1de0dd4e.js"><link rel="prefetch" href="/blog/assets/js/6.cec4111c.js"><link rel="prefetch" href="/blog/assets/js/60.d486fda7.js"><link rel="prefetch" href="/blog/assets/js/61.2df18a41.js"><link rel="prefetch" href="/blog/assets/js/62.f167b5ca.js"><link rel="prefetch" href="/blog/assets/js/63.1a1ddafe.js"><link rel="prefetch" href="/blog/assets/js/64.4ba3449a.js"><link rel="prefetch" href="/blog/assets/js/65.8005097c.js"><link rel="prefetch" href="/blog/assets/js/66.5d3693a7.js"><link rel="prefetch" href="/blog/assets/js/67.e9d7bf30.js"><link rel="prefetch" href="/blog/assets/js/68.1efe09bb.js"><link rel="prefetch" href="/blog/assets/js/69.50f5445d.js"><link rel="prefetch" href="/blog/assets/js/7.9d95edae.js"><link rel="prefetch" href="/blog/assets/js/70.02047906.js"><link rel="prefetch" href="/blog/assets/js/71.634bd610.js"><link rel="prefetch" href="/blog/assets/js/72.a00660d0.js"><link rel="prefetch" href="/blog/assets/js/73.cb4a91db.js"><link rel="prefetch" href="/blog/assets/js/74.3f83725a.js"><link rel="prefetch" href="/blog/assets/js/75.89822bf9.js"><link rel="prefetch" href="/blog/assets/js/76.9c29fa27.js"><link rel="prefetch" href="/blog/assets/js/77.0e21a0d0.js"><link rel="prefetch" href="/blog/assets/js/78.83828550.js"><link rel="prefetch" href="/blog/assets/js/79.038d118d.js"><link rel="prefetch" href="/blog/assets/js/8.b3b24cde.js"><link rel="prefetch" href="/blog/assets/js/80.4ed5e1a3.js"><link rel="prefetch" href="/blog/assets/js/81.d08345df.js"><link rel="prefetch" href="/blog/assets/js/82.b6dfa43b.js"><link rel="prefetch" href="/blog/assets/js/83.78d8aa89.js"><link rel="prefetch" href="/blog/assets/js/84.9ecbf7a5.js"><link rel="prefetch" href="/blog/assets/js/85.49225f21.js"><link rel="prefetch" href="/blog/assets/js/86.29868731.js"><link rel="prefetch" href="/blog/assets/js/87.f05ddddc.js"><link rel="prefetch" href="/blog/assets/js/88.9703366d.js"><link rel="prefetch" href="/blog/assets/js/89.0a340baa.js"><link rel="prefetch" href="/blog/assets/js/9.5eb0e890.js"><link rel="prefetch" href="/blog/assets/js/90.af7d5cb4.js"><link rel="prefetch" href="/blog/assets/js/91.e94154f4.js"><link rel="prefetch" href="/blog/assets/js/92.32326a59.js"><link rel="prefetch" href="/blog/assets/js/93.12ad3fb5.js"><link rel="prefetch" href="/blog/assets/js/94.045060fa.js"><link rel="prefetch" href="/blog/assets/js/95.5c510610.js"><link rel="prefetch" href="/blog/assets/js/96.5bcee9fd.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.c59328e2.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">Android Nodes</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/zh/guide/" class="nav-link">
+  备忘录
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Android" class="dropdown-title"><span class="title">Android</span> <span class="arrow down"></span></button> <button type="button" aria-label="Android" class="mobile-dropdown-title"><span class="title">Android</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/zh/android/basic/" class="nav-link">
+  基础
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/ui/" class="nav-link">
+  高级UI
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/architecture/" class="nav-link">
+  架构设计
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/performance/" class="nav-link">
+  性能优化
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/ndk/" class="nav-link">
+  NDK
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/framework/" class="nav-link">
+  开源框架
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/jetpack/" class="nav-link router-link-active">
+  Jetpack
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/kotlin/" class="nav-link">
+  Kotlin
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java" class="dropdown-title"><span class="title">Java</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java" class="mobile-dropdown-title"><span class="title">Java</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/zh/java/basic/" class="nav-link">
+  基础
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/structures/" class="nav-link">
+  数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/algorithms/" class="nav-link">
+  算法
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/exercise/" class="nav-link">
+  算法练习
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/zh/net/" class="nav-link">
+  API
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具" class="mobile-dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          代码管理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/api/cli.html" class="nav-link">
+  git
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/api/node.html" class="nav-link">
+  分支管理
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发规范
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/local-development.html" class="nav-link">
+  代码规范
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/design-concepts.html" class="nav-link">
+  团队协作
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/faq/" class="nav-link">
+  需求与工作分配
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/glossary.html" class="nav-link">
+  文档沉淀
+</a></li></ul></li><li class="dropdown-item"><h4>
+          软实力
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/migration-guide.html" class="nav-link">
+  必备技能
+</a></li><li class="dropdown-subitem"><a href="https://github.com/vuejs/vuepress/blob/master/CHANGELOG.md" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  团队管理
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/zh/guide/" class="nav-link">
+  备忘录
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Android" class="dropdown-title"><span class="title">Android</span> <span class="arrow down"></span></button> <button type="button" aria-label="Android" class="mobile-dropdown-title"><span class="title">Android</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/zh/android/basic/" class="nav-link">
+  基础
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/ui/" class="nav-link">
+  高级UI
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/architecture/" class="nav-link">
+  架构设计
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/performance/" class="nav-link">
+  性能优化
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/ndk/" class="nav-link">
+  NDK
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/framework/" class="nav-link">
+  开源框架
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/jetpack/" class="nav-link router-link-active">
+  Jetpack
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/kotlin/" class="nav-link">
+  Kotlin
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java" class="dropdown-title"><span class="title">Java</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java" class="mobile-dropdown-title"><span class="title">Java</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/zh/java/basic/" class="nav-link">
+  基础
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/structures/" class="nav-link">
+  数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/algorithms/" class="nav-link">
+  算法
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/exercise/" class="nav-link">
+  算法练习
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/zh/net/" class="nav-link">
+  API
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具" class="mobile-dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          代码管理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/api/cli.html" class="nav-link">
+  git
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/api/node.html" class="nav-link">
+  分支管理
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发规范
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/local-development.html" class="nav-link">
+  代码规范
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/design-concepts.html" class="nav-link">
+  团队协作
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/faq/" class="nav-link">
+  需求与工作分配
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/glossary.html" class="nav-link">
+  文档沉淀
+</a></li></ul></li><li class="dropdown-item"><h4>
+          软实力
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/migration-guide.html" class="nav-link">
+  必备技能
+</a></li><li class="dropdown-subitem"><a href="https://github.com/vuejs/vuepress/blob/master/CHANGELOG.md" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  团队管理
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Jetpack</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/zh/android/jetpack/" aria-current="page" class="sidebar-link">走进Jetpack框架组件库</a></li><li><a href="/blog/zh/android/jetpack/livecycle.html" class="sidebar-link">Livecycle</a></li><li><a href="/blog/zh/android/jetpack/livedata-1.html" class="sidebar-link">LiveData架构组件原理解析</a></li><li><a href="/blog/zh/android/jetpack/livedata-2.html" class="sidebar-link">LiveData实战与应用</a></li><li><a href="/blog/zh/android/jetpack/viewmodel.html" class="sidebar-link">ViewModel 组件架构原理解析</a></li><li><a href="/blog/zh/android/jetpack/savedstate.html" class="sidebar-link">SaveState组件架构原理解析</a></li><li><a href="/blog/zh/android/jetpack/room.html" class="sidebar-link">Room组件架构原理解析</a></li><li><a href="/blog/zh/android/jetpack/workmanager.html" aria-current="page" class="active sidebar-link">WorkManager组件架构应用</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/zh/android/jetpack/workmanager.html#前言" class="sidebar-link">前言</a></li><li class="sidebar-sub-header"><a href="/blog/zh/android/jetpack/workmanager.html#提纲" class="sidebar-link">提纲</a></li><li class="sidebar-sub-header"><a href="/blog/zh/android/jetpack/workmanager.html#什么是workmanager" class="sidebar-link">什么是WorkManager？</a></li><li class="sidebar-sub-header"><a href="/blog/zh/android/jetpack/workmanager.html#如何使用workmanager" class="sidebar-link">如何使用WorkManager？</a></li><li class="sidebar-sub-header"><a href="/blog/zh/android/jetpack/workmanager.html#workmanager与service" class="sidebar-link">WorkManager与Service</a></li><li class="sidebar-sub-header"><a href="/blog/zh/android/jetpack/workmanager.html#workmanager工作原理" class="sidebar-link">WorkManager工作原理</a></li><li class="sidebar-sub-header"><a href="/blog/zh/android/jetpack/workmanager.html#总结" class="sidebar-link">总结</a></li></ul></li><li><a href="/blog/zh/android/jetpack/databinding.html" class="sidebar-link">DataBinding组件架构应用</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="workmanager组件架构应用"><a href="#workmanager组件架构应用" class="header-anchor">#</a> WorkManager组件架构应用</h1> <h2 id="前言"><a href="#前言" class="header-anchor">#</a> 前言</h2> <p>前面的内容中我们已经介绍了很多Jetpack中的架构组件，可以说每一种组件的出现都是为了更好的解决现在存在的问题。同样的，WorkManager的出现也是为了解决某一问题，试想这样一个场景：在做开发的时候总避免不了做些后台任务，好比我们的业务埋点的上传，正常我们用定时器也可以实现，但是一旦用户退出了应用，我们的应用到了后台，一旦遇到系统内存吃紧的情况，应用进程就会被杀掉了，遇到这种情况我们的埋点就没法上传了。</p> <p>但是WorkManager的出现基本解决了这种问题，它可以<strong>在应用退出的时候依然执行一些异步任务。</strong></p> <p>用官方的话来讲就是：WorkManager旨在用于可<strong>延迟运行</strong>（即不需要立即运行）并且<strong>在应用退出或设备重启时必须能够可靠运行的任务。</strong></p> <h2 id="提纲"><a href="#提纲" class="header-anchor">#</a> 提纲</h2> <ul><li>什么是WorkManager</li> <li>如何使用WorkManager</li> <li>WorkManager与Service</li> <li>WorkManager工作原理</li></ul> <h2 id="什么是workmanager"><a href="#什么是workmanager" class="header-anchor">#</a> 什么是WorkManager？</h2> <p>WorkManager是新一代后台任务的管理者，可以以轻松简单的方式实现复杂的后台任务控制。大量应用程序都有在后台执行任务的需求。根据需求的不同，Android为后台任务提供了多种解决方案，如JobScheduler，Loader，Service等。如果这些API没用被适当地使用，可能会消耗大量的电量。Android在解决应用程序耗电问题上做了各种尝试，从Doze到App Standby，通过各种方式限制和管理应用程序，以保证应用程序不会在后台过量消耗设备电量。WorkManager的出现，则是为应用程序中那些不需要及时完成的任务，提供统一的解决方案，以便在设备电量和用户体验之间达到一个比较好的平衡。</p> <p><strong>WorkManager的优势</strong></p> <ul><li>Workmanager确保任务可以被执行，在条件满足的时候会<strong>即便应用程序不在运行中也可以执行任务</strong>；</li> <li>WorkManager拥有丰富的任务控制手段和任务状态反馈，它提供多种方式控制任务是否继续执行，任务运行的每种状态都会以观察者的形式反馈；</li> <li>多任务串联，例如执行任务A之前需要任务B和C先行完成，将会非常方便；</li> <li>向前兼容支持到Api14，但会<strong>受到系统后台任务的限制管理以节省电量</strong>，例如APP进行Doze Mode的时候，任务将不会被执行。</li></ul> <h2 id="如何使用workmanager"><a href="#如何使用workmanager" class="header-anchor">#</a> 如何使用WorkManager？</h2> <p>使用WorkManager之前同样要先添加依赖：</p> <div class="language-java extra-class"><pre class="language-java"><code>implementation <span class="token string">&quot;androidx.work:work-runtime:2.4.0&quot;</span>
+</code></pre></div><p>WorkManager的关键几个类介绍</p> <p>由于该组件设计到的类比较多，所以在使用Work之前我们先来看一下Work组件中的几个关键类：</p> <ul><li><strong>Worker：</strong> 任务的执行者，是一个抽象类，需要继承它实现要执行的任务；</li> <li><strong>WorkRequest：</strong> 每个任务在执行时都需要对构建一个WorkRequest对象，才能加入队列。有两个常用的子类OneTimeWorkRequest（任务只执行一遍）、PeriodicWorkRequest（任务周期性的执行）。</li> <li><strong>WorkManager：</strong> 管理任务请求和任务队列，发起的WorkRequest会进行它的任务队列；</li> <li><strong>WorkStatus：</strong> 包含有任务的状态和任务的信息，以LiveData的形式提供给观察者。</li></ul> <h3 id="执行文件上传的任务"><a href="#执行文件上传的任务" class="header-anchor">#</a> 执行文件上传的任务</h3> <p>文件上传的场景每个APP都会遇到，按照之间的写法，是非常麻烦的。但如果使用WorkManager将会非常轻松。</p> <p><strong>第一步，构建执行任务的类UploadFileWork</strong></p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UploadFileWorker</span> <span class="token keyword">extends</span> <span class="token class-name">Worker</span> <span class="token punctuation">{</span>
+    <span class="token comment">//需要让他继承自SDK提供的Worker父类</span>
+    <span class="token keyword">public</span> <span class="token class-name">UploadFileWorker</span><span class="token punctuation">(</span><span class="token annotation punctuation">@NonNull</span> <span class="token class-name">Context</span> context<span class="token punctuation">,</span> <span class="token annotation punctuation">@NonNull</span> <span class="token class-name">WorkerParameters</span> workerParams<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span>context<span class="token punctuation">,</span> workerParams<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@NonNull</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">Result</span> <span class="token function">doWork</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">//任务的执行是在这里完成的，注意这里已经是运行在子线程里面的了</span>
+        <span class="token comment">//getInputData方法可以获取 执行任务时传递的参数Data对象，本质是hashMap的进一步封装，但是Data类传递的参数不能超过10Kb,而且只支持基本数据类型和他们的数组。</span>
+        <span class="token class-name">Data</span> inputData <span class="token operator">=</span> <span class="token function">getInputData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//从入参中取出文件路径</span>
+        <span class="token class-name">String</span> filePath <span class="token operator">=</span> inputData<span class="token punctuation">.</span><span class="token function">getString</span><span class="token punctuation">(</span><span class="token string">&quot;file&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//执行文件上传，得到文件的Url</span>
+        <span class="token class-name">String</span> fileUrl <span class="token operator">=</span> <span class="token class-name">FileUploadManager</span><span class="token punctuation">.</span><span class="token function">upload</span><span class="token punctuation">(</span>filePath<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        
+        <span class="token comment">//任务执行完，无论是成功失败，都需要返回Result对象。</span>
+        <span class="token comment">//此时它可以接收一个Data对象。用来承载文件上传得到的url</span>
+        <span class="token class-name">Data</span> outputData <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Data</span><span class="token punctuation">.</span><span class="token class-name">Builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">putString</span><span class="token punctuation">(</span><span class="token string">&quot;fileUrl&quot;</span><span class="token punctuation">,</span> fileUrl<span class="token punctuation">)</span>
+                    <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token class-name">Result</span><span class="token punctuation">.</span><span class="token function">success</span><span class="token punctuation">(</span>outputData<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//Result.failure()</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><strong>第二步，构建WorkRequest，可以使用下面的这两个子类来构建不同的Request对象</strong></p> <ul><li>OneTimeWorkRequest类：用以构建一次性任务的Request；</li> <li>PeriodicWorkRequest类：用以构建周期性执行的任务Request，任务间隔最少是15分钟，所以保活就别想了。</li></ul> <p>在构建Request对象的时候，提供了非常多的可选参数，可参考下面每个参数的作用。其中Builder（UploadFileWorker.class）必须指定。</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">private</span> <span class="token class-name">OneTimeWorkRequest</span> <span class="token function">makeOneTimeWorkRequest</span><span class="token punctuation">(</span><span class="token class-name">String</span> filePath<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+         <span class="token comment">//构建任务的入参对象</span>
+        <span class="token class-name">Data</span> inputData <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Data</span><span class="token punctuation">.</span><span class="token class-name">Builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">putString</span><span class="token punctuation">(</span><span class="token string">&quot;file&quot;</span><span class="token punctuation">,</span> filePath<span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token comment">//在构建request对象的时候，提供了非常多的参数，可以参考下面每个参数的作用</span>
+<span class="token comment">//       Constraints constraints = new Constraints();</span>
+<span class="token comment">//        //设备存储空间充足的时候 才能执行 ,&gt;15%</span>
+<span class="token comment">//        constraints.setRequiresStorageNotLow(true);</span>
+<span class="token comment">//        //必须在执行的网络条件下才能好执行,不计流量 ,wifi</span>
+<span class="token comment">//        constraints.setRequiredNetworkType(NetworkType.UNMETERED);</span>
+<span class="token comment">//        //设备的充电量充足的才能执行 &gt;15%</span>
+<span class="token comment">//        constraints.setRequiresBatteryNotLow(true);</span>
+<span class="token comment">//        //只有设备在充电的情况下 才能允许执行</span>
+<span class="token comment">//        constraints.setRequiresCharging(true);</span>
+<span class="token comment">//        //只有设备在空闲的情况下才能被执行 比如息屏，cpu利用率不高</span>
+<span class="token comment">//        constraints.setRequiresDeviceIdle(true);</span>
+<span class="token comment">//        //workmanager利用contentObserver监控传递进来的这个uri对应的内容是否发生变化,当且仅当它发生变化了我们的任务才会被触发执行，</span>
+<span class="token comment">//        以下三个api是关联的</span>
+<span class="token comment">//        constraints.setContentUriTriggers(Uri.from('file'));</span>
+<span class="token comment">//        //设置从content变化到被执行中间的延迟时间，如果在这期间。content发生了变化，延迟时间会被重新计算</span>
+        <span class="token comment">//这个content就是指 我们设置的setContentUriTriggers uri对应的内容</span>
+<span class="token comment">//        constraints.setTriggerContentUpdateDelay(0);</span>
+<span class="token comment">//        //设置从content变化到被执行中间的最大延迟时间</span>
+        <span class="token comment">//这个content就是指 我们设置的setContentUriTriggers uri对应的内容</span>
+<span class="token comment">//        constraints.setTriggerMaxContentDelay(0);</span>
+      
+        <span class="token class-name">OneTimeWorkRequest</span> request <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">OneTimeWorkRequest</span>
+                 <span class="token comment">//执行任务的class对象</span>
+                <span class="token punctuation">.</span><span class="token class-name">Builder</span><span class="token punctuation">(</span><span class="token class-name">UploadFileWorker</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
+                <span class="token comment">//传递任务执行的入参</span>
+                <span class="token punctuation">.</span><span class="token function">setInputData</span><span class="token punctuation">(</span>inputData<span class="token punctuation">)</span>
+<span class="token comment">//                .setConstraints(constraints)</span>
+<span class="token comment">//                //设置一个拦截器，在任务执行之前 可以做一次拦截，去修改入参的数据然后返回新的数据交由worker使用</span>
+<span class="token comment">//                .setInputMerger(null)</span>
+<span class="token comment">//                //当一个任务被调度失败后，所要采取的重试策略，可以通过BackoffPolicy来执行具体的策略</span>
+<span class="token comment">//                .setBackoffCriteria(BackoffPolicy.EXPONENTIAL, 10, TimeUnit.SECONDS)</span>
+<span class="token comment">//                //任务被调度执行的延迟时间</span>
+<span class="token comment">//                .setInitialDelay(10, TimeUnit.SECONDS)</span>
+<span class="token comment">//                //设置该任务尝试执行的最大次数</span>
+<span class="token comment">//                .setInitialRunAttemptCount(2)</span>
+<span class="token comment">//                //设置这个任务开始执行的时间  System.currentTimeMillis()</span>
+<span class="token comment">//                .setPeriodStartTime(0, TimeUnit.SECONDS)</span>
+<span class="token comment">//                //当一个任务执行状态变成finish时，又没有后续的观察者来消费这个结果，难么workamnager会在</span>
+<span class="token comment">//                //内存中保留一段时间的该任务的结果。超过这个时间，这个结果就会被存储到数据库中</span>
+<span class="token comment">//                //下次想要查询该任务的结果时，会触发workmanager的数据库查询操作，可以通过uuid来查询任务的状态</span>
+<span class="token comment">//                .keepResultsForAtLeast(10, TimeUnit.SECONDS)</span>
+                <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> request<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</code></pre></div><p><strong>第三步，把任务加入工作队列</strong></p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token comment">//1.把任务加入队列，在合适的时机会被执行</span>
+<span class="token class-name">WorkManager</span><span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">enqueue</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span>
+
+<span class="token comment">//2.如果多个任务之间存在依赖关系，此时可以使用如下方式</span>
+<span class="token comment">//此时 是requestA 和 requestB都执行完才会去执行requestC,requestC执行完才会去执行requestD</span>
+<span class="token class-name">WorkContinuation</span> chain <span class="token operator">=</span> <span class="token class-name">WorkManager</span><span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span>application<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">beginWith</span><span class="token punctuation">(</span>requestA<span class="token punctuation">,</span>requestB<span class="token punctuation">)</span><span class="token punctuation">;</span>
+chain<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>requestC<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>requestD<span class="token punctuation">)</span>
+chain<span class="token punctuation">.</span><span class="token function">enqueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//3.再来个复杂点的  requestA-&gt;requestB--\</span>
+<span class="token comment">//                                   &gt;&gt;&gt; requestE.</span>
+<span class="token comment">//                requestC-&gt;requestD--/  </span>
+<span class="token comment">//这个场景是 A,C同时并发执行，A执行完执行B，C执行完执行D，BD同时执行完才执行E.</span>
+val chainAB <span class="token operator">=</span> <span class="token class-name">WorkManager</span><span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">beginWith</span><span class="token punctuation">(</span>requestA<span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>requestB<span class="token punctuation">)</span>
+val chainCD <span class="token operator">=</span> <span class="token class-name">WorkManager</span><span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">beginWith</span><span class="token punctuation">(</span>requestC<span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>requestD<span class="token punctuation">)</span>
+val chain <span class="token operator">=</span> <span class="token class-name">WorkContinuation</span>
+        <span class="token punctuation">.</span><span class="token function">combine</span><span class="token punctuation">(</span>chainAB<span class="token punctuation">,</span> chainCD<span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>requestE<span class="token punctuation">)</span>
+chain<span class="token punctuation">.</span><span class="token function">enqueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">//可以看到尽管任务链关系很复杂，但是workmanager可以轻易实现。</span>
+</code></pre></div><p>###　任务状态监听</p> <p>每个任务加入队列之后，都会有以下7种状态：</p> <ul><li>*BLOCKED：*任务阻塞中；</li> <li>*ENQUEUED：*队列等待中；</li> <li>*RUNNING：*任务执行中；</li> <li>*SUCCESSED：*任务执行成功；</li> <li>*CANCELED：*任务取消；</li> <li>*FAILED：*任务失败；</li> <li>*FINISHED：*任务结束。</li></ul> <p><img src="https://gitee.com/jarrysong/img/raw/master/img/5196125-1f5d2e7f28781369.png" alt=""></p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token comment">//根据UUID获取任务  并监听它的状态。uuid可以通过request.getId()得到。</span>
+<span class="token comment">//可以把该uuid存储本地，以至于在任意页面都可以查询任务的执行状态</span>
+ <span class="token class-name">WorkManager</span><span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getWorkInfoById</span><span class="token punctuation">(</span>uuid<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">observer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+ <span class="token comment">//根据任务的tag获取一组任务，并监听他们的状态</span>
+ <span class="token class-name">WorkManager</span><span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getWorkInfosByTag</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">observer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+ 
+<span class="token comment">//得到队列中所有的任务 并获取他们的状态</span>
+workContinuation<span class="token punctuation">.</span><span class="token function">getWorkInfosLiveData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">observe</span><span class="token punctuation">(</span><span class="token class-name">PublishActivity</span><span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Observer</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">List</span><span class="token punctuation">&lt;</span><span class="token class-name">WorkInfo</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onChanged</span><span class="token punctuation">(</span><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">WorkInfo</span><span class="token punctuation">&gt;</span></span> workInfos<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment">//任务的状态有六种分别是：</span>
+                <span class="token comment">//block runing enuqued failed susscess finish</span>
+                <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">WorkInfo</span> workInfo <span class="token operator">:</span> workInfos<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token class-name">WorkInfo</span><span class="token punctuation">.</span><span class="token class-name">State</span> state <span class="token operator">=</span> workInfo<span class="token punctuation">.</span><span class="token function">getState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token class-name">Data</span> outputData <span class="token operator">=</span> workInfo<span class="token punctuation">.</span><span class="token function">getOutputData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token class-name">UUID</span> uuid <span class="token operator">=</span> workInfo<span class="token punctuation">.</span><span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span>state <span class="token operator">==</span> <span class="token class-name">WorkInfo</span><span class="token punctuation">.</span><span class="token class-name">State</span><span class="token punctuation">.</span>FAILED<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        <span class="token comment">// if (uuid==coverUploadUUID)是错的，</span>
+                        <span class="token comment">//coverUploadUUID = request,getId()得到</span>
+                        <span class="token keyword">if</span> <span class="token punctuation">(</span>uuid<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>coverUploadUUID<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                           
+                        <span class="token punctuation">}</span>  <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>state <span class="token operator">==</span> <span class="token class-name">WorkInfo</span><span class="token punctuation">.</span><span class="token class-name">State</span><span class="token punctuation">.</span>SUCCEEDED<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                           
+                        <span class="token punctuation">}</span>
+                      
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="任务控制"><a href="#任务控制" class="header-anchor">#</a> 任务控制</h3> <ul><li><p>取消所有任务；</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token class-name">WorkManager</span><span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">cancelAllWork</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div></li> <li><p>根据任务的tag取消，如果多个任务拥有同一个tag，那么它们都会被取消；</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token class-name">WorkManager</span><span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">cancelAllWorkByTag</span><span class="token punctuation">(</span><span class="token string">&quot;tag&quot;</span><span class="token punctuation">)</span>
+</code></pre></div></li> <li><p>根据任务名称取消任务；</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token class-name">WorkManager</span><span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">cancelUniqueWork</span><span class="token punctuation">(</span><span class="token string">&quot;uploadfile&quot;</span><span class="token punctuation">)</span>
+</code></pre></div></li> <li><p>根据任务的UUID取消某个任务。</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token class-name">WorkManager</span><span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">cancelWorkById</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div></li></ul> <h2 id="workmanager与service"><a href="#workmanager与service" class="header-anchor">#</a> WorkManager与Service</h2> <p>WorkManager区别于异步任务，它更像是<strong>一个系统级的后台服务。</strong> 基本上，Workmanager能做的，Service也能做；但反观Service，泛滥的Service后台任务可能是引起Android系统卡顿的主要原因，这几年Google也对Service也做了一些限制：</p> <ul><li><strong>休眠模式：</strong> Android 6.0(API 23)在关闭手机屏幕后，系统会禁止应用的后台任务网络请求等功能；</li> <li><strong>后台启动：</strong> Android 8.0(API 26)在后台不允许启动Service，会抛异常。</li></ul> <p>而WorkManager作为一个更合理的后台任务管理库，我们可以将一些诸如埋点、日志上报等费劲及执行的后台任务转义到WorkManager来实现。</p> <h2 id="workmanager工作原理"><a href="#workmanager工作原理" class="header-anchor">#</a> WorkManager工作原理</h2> <p>我们使用WorkManager构建的这些任务，在<strong>加入任务队列之后都会被保存到数据库</strong>，所以哪怕程序退出了，这些任务也能够被执行。如果在<strong>调度任务时我们的APP在运行中，此时会选择线程池来执行</strong>，如果在调度任务时我们的APP没有运行，在<strong>5.0及以上版本会选择JobScheduler来调度，5.0以下会使用AlarmManager来调度任务。</strong> 任务执行的<strong>状态和结果都会被持久化到数据库。</strong> APP下次启动时，也可以去查询任务的执行结果。</p> <p><img src="https://gitee.com/jarrysong/img/raw/master/img/5196125-2804d083edd19a98.png" alt=""></p> <h2 id="总结"><a href="#总结" class="header-anchor">#</a> 总结</h2> <p>对于需要立刻执行的任务还是不能使用WorkManager来调度，因为WorkManager的任务调度会收到系统当前状态的影响。虽然官方说即便应用退出了，也能保障任务得到执行，这一点在模拟器和Pixel手机上是得到验证的。但是国内手机Rom版本众多，还需要亲自验证才能知道。</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">12/1/2020, 1:03:12 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/zh/android/jetpack/room.html" class="prev">
+        Room组件架构原理解析
+      </a></span> <span class="next"><a href="/blog/zh/android/jetpack/databinding.html">
+        DataBinding组件架构应用
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.b29a8dd7.js" defer></script><script src="/blog/assets/js/2.f6cef42b.js" defer></script><script src="/blog/assets/js/20.cd52446d.js" defer></script>
+  </body>
+</html>

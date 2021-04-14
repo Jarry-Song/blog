@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>并查集 | Android Nodes</title>
+    <meta name="generator" content="VuePress 1.5.4">
+    <link rel="icon" href="/blog/logo.png">
+    <link rel="manifest" href="/blog/manifest.json">
+    <link rel="apple-touch-icon" href="/blog/icons/apple-touch-icon-152x152.png">
+    <link rel="mask-icon" href="/blog/icons/safari-pinned-tab.svg" color="#3eaf7c">
+    <meta name="description" content="欲速则不达，起于累土">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    <link rel="preload" href="/blog/assets/css/0.styles.c59328e2.css" as="style"><link rel="preload" href="/blog/assets/js/app.b29a8dd7.js" as="script"><link rel="preload" href="/blog/assets/js/2.f6cef42b.js" as="script"><link rel="preload" href="/blog/assets/js/64.4ba3449a.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.7a48b7c5.js"><link rel="prefetch" href="/blog/assets/js/11.eac2ba23.js"><link rel="prefetch" href="/blog/assets/js/12.0f90fab7.js"><link rel="prefetch" href="/blog/assets/js/13.bec57e62.js"><link rel="prefetch" href="/blog/assets/js/14.3ae2a79a.js"><link rel="prefetch" href="/blog/assets/js/15.a791971b.js"><link rel="prefetch" href="/blog/assets/js/16.e5da048d.js"><link rel="prefetch" href="/blog/assets/js/17.4908b8a7.js"><link rel="prefetch" href="/blog/assets/js/18.46af3ffd.js"><link rel="prefetch" href="/blog/assets/js/19.89281622.js"><link rel="prefetch" href="/blog/assets/js/20.cd52446d.js"><link rel="prefetch" href="/blog/assets/js/21.82cce5e6.js"><link rel="prefetch" href="/blog/assets/js/22.80975ead.js"><link rel="prefetch" href="/blog/assets/js/23.96416586.js"><link rel="prefetch" href="/blog/assets/js/24.2c36cba8.js"><link rel="prefetch" href="/blog/assets/js/25.367808ef.js"><link rel="prefetch" href="/blog/assets/js/26.be8af843.js"><link rel="prefetch" href="/blog/assets/js/27.b222d373.js"><link rel="prefetch" href="/blog/assets/js/28.a12c5df9.js"><link rel="prefetch" href="/blog/assets/js/29.d5ff3c40.js"><link rel="prefetch" href="/blog/assets/js/3.6d59dab0.js"><link rel="prefetch" href="/blog/assets/js/30.cbbb74b5.js"><link rel="prefetch" href="/blog/assets/js/31.b75f6d67.js"><link rel="prefetch" href="/blog/assets/js/32.86d96ea4.js"><link rel="prefetch" href="/blog/assets/js/33.46446d62.js"><link rel="prefetch" href="/blog/assets/js/34.8408a108.js"><link rel="prefetch" href="/blog/assets/js/35.98c56f35.js"><link rel="prefetch" href="/blog/assets/js/36.bdaeac6f.js"><link rel="prefetch" href="/blog/assets/js/37.533f8161.js"><link rel="prefetch" href="/blog/assets/js/38.0200746e.js"><link rel="prefetch" href="/blog/assets/js/39.c88574ea.js"><link rel="prefetch" href="/blog/assets/js/4.1ea1eeff.js"><link rel="prefetch" href="/blog/assets/js/40.45749e2b.js"><link rel="prefetch" href="/blog/assets/js/41.f908dd77.js"><link rel="prefetch" href="/blog/assets/js/42.6a921fb9.js"><link rel="prefetch" href="/blog/assets/js/43.a545ead3.js"><link rel="prefetch" href="/blog/assets/js/44.599973fd.js"><link rel="prefetch" href="/blog/assets/js/45.4f5aa578.js"><link rel="prefetch" href="/blog/assets/js/46.bc77698b.js"><link rel="prefetch" href="/blog/assets/js/47.6fab262f.js"><link rel="prefetch" href="/blog/assets/js/48.06721492.js"><link rel="prefetch" href="/blog/assets/js/49.ddd2004c.js"><link rel="prefetch" href="/blog/assets/js/5.7d990afd.js"><link rel="prefetch" href="/blog/assets/js/50.68d30b00.js"><link rel="prefetch" href="/blog/assets/js/51.1e95b300.js"><link rel="prefetch" href="/blog/assets/js/52.7e58153e.js"><link rel="prefetch" href="/blog/assets/js/53.49c83746.js"><link rel="prefetch" href="/blog/assets/js/54.cafb7c5d.js"><link rel="prefetch" href="/blog/assets/js/55.e3a5298e.js"><link rel="prefetch" href="/blog/assets/js/56.16a6fa14.js"><link rel="prefetch" href="/blog/assets/js/57.a5849246.js"><link rel="prefetch" href="/blog/assets/js/58.21f63823.js"><link rel="prefetch" href="/blog/assets/js/59.1de0dd4e.js"><link rel="prefetch" href="/blog/assets/js/6.cec4111c.js"><link rel="prefetch" href="/blog/assets/js/60.d486fda7.js"><link rel="prefetch" href="/blog/assets/js/61.2df18a41.js"><link rel="prefetch" href="/blog/assets/js/62.f167b5ca.js"><link rel="prefetch" href="/blog/assets/js/63.1a1ddafe.js"><link rel="prefetch" href="/blog/assets/js/65.8005097c.js"><link rel="prefetch" href="/blog/assets/js/66.5d3693a7.js"><link rel="prefetch" href="/blog/assets/js/67.e9d7bf30.js"><link rel="prefetch" href="/blog/assets/js/68.1efe09bb.js"><link rel="prefetch" href="/blog/assets/js/69.50f5445d.js"><link rel="prefetch" href="/blog/assets/js/7.9d95edae.js"><link rel="prefetch" href="/blog/assets/js/70.02047906.js"><link rel="prefetch" href="/blog/assets/js/71.634bd610.js"><link rel="prefetch" href="/blog/assets/js/72.a00660d0.js"><link rel="prefetch" href="/blog/assets/js/73.cb4a91db.js"><link rel="prefetch" href="/blog/assets/js/74.3f83725a.js"><link rel="prefetch" href="/blog/assets/js/75.89822bf9.js"><link rel="prefetch" href="/blog/assets/js/76.9c29fa27.js"><link rel="prefetch" href="/blog/assets/js/77.0e21a0d0.js"><link rel="prefetch" href="/blog/assets/js/78.83828550.js"><link rel="prefetch" href="/blog/assets/js/79.038d118d.js"><link rel="prefetch" href="/blog/assets/js/8.b3b24cde.js"><link rel="prefetch" href="/blog/assets/js/80.4ed5e1a3.js"><link rel="prefetch" href="/blog/assets/js/81.d08345df.js"><link rel="prefetch" href="/blog/assets/js/82.b6dfa43b.js"><link rel="prefetch" href="/blog/assets/js/83.78d8aa89.js"><link rel="prefetch" href="/blog/assets/js/84.9ecbf7a5.js"><link rel="prefetch" href="/blog/assets/js/85.49225f21.js"><link rel="prefetch" href="/blog/assets/js/86.29868731.js"><link rel="prefetch" href="/blog/assets/js/87.f05ddddc.js"><link rel="prefetch" href="/blog/assets/js/88.9703366d.js"><link rel="prefetch" href="/blog/assets/js/89.0a340baa.js"><link rel="prefetch" href="/blog/assets/js/9.5eb0e890.js"><link rel="prefetch" href="/blog/assets/js/90.af7d5cb4.js"><link rel="prefetch" href="/blog/assets/js/91.e94154f4.js"><link rel="prefetch" href="/blog/assets/js/92.32326a59.js"><link rel="prefetch" href="/blog/assets/js/93.12ad3fb5.js"><link rel="prefetch" href="/blog/assets/js/94.045060fa.js"><link rel="prefetch" href="/blog/assets/js/95.5c510610.js"><link rel="prefetch" href="/blog/assets/js/96.5bcee9fd.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.c59328e2.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">Android Nodes</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/zh/guide/" class="nav-link">
+  备忘录
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Android" class="dropdown-title"><span class="title">Android</span> <span class="arrow down"></span></button> <button type="button" aria-label="Android" class="mobile-dropdown-title"><span class="title">Android</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/zh/android/basic/" class="nav-link">
+  基础
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/ui/" class="nav-link">
+  高级UI
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/architecture/" class="nav-link">
+  架构设计
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/performance/" class="nav-link">
+  性能优化
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/ndk/" class="nav-link">
+  NDK
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/framework/" class="nav-link">
+  开源框架
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/jetpack/" class="nav-link">
+  Jetpack
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/kotlin/" class="nav-link">
+  Kotlin
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java" class="dropdown-title"><span class="title">Java</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java" class="mobile-dropdown-title"><span class="title">Java</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/zh/java/basic/" class="nav-link">
+  基础
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/structures/" class="nav-link">
+  数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/algorithms/" class="nav-link router-link-active">
+  算法
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/exercise/" class="nav-link">
+  算法练习
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/zh/net/" class="nav-link">
+  API
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具" class="mobile-dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          代码管理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/api/cli.html" class="nav-link">
+  git
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/api/node.html" class="nav-link">
+  分支管理
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发规范
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/local-development.html" class="nav-link">
+  代码规范
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/design-concepts.html" class="nav-link">
+  团队协作
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/faq/" class="nav-link">
+  需求与工作分配
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/glossary.html" class="nav-link">
+  文档沉淀
+</a></li></ul></li><li class="dropdown-item"><h4>
+          软实力
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/migration-guide.html" class="nav-link">
+  必备技能
+</a></li><li class="dropdown-subitem"><a href="https://github.com/vuejs/vuepress/blob/master/CHANGELOG.md" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  团队管理
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/zh/guide/" class="nav-link">
+  备忘录
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Android" class="dropdown-title"><span class="title">Android</span> <span class="arrow down"></span></button> <button type="button" aria-label="Android" class="mobile-dropdown-title"><span class="title">Android</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/zh/android/basic/" class="nav-link">
+  基础
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/ui/" class="nav-link">
+  高级UI
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/architecture/" class="nav-link">
+  架构设计
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/performance/" class="nav-link">
+  性能优化
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/ndk/" class="nav-link">
+  NDK
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/framework/" class="nav-link">
+  开源框架
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/jetpack/" class="nav-link">
+  Jetpack
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/kotlin/" class="nav-link">
+  Kotlin
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java" class="dropdown-title"><span class="title">Java</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java" class="mobile-dropdown-title"><span class="title">Java</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/zh/java/basic/" class="nav-link">
+  基础
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/structures/" class="nav-link">
+  数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/algorithms/" class="nav-link router-link-active">
+  算法
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/exercise/" class="nav-link">
+  算法练习
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/zh/net/" class="nav-link">
+  API
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具" class="mobile-dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          代码管理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/api/cli.html" class="nav-link">
+  git
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/api/node.html" class="nav-link">
+  分支管理
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发规范
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/local-development.html" class="nav-link">
+  代码规范
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/design-concepts.html" class="nav-link">
+  团队协作
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/faq/" class="nav-link">
+  需求与工作分配
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/glossary.html" class="nav-link">
+  文档沉淀
+</a></li></ul></li><li class="dropdown-item"><h4>
+          软实力
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/migration-guide.html" class="nav-link">
+  必备技能
+</a></li><li class="dropdown-subitem"><a href="https://github.com/vuejs/vuepress/blob/master/CHANGELOG.md" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  团队管理
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Algorithms</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/zh/java/algorithms/" aria-current="page" class="sidebar-link">大纲</a></li><li><a href="/blog/zh/java/algorithms/sort.html" class="sidebar-link">排序</a></li><li><a href="/blog/zh/java/algorithms/union-find.html" aria-current="page" class="active sidebar-link">并查集</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/zh/java/algorithms/union-find.html#需求分析" class="sidebar-link">需求分析</a></li><li class="sidebar-sub-header"><a href="/blog/zh/java/algorithms/union-find.html#并查集-union-find" class="sidebar-link">并查集（Union Find）</a></li><li class="sidebar-sub-header"><a href="/blog/zh/java/algorithms/union-find.html#如何存储数据" class="sidebar-link">如何存储数据</a></li><li class="sidebar-sub-header"><a href="/blog/zh/java/algorithms/union-find.html#接口定义" class="sidebar-link">接口定义</a></li><li class="sidebar-sub-header"><a href="/blog/zh/java/algorithms/union-find.html#初始化" class="sidebar-link">初始化</a></li><li class="sidebar-sub-header"><a href="/blog/zh/java/algorithms/union-find.html#quick-find" class="sidebar-link">Quick Find</a></li><li class="sidebar-sub-header"><a href="/blog/zh/java/algorithms/union-find.html#quick-union" class="sidebar-link">Quick Union</a></li><li class="sidebar-sub-header"><a href="/blog/zh/java/algorithms/union-find.html#路径压缩-path-compression" class="sidebar-link">路径压缩（Path Compression）</a></li><li class="sidebar-sub-header"><a href="/blog/zh/java/algorithms/union-find.html#路径分裂-path-spliting" class="sidebar-link">路径分裂（Path Spliting）</a></li><li class="sidebar-sub-header"><a href="/blog/zh/java/algorithms/union-find.html#路径减半-path-halving" class="sidebar-link">路径减半（Path Halving）</a></li><li class="sidebar-sub-header"><a href="/blog/zh/java/algorithms/union-find.html#总结" class="sidebar-link">总结</a></li><li class="sidebar-sub-header"><a href="/blog/zh/java/algorithms/union-find.html#自定义类型" class="sidebar-link">自定义类型</a></li></ul></li><li><a href="/blog/zh/java/algorithms/graph.html" class="sidebar-link">图（Graph）</a></li><li><a href="/blog/zh/java/algorithms/recursion.html" class="sidebar-link">递归Recursion</a></li><li><a href="/blog/zh/java/algorithms/backtrack.html" class="sidebar-link">回溯</a></li><li><a href="/blog/zh/java/algorithms/greedy.html" class="sidebar-link">贪心（Greedy）</a></li><li><a href="/blog/zh/java/algorithms/divide-conquer.html" class="sidebar-link">分治</a></li><li><a href="/blog/zh/java/algorithms/coin-change.html" class="sidebar-link">动态规划（Dynamic Programming）</a></li><li><a href="/blog/zh/java/algorithms/bloom-filter.html" class="sidebar-link">布隆过滤器（Bloom Filter)</a></li><li><a href="/blog/zh/java/algorithms/skip-list.html" class="sidebar-link">跳表（Skip List）</a></li><li><a href="/blog/zh/java/algorithms/B-tree.html" class="sidebar-link">B+树</a></li><li><a href="/blog/zh/java/algorithms/sequence.html" class="sidebar-link">串（Sequence）</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="并查集"><a href="#并查集" class="header-anchor">#</a> 并查集</h1> <h2 id="需求分析"><a href="#需求分析" class="header-anchor">#</a> 需求分析</h2> <p>假设有n个村庄，有些村庄之间有连接的路，有些村庄之间并没有连接的路</p> <p><img src="https://gitee.com/jarrysong/img/raw/master/img/image-20200901130357544.png" alt="image-20200901130357544"></p> <p>设计一个数据结构，能够快速执行2个操作</p> <ul><li><p>查询2个村庄之间是否有连接的路</p></li> <li><p>连接2个村庄</p></li></ul> <p>数组、链表、平衡二叉树、集合（Set）？</p> <ul><li>查询、连接的时间复杂度都是：O(n)</li></ul> <p>并查集能够办到查询、连接的均摊时间复杂度都是 O(α(n))，α(n)&lt; 5</p> <p>并查集非常适合解决这类“连接”相关的问题</p> <h2 id="并查集-union-find"><a href="#并查集-union-find" class="header-anchor">#</a> 并查集（Union Find）</h2> <p>并查集也叫作不相交集合（Disjoint Set）</p> <p>并查集有2个核心操作</p> <ul><li><p>查找（Find）：查找元素所在的集合（这里的集合并不是特指Set这种数据结构，是指广义的数据集合）</p></li> <li><p>合并（Union）：将两个元素所在的集合合并为一个集合</p></li></ul> <h3 id="有2种常见的实现思路"><a href="#有2种常见的实现思路" class="header-anchor">#</a> 有2种常见的实现思路</h3> <p>Quick Find</p> <ul><li><p>✓查找（Find）的时间复杂度：O(1)</p></li> <li><p>✓合并（Union）的时间复杂度：O(n)</p></li></ul> <p><strong>Quick Union</strong></p> <ul><li><p>✓查找（Find）的时间复杂度：O(logn)，可以优化至 O 𝛼 𝑛 ，α(𝑛) &lt; 5</p></li> <li><p>✓合并（Union）的时间复杂度：O(logn)，可以优化至 O 𝛼 𝑛 ，α(𝑛) &lt;5</p></li></ul> <h2 id="如何存储数据"><a href="#如何存储数据" class="header-anchor">#</a> 如何存储数据</h2> <p>假设并查集处理的数据都是整型，那么可以用整型数组来存储数据</p> <p><img src="https://gitee.com/jarrysong/img/raw/master/img/image-20200901131219877.png" alt="image-20200901131219877"></p> <p>不难看出</p> <ul><li>0、1、3 属于同一集合</li> <li>2 单独属于一个集合</li> <li>4、5、6、7 属于同一集合</li></ul> <p>因此，并查集是可以用数组实现的树形结构（二叉堆、优先级队列也是可以用数组实现的树形结构）</p> <h2 id="接口定义"><a href="#接口定义" class="header-anchor">#</a> 接口定义</h2> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">UnionFind</span> <span class="token punctuation">{</span>
+	<span class="token keyword">protected</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> parents<span class="token punctuation">;</span>
+	
+	<span class="token keyword">public</span> <span class="token class-name">UnionFind</span><span class="token punctuation">(</span><span class="token keyword">int</span> capacity<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>capacity <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">IllegalArgumentException</span><span class="token punctuation">(</span><span class="token string">&quot;capacity must be &gt;= 1&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+		
+		parents <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span>capacity<span class="token punctuation">]</span><span class="token punctuation">;</span>
+		<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> parents<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			parents<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> i<span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+	
+	<span class="token comment">/**
+	 * 查找v所属的集合（根节点）
+	 * @param v
+	 * @return
+	 */</span>
+	<span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">int</span> <span class="token function">find</span><span class="token punctuation">(</span><span class="token keyword">int</span> v<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment">/**
+	 * 合并v1、v2所在的集合
+	 */</span>
+	<span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">void</span> <span class="token function">union</span><span class="token punctuation">(</span><span class="token keyword">int</span> v1<span class="token punctuation">,</span> <span class="token keyword">int</span> v2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	
+	<span class="token comment">/**
+	 * 检查v1、v2是否属于同一个集合
+	 */</span>
+	<span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isSame</span><span class="token punctuation">(</span><span class="token keyword">int</span> v1<span class="token punctuation">,</span> <span class="token keyword">int</span> v2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token function">find</span><span class="token punctuation">(</span>v1<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token function">find</span><span class="token punctuation">(</span>v2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	
+	<span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">rangeCheck</span><span class="token punctuation">(</span><span class="token keyword">int</span> v<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>v <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">||</span> v <span class="token operator">&gt;=</span> parents<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">IllegalArgumentException</span><span class="token punctuation">(</span><span class="token string">&quot;v is out of bounds&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="初始化"><a href="#初始化" class="header-anchor">#</a> 初始化</h2> <p>初始化时，每个元素各自属于一个单元素集</p> <p><img src="https://gitee.com/jarrysong/img/raw/master/img/image-20200901131538303.png" alt="image-20200901131538303"></p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token class-name">UnionFind</span><span class="token punctuation">(</span><span class="token keyword">int</span> capacity<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>capacity <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">IllegalArgumentException</span><span class="token punctuation">(</span><span class="token string">&quot;capacity must be &gt;= 1&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+		
+		parents <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span>capacity<span class="token punctuation">]</span><span class="token punctuation">;</span>
+		<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> parents<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			parents<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> i<span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+</code></pre></div><h2 id="quick-find"><a href="#quick-find" class="header-anchor">#</a> Quick Find</h2> <h3 id="union"><a href="#union" class="header-anchor">#</a> Union</h3> <p>Quick Find 的 union(v1, v2)：让 v1 所在集合的所有元素都指向 v2 的根节点</p> <p><img src="https://gitee.com/jarrysong/img/raw/master/img/image-20200901132244485.png" alt="image-20200901132244485"></p> <p><img src="https://gitee.com/jarrysong/img/raw/master/img/image-20200903085331033.png" alt="image-20200903085331033"></p> <p><img src="https://gitee.com/jarrysong/img/raw/master/img/image-20200901132327782.png" alt="image-20200901132327782"></p> <p><img src="https://gitee.com/jarrysong/img/raw/master/img/image-20200903085431948.png" alt="image-20200903085431948"></p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token comment">/**
+	 * 将v1所在集合的所有元素，都嫁接到v2的父节点上
+	 */</span>
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">union</span><span class="token punctuation">(</span><span class="token keyword">int</span> v1<span class="token punctuation">,</span> <span class="token keyword">int</span> v2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">int</span> p1 <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>v1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">int</span> p2 <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>v2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>p1 <span class="token operator">==</span> p2<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+		
+		<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> parents<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span>parents<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> p1<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+				parents<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> p2<span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+</code></pre></div><p>时间复杂度：O(n）</p> <h3 id="find"><a href="#find" class="header-anchor">#</a> Find</h3> <p><img src="https://gitee.com/jarrysong/img/raw/master/img/image-20200901132424292.png" alt="image-20200901132424292"></p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token comment">/*
+	 * 父节点就是根节点
+	 */</span>
+	<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">find</span><span class="token punctuation">(</span><span class="token keyword">int</span> v<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token function">rangeCheck</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">return</span> parents<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+</code></pre></div><p>find(0) == 2</p> <p>find(1) == 2</p> <p>find(3) == 4</p> <p>find(2) == 2</p> <p>时间复杂度：O(1）</p> <h3 id="完整代码"><a href="#完整代码" class="header-anchor">#</a> 完整代码</h3> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UnionFind_QF</span> <span class="token keyword">extends</span> <span class="token class-name">UnionFind</span> <span class="token punctuation">{</span>
+	<span class="token keyword">public</span> <span class="token class-name">UnionFind_QF</span><span class="token punctuation">(</span><span class="token keyword">int</span> capacity<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">super</span><span class="token punctuation">(</span>capacity<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token comment">/*
+	 * 父节点就是根节点
+	 */</span>
+	<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">find</span><span class="token punctuation">(</span><span class="token keyword">int</span> v<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token function">rangeCheck</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">return</span> parents<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token comment">/**
+	 * 将v1所在集合的所有元素，都嫁接到v2的父节点上
+	 */</span>
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">union</span><span class="token punctuation">(</span><span class="token keyword">int</span> v1<span class="token punctuation">,</span> <span class="token keyword">int</span> v2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">int</span> p1 <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>v1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">int</span> p2 <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>v2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>p1 <span class="token operator">==</span> p2<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+		
+		<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> parents<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span>parents<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> p1<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+				parents<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> p2<span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="quick-union"><a href="#quick-union" class="header-anchor">#</a> Quick Union</h2> <h3 id="union-2"><a href="#union-2" class="header-anchor">#</a> Union</h3> <p>Quick Union 的 union(v1, v2)：让 v1 的根节点指向 v2 的根节点</p> <p><img src="https://gitee.com/jarrysong/img/raw/master/img/image-20200903085558863.png" alt="image-20200903085558863"></p> <p><img src="https://gitee.com/jarrysong/img/raw/master/img/image-20200903085718826.png" alt="image-20200903085718826"></p> <div class="language-java extra-class"><pre class="language-java"><code>     <span class="token comment">/**
+	 * 将v1的根节点嫁接到v2的根节点上
+	 */</span>
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">union</span><span class="token punctuation">(</span><span class="token keyword">int</span> v1<span class="token punctuation">,</span> <span class="token keyword">int</span> v2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">int</span> p1 <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>v1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">int</span> p2 <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>v2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>p1 <span class="token operator">==</span> p2<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+		parents<span class="token punctuation">[</span>p1<span class="token punctuation">]</span> <span class="token operator">=</span> p2<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+</code></pre></div><p>时间复杂度：O(logn）</p> <h3 id="find-2"><a href="#find-2" class="header-anchor">#</a> Find</h3> <p><img src="https://gitee.com/jarrysong/img/raw/master/img/image-20200901220015857.png" alt="image-20200901220015857"></p> <div class="language-java extra-class"><pre class="language-java"><code>     <span class="token comment">/**
+	 * 通过parent链条不断地向上找，直到找到根节点
+	 */</span>
+	<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">find</span><span class="token punctuation">(</span><span class="token keyword">int</span> v<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token function">rangeCheck</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">while</span> <span class="token punctuation">(</span>v <span class="token operator">!=</span> parents<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			v <span class="token operator">=</span> parents<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+		<span class="token keyword">return</span> v<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+</code></pre></div><blockquote><p>find(0) == 2</p> <p>find(1) == 2</p> <p>find(3) == 2</p> <p>find(2) == 2</p></blockquote> <p>时间复杂度：O(logn）</p> <h3 id="完整代码-2"><a href="#完整代码-2" class="header-anchor">#</a> 完整代码</h3> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UnionFind_QU</span> <span class="token keyword">extends</span> <span class="token class-name">UnionFind</span> <span class="token punctuation">{</span>
+
+	<span class="token keyword">public</span> <span class="token class-name">UnionFind_QU</span><span class="token punctuation">(</span><span class="token keyword">int</span> capacity<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">super</span><span class="token punctuation">(</span>capacity<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token comment">/**
+	 * 通过parent链条不断地向上找，直到找到根节点
+	 */</span>
+	<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">find</span><span class="token punctuation">(</span><span class="token keyword">int</span> v<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token function">rangeCheck</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">while</span> <span class="token punctuation">(</span>v <span class="token operator">!=</span> parents<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			v <span class="token operator">=</span> parents<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+		<span class="token keyword">return</span> v<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token comment">/**
+	 * 将v1的根节点嫁接到v2的根节点上
+	 */</span>
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">union</span><span class="token punctuation">(</span><span class="token keyword">int</span> v1<span class="token punctuation">,</span> <span class="token keyword">int</span> v2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">int</span> p1 <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>v1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">int</span> p2 <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>v2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>p1 <span class="token operator">==</span> p2<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+		parents<span class="token punctuation">[</span>p1<span class="token punctuation">]</span> <span class="token operator">=</span> p2<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="quick-union-优化"><a href="#quick-union-优化" class="header-anchor">#</a> Quick Union – 优化</h3> <p>在Union的过程中，可能会出现树不平衡的情况，甚至退化成链表</p> <p><img src="https://gitee.com/jarrysong/img/raw/master/img/image-20200903080541503.png" alt="image-20200903080541503"></p> <p><strong>有2种常见的优化方案</strong></p> <ul><li><p>基于size的优化：元素少的树 嫁接到 元素多的树</p></li> <li><p>基于rank的优化：矮的树 嫁接到 高的树</p></li></ul> <h4 id="基于size的优化"><a href="#基于size的优化" class="header-anchor">#</a> 基于size的优化</h4> <p><img src="https://gitee.com/jarrysong/img/raw/master/img/image-20200903082113630.png" alt="image-20200903082113630"></p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UnionFind_QU_S</span> <span class="token keyword">extends</span> <span class="token class-name">UnionFind_QU</span> <span class="token punctuation">{</span>
+	<span class="token keyword">private</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> sizes<span class="token punctuation">;</span>
+
+	<span class="token keyword">public</span> <span class="token class-name">UnionFind_QU_S</span><span class="token punctuation">(</span><span class="token keyword">int</span> capacity<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">super</span><span class="token punctuation">(</span>capacity<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		
+		sizes <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span>capacity<span class="token punctuation">]</span><span class="token punctuation">;</span>
+		<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> sizes<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			sizes<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token comment">/**
+	 * 将v1的根节点嫁接到v2的根节点上
+	 */</span>
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">union</span><span class="token punctuation">(</span><span class="token keyword">int</span> v1<span class="token punctuation">,</span> <span class="token keyword">int</span> v2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">int</span> p1 <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>v1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">int</span> p2 <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>v2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>p1 <span class="token operator">==</span> p2<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+		
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>sizes<span class="token punctuation">[</span>p1<span class="token punctuation">]</span> <span class="token operator">&lt;</span> sizes<span class="token punctuation">[</span>p2<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			parents<span class="token punctuation">[</span>p1<span class="token punctuation">]</span> <span class="token operator">=</span> p2<span class="token punctuation">;</span>
+			sizes<span class="token punctuation">[</span>p2<span class="token punctuation">]</span> <span class="token operator">+=</span> sizes<span class="token punctuation">[</span>p1<span class="token punctuation">]</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+			parents<span class="token punctuation">[</span>p2<span class="token punctuation">]</span> <span class="token operator">=</span> p1<span class="token punctuation">;</span>
+			sizes<span class="token punctuation">[</span>p1<span class="token punctuation">]</span> <span class="token operator">+=</span> sizes<span class="token punctuation">[</span>p2<span class="token punctuation">]</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><p>基于size的优化，也可能会存在树不平衡的问题</p> <p><img src="https://gitee.com/jarrysong/img/raw/master/img/image-20200903085106071.png" alt="image-20200903085106071"></p> <h4 id="基于rank的优化"><a href="#基于rank的优化" class="header-anchor">#</a> 基于rank的优化</h4> <p><img src="https://gitee.com/jarrysong/img/raw/master/img/image-20200903082217042.png" alt="image-20200903082217042"></p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UnionFind_QU_R</span> <span class="token keyword">extends</span> <span class="token class-name">UnionFind_QU</span> <span class="token punctuation">{</span>
+	<span class="token keyword">private</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> ranks<span class="token punctuation">;</span>
+
+	<span class="token keyword">public</span> <span class="token class-name">UnionFind_QU_R</span><span class="token punctuation">(</span><span class="token keyword">int</span> capacity<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">super</span><span class="token punctuation">(</span>capacity<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+		ranks <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span>capacity<span class="token punctuation">]</span><span class="token punctuation">;</span>
+		<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> ranks<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			ranks<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+	
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">union</span><span class="token punctuation">(</span><span class="token keyword">int</span> v1<span class="token punctuation">,</span> <span class="token keyword">int</span> v2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">int</span> p1 <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>v1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">int</span> p2 <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>v2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>p1 <span class="token operator">==</span> p2<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+		
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>ranks<span class="token punctuation">[</span>p1<span class="token punctuation">]</span> <span class="token operator">&lt;</span> ranks<span class="token punctuation">[</span>p2<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			parents<span class="token punctuation">[</span>p1<span class="token punctuation">]</span> <span class="token operator">=</span> p2<span class="token punctuation">;</span>
+		<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>ranks<span class="token punctuation">[</span>p1<span class="token punctuation">]</span> <span class="token operator">&gt;</span> ranks<span class="token punctuation">[</span>p2<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			parents<span class="token punctuation">[</span>p2<span class="token punctuation">]</span> <span class="token operator">=</span> p1<span class="token punctuation">;</span>
+		<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+			parents<span class="token punctuation">[</span>p1<span class="token punctuation">]</span> <span class="token operator">=</span> p2<span class="token punctuation">;</span>
+			ranks<span class="token punctuation">[</span>p2<span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="路径压缩-path-compression"><a href="#路径压缩-path-compression" class="header-anchor">#</a> 路径压缩（Path Compression）</h2> <p>虽然有了基于rank的优化，树会相对平衡一点</p> <p>但是随着Union次数的增多，树的高度依然会越来越高</p> <ul><li>导致find操作变慢，尤其是底层节点（因为find是不断向上找到根节点）</li></ul> <p><img src="https://gitee.com/jarrysong/img/raw/master/img/image-20200903082751317.png" alt="image-20200903082751317"></p> <p><strong>什么是路径压缩？</strong></p> <ul><li>在find时使路径上的所有节点都指向根节点，从而降低树的高度</li></ul> <p><img src="https://gitee.com/jarrysong/img/raw/master/img/image-20200903082940519.png" alt="image-20200903082940519"></p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token comment">/**
+ * Quick Union - 基于rank的优化 - 路径压缩(Path Compression)
+ * @author MJ Lee
+ *
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UnionFind_QU_R_PC</span> <span class="token keyword">extends</span> <span class="token class-name">UnionFind_QU_R</span> <span class="token punctuation">{</span>
+
+	<span class="token keyword">public</span> <span class="token class-name">UnionFind_QU_R_PC</span><span class="token punctuation">(</span><span class="token keyword">int</span> capacity<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">super</span><span class="token punctuation">(</span>capacity<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	
+	<span class="token annotation punctuation">@Override</span>
+	<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">find</span><span class="token punctuation">(</span><span class="token keyword">int</span> v<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// v == 1, parents[v] == 2</span>
+		<span class="token function">rangeCheck</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>parents<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">!=</span> v<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			parents<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>parents<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+		<span class="token keyword">return</span> parents<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>路径压缩使路径上的所有节点都指向根节点，所以实现成本稍高</p> <p>还有2种更优的做法，不但能降低树高，实现成本也比路径压缩低</p> <ul><li>路径分裂（Path Spliting）</li> <li>路径减半（Path Halving）</li></ul> <p>路径分裂、路径减半的效率差不多，但都比路径压缩要好</p> <h2 id="路径分裂-path-spliting"><a href="#路径分裂-path-spliting" class="header-anchor">#</a> 路径分裂（Path Spliting）</h2> <p>路径分裂：使路径上的每个节点都指向其祖父节点（parent的parent）</p> <p><img src="https://gitee.com/jarrysong/img/raw/master/img/image-20200903083654120.png" alt="image-20200903083654120"></p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token comment">/**
+ * Quick Union - 基于rank的优化 - 路径分裂(Path Spliting)
+ * @author MJ Lee
+ *
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UnionFind_QU_R_PS</span> <span class="token keyword">extends</span> <span class="token class-name">UnionFind_QU_R</span> <span class="token punctuation">{</span>
+
+	<span class="token keyword">public</span> <span class="token class-name">UnionFind_QU_R_PS</span><span class="token punctuation">(</span><span class="token keyword">int</span> capacity<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">super</span><span class="token punctuation">(</span>capacity<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	
+	<span class="token annotation punctuation">@Override</span>
+	<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">find</span><span class="token punctuation">(</span><span class="token keyword">int</span> v<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+		<span class="token function">rangeCheck</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">while</span> <span class="token punctuation">(</span>v <span class="token operator">!=</span> parents<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">int</span> p <span class="token operator">=</span> parents<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">;</span>
+			parents<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">=</span> parents<span class="token punctuation">[</span>parents<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+			v <span class="token operator">=</span> p<span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+		<span class="token keyword">return</span> v<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="路径减半-path-halving"><a href="#路径减半-path-halving" class="header-anchor">#</a> 路径减半（Path Halving）</h2> <p>路径减半：使路径上每隔一个节点就指向其祖父节点（parent的parent)</p> <p><img src="https://gitee.com/jarrysong/img/raw/master/img/image-20200903084034023.png" alt="image-20200903084034023"></p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token comment">/**
+ * Quick Union - 基于rank的优化 - 路径减半(Path Halving)
+ * @author MJ Lee
+ *
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UnionFind_QU_R_PH</span> <span class="token keyword">extends</span> <span class="token class-name">UnionFind_QU_R</span> <span class="token punctuation">{</span>
+
+	<span class="token keyword">public</span> <span class="token class-name">UnionFind_QU_R_PH</span><span class="token punctuation">(</span><span class="token keyword">int</span> capacity<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">super</span><span class="token punctuation">(</span>capacity<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	
+	<span class="token annotation punctuation">@Override</span>
+	<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">find</span><span class="token punctuation">(</span><span class="token keyword">int</span> v<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+		<span class="token function">rangeCheck</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">while</span> <span class="token punctuation">(</span>v <span class="token operator">!=</span> parents<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			parents<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">=</span> parents<span class="token punctuation">[</span>parents<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+			v <span class="token operator">=</span> parents<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+		<span class="token keyword">return</span> v<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="总结"><a href="#总结" class="header-anchor">#</a> 总结</h2> <p>1.摘自《维基百科》： https://en.wikipedia.org/wiki/Disjoint-set_data_structure#Time_complexity</p> <p>2.大概意思是</p> <ul><li>使用路径压缩、分裂或减半 + 基于rank或者size的优化</li> <li>✓可以确保每个操作的均摊时间复杂度为 O 𝛼 𝑛 ，α(𝑛) &lt; 5</li></ul> <p>3.个人建议的搭配</p> <ul><li><p>✓Quick Union</p></li> <li><p>✓基于 rank 的优化</p></li> <li><p>✓Path Halving 或 Path Spliting</p></li></ul> <h2 id="自定义类型"><a href="#自定义类型" class="header-anchor">#</a> 自定义类型</h2> <p>之前的使用都是基于整型数据，如果其他自定义类型也想使用并查集呢？</p> <ul><li>方案一：通过一些方法将自定义类型转为整型后使用并查集（比如生成哈希值）</li> <li>方案二：使用链表+映射（Map)</li></ul> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">GenericUnionFind</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">V</span><span class="token punctuation">&gt;</span></span> <span class="token punctuation">{</span>
+	<span class="token keyword">private</span> <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">V</span><span class="token punctuation">,</span> <span class="token class-name">Node</span><span class="token punctuation">&lt;</span><span class="token class-name">V</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span> nodes <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">makeSet</span><span class="token punctuation">(</span><span class="token class-name">V</span> v<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>nodes<span class="token punctuation">.</span><span class="token function">containsKey</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+		nodes<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>v<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	
+	<span class="token comment">/**
+	 * 找出v的根节点
+	 */</span>
+	<span class="token keyword">private</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">V</span><span class="token punctuation">&gt;</span></span> <span class="token function">findNode</span><span class="token punctuation">(</span><span class="token class-name">V</span> v<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">V</span><span class="token punctuation">&gt;</span></span> node <span class="token operator">=</span> nodes<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>node <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+		<span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token class-name">Objects</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>value<span class="token punctuation">,</span> node<span class="token punctuation">.</span>parent<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			node<span class="token punctuation">.</span>parent <span class="token operator">=</span> node<span class="token punctuation">.</span>parent<span class="token punctuation">.</span>parent<span class="token punctuation">;</span>
+			node <span class="token operator">=</span> node<span class="token punctuation">.</span>parent<span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+		<span class="token keyword">return</span> node<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	
+	<span class="token keyword">public</span> <span class="token class-name">V</span> <span class="token function">find</span><span class="token punctuation">(</span><span class="token class-name">V</span> v<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">V</span><span class="token punctuation">&gt;</span></span> node <span class="token operator">=</span> <span class="token function">findNode</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">return</span> node <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">?</span> <span class="token keyword">null</span> <span class="token operator">:</span> node<span class="token punctuation">.</span>value<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">union</span><span class="token punctuation">(</span><span class="token class-name">V</span> v1<span class="token punctuation">,</span> <span class="token class-name">V</span> v2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">V</span><span class="token punctuation">&gt;</span></span> p1 <span class="token operator">=</span> <span class="token function">findNode</span><span class="token punctuation">(</span>v1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">V</span><span class="token punctuation">&gt;</span></span> p2 <span class="token operator">=</span> <span class="token function">findNode</span><span class="token punctuation">(</span>v2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>p1 <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">||</span> p2 <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token class-name">Objects</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>p1<span class="token punctuation">.</span>value<span class="token punctuation">,</span> p2<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+		
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>p1<span class="token punctuation">.</span>rank <span class="token operator">&lt;</span> p2<span class="token punctuation">.</span>rank<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			p1<span class="token punctuation">.</span>parent <span class="token operator">=</span> p2<span class="token punctuation">;</span>
+		<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>p1<span class="token punctuation">.</span>rank <span class="token operator">&gt;</span> p2<span class="token punctuation">.</span>rank<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			p2<span class="token punctuation">.</span>parent <span class="token operator">=</span> p1<span class="token punctuation">;</span>
+		<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+			p1<span class="token punctuation">.</span>parent <span class="token operator">=</span> p2<span class="token punctuation">;</span>
+			p2<span class="token punctuation">.</span>rank <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+	
+	<span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isSame</span><span class="token punctuation">(</span><span class="token class-name">V</span> v1<span class="token punctuation">,</span> <span class="token class-name">V</span> v2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token class-name">Objects</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token function">find</span><span class="token punctuation">(</span>v1<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">find</span><span class="token punctuation">(</span>v2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	
+	<span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">V</span><span class="token punctuation">&gt;</span></span> <span class="token punctuation">{</span>
+		<span class="token class-name">V</span> value<span class="token punctuation">;</span>
+		<span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">V</span><span class="token punctuation">&gt;</span></span> parent <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+		<span class="token keyword">int</span> rank <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+		<span class="token class-name">Node</span><span class="token punctuation">(</span><span class="token class-name">V</span> value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">this</span><span class="token punctuation">.</span>value <span class="token operator">=</span> value<span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">9/15/2020, 1:04:17 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/zh/java/algorithms/sort.html" class="prev">
+        排序
+      </a></span> <span class="next"><a href="/blog/zh/java/algorithms/graph.html">
+        图（Graph）
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.b29a8dd7.js" defer></script><script src="/blog/assets/js/2.f6cef42b.js" defer></script><script src="/blog/assets/js/64.4ba3449a.js" defer></script>
+  </body>
+</html>

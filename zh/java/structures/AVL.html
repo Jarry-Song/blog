@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>平衡搜索树_AVL树 | Android Nodes</title>
+    <meta name="generator" content="VuePress 1.5.4">
+    <link rel="icon" href="/blog/logo.png">
+    <link rel="manifest" href="/blog/manifest.json">
+    <link rel="apple-touch-icon" href="/blog/icons/apple-touch-icon-152x152.png">
+    <link rel="mask-icon" href="/blog/icons/safari-pinned-tab.svg" color="#3eaf7c">
+    <meta name="description" content="欲速则不达，起于累土">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    <link rel="preload" href="/blog/assets/css/0.styles.c59328e2.css" as="style"><link rel="preload" href="/blog/assets/js/app.b29a8dd7.js" as="script"><link rel="preload" href="/blog/assets/js/2.f6cef42b.js" as="script"><link rel="preload" href="/blog/assets/js/77.0e21a0d0.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.7a48b7c5.js"><link rel="prefetch" href="/blog/assets/js/11.eac2ba23.js"><link rel="prefetch" href="/blog/assets/js/12.0f90fab7.js"><link rel="prefetch" href="/blog/assets/js/13.bec57e62.js"><link rel="prefetch" href="/blog/assets/js/14.3ae2a79a.js"><link rel="prefetch" href="/blog/assets/js/15.a791971b.js"><link rel="prefetch" href="/blog/assets/js/16.e5da048d.js"><link rel="prefetch" href="/blog/assets/js/17.4908b8a7.js"><link rel="prefetch" href="/blog/assets/js/18.46af3ffd.js"><link rel="prefetch" href="/blog/assets/js/19.89281622.js"><link rel="prefetch" href="/blog/assets/js/20.cd52446d.js"><link rel="prefetch" href="/blog/assets/js/21.82cce5e6.js"><link rel="prefetch" href="/blog/assets/js/22.80975ead.js"><link rel="prefetch" href="/blog/assets/js/23.96416586.js"><link rel="prefetch" href="/blog/assets/js/24.2c36cba8.js"><link rel="prefetch" href="/blog/assets/js/25.367808ef.js"><link rel="prefetch" href="/blog/assets/js/26.be8af843.js"><link rel="prefetch" href="/blog/assets/js/27.b222d373.js"><link rel="prefetch" href="/blog/assets/js/28.a12c5df9.js"><link rel="prefetch" href="/blog/assets/js/29.d5ff3c40.js"><link rel="prefetch" href="/blog/assets/js/3.6d59dab0.js"><link rel="prefetch" href="/blog/assets/js/30.cbbb74b5.js"><link rel="prefetch" href="/blog/assets/js/31.b75f6d67.js"><link rel="prefetch" href="/blog/assets/js/32.86d96ea4.js"><link rel="prefetch" href="/blog/assets/js/33.46446d62.js"><link rel="prefetch" href="/blog/assets/js/34.8408a108.js"><link rel="prefetch" href="/blog/assets/js/35.98c56f35.js"><link rel="prefetch" href="/blog/assets/js/36.bdaeac6f.js"><link rel="prefetch" href="/blog/assets/js/37.533f8161.js"><link rel="prefetch" href="/blog/assets/js/38.0200746e.js"><link rel="prefetch" href="/blog/assets/js/39.c88574ea.js"><link rel="prefetch" href="/blog/assets/js/4.1ea1eeff.js"><link rel="prefetch" href="/blog/assets/js/40.45749e2b.js"><link rel="prefetch" href="/blog/assets/js/41.f908dd77.js"><link rel="prefetch" href="/blog/assets/js/42.6a921fb9.js"><link rel="prefetch" href="/blog/assets/js/43.a545ead3.js"><link rel="prefetch" href="/blog/assets/js/44.599973fd.js"><link rel="prefetch" href="/blog/assets/js/45.4f5aa578.js"><link rel="prefetch" href="/blog/assets/js/46.bc77698b.js"><link rel="prefetch" href="/blog/assets/js/47.6fab262f.js"><link rel="prefetch" href="/blog/assets/js/48.06721492.js"><link rel="prefetch" href="/blog/assets/js/49.ddd2004c.js"><link rel="prefetch" href="/blog/assets/js/5.7d990afd.js"><link rel="prefetch" href="/blog/assets/js/50.68d30b00.js"><link rel="prefetch" href="/blog/assets/js/51.1e95b300.js"><link rel="prefetch" href="/blog/assets/js/52.7e58153e.js"><link rel="prefetch" href="/blog/assets/js/53.49c83746.js"><link rel="prefetch" href="/blog/assets/js/54.cafb7c5d.js"><link rel="prefetch" href="/blog/assets/js/55.e3a5298e.js"><link rel="prefetch" href="/blog/assets/js/56.16a6fa14.js"><link rel="prefetch" href="/blog/assets/js/57.a5849246.js"><link rel="prefetch" href="/blog/assets/js/58.21f63823.js"><link rel="prefetch" href="/blog/assets/js/59.1de0dd4e.js"><link rel="prefetch" href="/blog/assets/js/6.cec4111c.js"><link rel="prefetch" href="/blog/assets/js/60.d486fda7.js"><link rel="prefetch" href="/blog/assets/js/61.2df18a41.js"><link rel="prefetch" href="/blog/assets/js/62.f167b5ca.js"><link rel="prefetch" href="/blog/assets/js/63.1a1ddafe.js"><link rel="prefetch" href="/blog/assets/js/64.4ba3449a.js"><link rel="prefetch" href="/blog/assets/js/65.8005097c.js"><link rel="prefetch" href="/blog/assets/js/66.5d3693a7.js"><link rel="prefetch" href="/blog/assets/js/67.e9d7bf30.js"><link rel="prefetch" href="/blog/assets/js/68.1efe09bb.js"><link rel="prefetch" href="/blog/assets/js/69.50f5445d.js"><link rel="prefetch" href="/blog/assets/js/7.9d95edae.js"><link rel="prefetch" href="/blog/assets/js/70.02047906.js"><link rel="prefetch" href="/blog/assets/js/71.634bd610.js"><link rel="prefetch" href="/blog/assets/js/72.a00660d0.js"><link rel="prefetch" href="/blog/assets/js/73.cb4a91db.js"><link rel="prefetch" href="/blog/assets/js/74.3f83725a.js"><link rel="prefetch" href="/blog/assets/js/75.89822bf9.js"><link rel="prefetch" href="/blog/assets/js/76.9c29fa27.js"><link rel="prefetch" href="/blog/assets/js/78.83828550.js"><link rel="prefetch" href="/blog/assets/js/79.038d118d.js"><link rel="prefetch" href="/blog/assets/js/8.b3b24cde.js"><link rel="prefetch" href="/blog/assets/js/80.4ed5e1a3.js"><link rel="prefetch" href="/blog/assets/js/81.d08345df.js"><link rel="prefetch" href="/blog/assets/js/82.b6dfa43b.js"><link rel="prefetch" href="/blog/assets/js/83.78d8aa89.js"><link rel="prefetch" href="/blog/assets/js/84.9ecbf7a5.js"><link rel="prefetch" href="/blog/assets/js/85.49225f21.js"><link rel="prefetch" href="/blog/assets/js/86.29868731.js"><link rel="prefetch" href="/blog/assets/js/87.f05ddddc.js"><link rel="prefetch" href="/blog/assets/js/88.9703366d.js"><link rel="prefetch" href="/blog/assets/js/89.0a340baa.js"><link rel="prefetch" href="/blog/assets/js/9.5eb0e890.js"><link rel="prefetch" href="/blog/assets/js/90.af7d5cb4.js"><link rel="prefetch" href="/blog/assets/js/91.e94154f4.js"><link rel="prefetch" href="/blog/assets/js/92.32326a59.js"><link rel="prefetch" href="/blog/assets/js/93.12ad3fb5.js"><link rel="prefetch" href="/blog/assets/js/94.045060fa.js"><link rel="prefetch" href="/blog/assets/js/95.5c510610.js"><link rel="prefetch" href="/blog/assets/js/96.5bcee9fd.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.c59328e2.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">Android Nodes</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/zh/guide/" class="nav-link">
+  备忘录
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Android" class="dropdown-title"><span class="title">Android</span> <span class="arrow down"></span></button> <button type="button" aria-label="Android" class="mobile-dropdown-title"><span class="title">Android</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/zh/android/basic/" class="nav-link">
+  基础
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/ui/" class="nav-link">
+  高级UI
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/architecture/" class="nav-link">
+  架构设计
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/performance/" class="nav-link">
+  性能优化
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/ndk/" class="nav-link">
+  NDK
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/framework/" class="nav-link">
+  开源框架
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/jetpack/" class="nav-link">
+  Jetpack
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/kotlin/" class="nav-link">
+  Kotlin
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java" class="dropdown-title"><span class="title">Java</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java" class="mobile-dropdown-title"><span class="title">Java</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/zh/java/basic/" class="nav-link">
+  基础
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/structures/" class="nav-link router-link-active">
+  数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/algorithms/" class="nav-link">
+  算法
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/exercise/" class="nav-link">
+  算法练习
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/zh/net/" class="nav-link">
+  API
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具" class="mobile-dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          代码管理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/api/cli.html" class="nav-link">
+  git
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/api/node.html" class="nav-link">
+  分支管理
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发规范
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/local-development.html" class="nav-link">
+  代码规范
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/design-concepts.html" class="nav-link">
+  团队协作
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/faq/" class="nav-link">
+  需求与工作分配
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/glossary.html" class="nav-link">
+  文档沉淀
+</a></li></ul></li><li class="dropdown-item"><h4>
+          软实力
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/migration-guide.html" class="nav-link">
+  必备技能
+</a></li><li class="dropdown-subitem"><a href="https://github.com/vuejs/vuepress/blob/master/CHANGELOG.md" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  团队管理
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/zh/guide/" class="nav-link">
+  备忘录
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Android" class="dropdown-title"><span class="title">Android</span> <span class="arrow down"></span></button> <button type="button" aria-label="Android" class="mobile-dropdown-title"><span class="title">Android</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/zh/android/basic/" class="nav-link">
+  基础
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/ui/" class="nav-link">
+  高级UI
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/architecture/" class="nav-link">
+  架构设计
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/performance/" class="nav-link">
+  性能优化
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/ndk/" class="nav-link">
+  NDK
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/framework/" class="nav-link">
+  开源框架
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/jetpack/" class="nav-link">
+  Jetpack
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/kotlin/" class="nav-link">
+  Kotlin
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java" class="dropdown-title"><span class="title">Java</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java" class="mobile-dropdown-title"><span class="title">Java</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/zh/java/basic/" class="nav-link">
+  基础
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/structures/" class="nav-link router-link-active">
+  数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/algorithms/" class="nav-link">
+  算法
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/exercise/" class="nav-link">
+  算法练习
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/zh/net/" class="nav-link">
+  API
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具" class="mobile-dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          代码管理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/api/cli.html" class="nav-link">
+  git
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/api/node.html" class="nav-link">
+  分支管理
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发规范
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/local-development.html" class="nav-link">
+  代码规范
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/design-concepts.html" class="nav-link">
+  团队协作
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/faq/" class="nav-link">
+  需求与工作分配
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/glossary.html" class="nav-link">
+  文档沉淀
+</a></li></ul></li><li class="dropdown-item"><h4>
+          软实力
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/migration-guide.html" class="nav-link">
+  必备技能
+</a></li><li class="dropdown-subitem"><a href="https://github.com/vuejs/vuepress/blob/master/CHANGELOG.md" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  团队管理
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Structures</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/zh/java/structures/" aria-current="page" class="sidebar-link">大纲</a></li><li><a href="/blog/zh/java/structures/complexity.html" class="sidebar-link">复杂度</a></li><li><a href="/blog/zh/java/structures/array.html" class="sidebar-link">动态数组</a></li><li><a href="/blog/zh/java/structures/linked-list.html" class="sidebar-link">链表</a></li><li><a href="/blog/zh/java/structures/stack.html" class="sidebar-link">栈</a></li><li><a href="/blog/zh/java/structures/queue.html" class="sidebar-link">队列</a></li><li><a href="/blog/zh/java/structures/binary-tree.html" class="sidebar-link">二叉树</a></li><li><a href="/blog/zh/java/structures/binary-serch-tree.html" class="sidebar-link">二叉搜索树</a></li><li><a href="/blog/zh/java/structures/AVL.html" aria-current="page" class="active sidebar-link">平衡搜索树_AVL树</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/zh/java/structures/AVL.html#平衡二叉树" class="sidebar-link">平衡二叉树</a></li><li class="sidebar-sub-header"><a href="/blog/zh/java/structures/AVL.html#avl树" class="sidebar-link">AVL树</a></li></ul></li><li><a href="/blog/zh/java/structures/B-tree.html" class="sidebar-link">B树</a></li><li><a href="/blog/zh/java/structures/red-black-tree.html" class="sidebar-link">红黑树（Red Black Tree）</a></li><li><a href="/blog/zh/java/structures/set.html" class="sidebar-link">集合</a></li><li><a href="/blog/zh/java/structures/map.html" class="sidebar-link">映射</a></li><li><a href="/blog/zh/java/structures/hashmap.html" class="sidebar-link">哈希表</a></li><li><a href="/blog/zh/java/structures/heap.html" class="sidebar-link">二插堆</a></li><li><a href="/blog/zh/java/structures/priority-queue.html" class="sidebar-link">优先级队列</a></li><li><a href="/blog/zh/java/structures/huffman.html" class="sidebar-link">哈夫曼树</a></li><li><a href="/blog/zh/java/structures/tire.html" class="sidebar-link">tire</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="平衡搜索树-avl树"><a href="#平衡搜索树-avl树" class="header-anchor">#</a> 平衡搜索树_AVL树</h1> <h2 id="平衡二叉树"><a href="#平衡二叉树" class="header-anchor">#</a> 平衡二叉树</h2> <h4 id="二叉搜索树的复杂度分析"><a href="#二叉搜索树的复杂度分析" class="header-anchor">#</a> 二叉搜索树的复杂度分析</h4> <p>如果是按照 7、4、9、2、5、8、11 的顺序添加节点：
+<img src="https://upload-images.jianshu.io/upload_images/1128757-a3b9c276aa2d6726.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p> <p>如果是从小到大添加节点：
+<img src="https://upload-images.jianshu.io/upload_images/1128757-e401d1c11f6e853c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p> <p>◼ 当 n 比较大时，两者的性能差异比较大</p> <p>◼ 比如 n = 1000000 时，二叉搜索树的最低高度是 20</p> <h4 id="退化成链表的另一种情况"><a href="#退化成链表的另一种情况" class="header-anchor">#</a> 退化成链表的另一种情况</h4> <p>删除节点时也可能会导致二叉搜索树退化成链表</p> <p>添加、删除节点时，都可能会导致二叉搜索树退化成链表</p> <p>有没有办法防止二叉搜索树退化成链表？ 让添加、删除、搜索的复杂度维持在 O(logn)</p> <h4 id="平衡-balance"><a href="#平衡-balance" class="header-anchor">#</a> 平衡（Balance）</h4> <ul><li>平衡：当节点数量固定时，左右子树的高度越接近，这棵二叉树就越平衡（高度越低)
+<img src="https://upload-images.jianshu.io/upload_images/1128757-5416fc74613ae987.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li></ul> <p><strong>理想平衡</strong></p> <ul><li>最理想的平衡，就是像完全二叉树、满二叉树那样，高度是最小的</li></ul> <p><img src="https://upload-images.jianshu.io/upload_images/1128757-b32ec3e4d661c60a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p> <h4 id="如何改进二叉搜索树"><a href="#如何改进二叉搜索树" class="header-anchor">#</a> 如何改进二叉搜索树？</h4> <ul><li>首先，节点的添加、删除顺序是无法限制的，可以认为是随机的</li> <li>所以，改进方案是：在节点的添加、删除操作之后，想办法让二叉搜索树恢复平衡（减小树的高度）
+<img src="https://upload-images.jianshu.io/upload_images/1128757-3658357d27bb5580.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li> <li>如果接着继续调整节点的位置，完全可以达到理想平衡，但是付出的代价可能会比较大
+<ul><li>比如调整的次数会比较多，反而增加了时间复杂度</li></ul></li> <li>总结来说，比较合理的改进方案是：用尽量少的调整次数达到适度平衡即可</li> <li>一棵达到适度平衡的二叉搜索树，可以称之为：平衡二叉搜索树</li></ul> <h4 id="平衡二叉搜索树-balanced-binary-search-tree"><a href="#平衡二叉搜索树-balanced-binary-search-tree" class="header-anchor">#</a> 平衡二叉搜索树（Balanced Binary Search Tree）</h4> <p>英文简称为：BBST
+经典常见的平衡二叉搜索树有</p> <ul><li>AVL树
+<ul><li>✓Windows NT 内核中广泛使用</li></ul></li> <li>红黑树 ✓C++ STL（比如 map、set ）
+<ul><li>✓Java 的 TreeMap、TreeSet、HashMap、HashSet</li> <li>✓Linux 的进程调度</li> <li>✓Ngix 的 timer 管理</li></ul></li> <li>一般也称它们为：自平衡的二叉搜索树（Self-balancing Binary Search Tree）</li></ul> <h2 id="avl树"><a href="#avl树" class="header-anchor">#</a> AVL树</h2> <h4 id="avl简介"><a href="#avl简介" class="header-anchor">#</a> AVL简介</h4> <p>1.AVL树是最早发明的自平衡二叉搜索树之一</p> <p>2.AVL 取名于两位发明者的名字</p> <ul><li>G. M. Adelson-Velsky 和 E. M. Landis（来自苏联的科学家）</li></ul> <p>3.Something interesting</p> <ul><li>有人把AVL树念做“艾薇儿树”</li> <li>加拿大女歌手，几首不错的歌：《Complicated》、《When You're Gone》、《Innocence》</li></ul> <h4 id="平衡因子-balance-factor"><a href="#平衡因子-balance-factor" class="header-anchor">#</a> 平衡因子（Balance Factor）</h4> <p>某结点的左右子树的高度差</p> <h4 id="avl树的特点"><a href="#avl树的特点" class="header-anchor">#</a> AVL树的特点</h4> <ul><li>每个节点的平衡因子只可能是 1、0、-1（绝对值 ≤ 1，如果超过 1，称之为“失衡”）</li> <li>每个节点的左右子树高度差不超过 1</li> <li>搜索、添加、删除的时间复杂度是 O(logn）</li></ul> <p><img src="https://upload-images.jianshu.io/upload_images/1128757-58e8f5e93d63430c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p> <h4 id="平衡对比"><a href="#平衡对比" class="header-anchor">#</a> 平衡对比</h4> <p>输入数据：35, 37, 34, 56, 25, 62, 57, 9, 74, 32, 94, 80, 75, 100, 16, 82</p> <p><img src="https://upload-images.jianshu.io/upload_images/1128757-aad95c51a97896b6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p> <h4 id="简单的继承结构"><a href="#简单的继承结构" class="header-anchor">#</a> 简单的继承结构</h4> <p><img src="https://upload-images.jianshu.io/upload_images/1128757-5bed0d4ec65bbad6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p> <h4 id="添加导致的失衡"><a href="#添加导致的失衡" class="header-anchor">#</a> 添加导致的失衡</h4> <p>示例：往下面这棵子树中添加 13</p> <p><img src="https://upload-images.jianshu.io/upload_images/1128757-53986635e6bb40e2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p> <ul><li>最坏情况：可能会导致所有祖先节点都失衡</li> <li>父节点、非祖先节点，都不可能失衡</li></ul> <h4 id="ll-右旋转-单旋"><a href="#ll-右旋转-单旋" class="header-anchor">#</a> LL – 右旋转（单旋）</h4> <ul><li>g.left = p.right</li> <li>p.right = g</li> <li>让p成为这棵子树的根节点</li> <li>仍然是一棵二叉搜索树：T0 &lt; n &lt; T1 &lt; p &lt; T2 &lt; g &lt; T3</li> <li>整棵树都达到平衡</li></ul> <p><img src="https://upload-images.jianshu.io/upload_images/1128757-65ed3b329c258c49.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p> <p>还需要注意维护的内容</p> <ul><li>T2、p、g 的 parent 属性</li> <li>先后更新 g、p 的高度</li></ul> <h4 id="rr-左旋转-单旋"><a href="#rr-左旋转-单旋" class="header-anchor">#</a> RR – 左旋转（单旋）</h4> <ul><li>g.right = p.left</li> <li>p.left = g</li> <li>让p成为这棵子树的根节点</li> <li>仍然是一棵二叉搜索树：T0 &lt; g &lt; T1 &lt; p &lt; T2 &lt; n &lt; T3</li> <li>整棵树都达到平衡</li></ul> <p><img src="https://upload-images.jianshu.io/upload_images/1128757-f90bd9959ccd4280.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p> <p>还需要注意维护的内容</p> <ul><li>T1、p、g 的 parent 属性</li> <li>先后更新 g、p 的高度</li></ul> <h4 id="lr-rr左旋转-ll右旋转-双旋"><a href="#lr-rr左旋转-ll右旋转-双旋" class="header-anchor">#</a> LR – RR左旋转，LL右旋转（双旋）</h4> <p><img src="https://upload-images.jianshu.io/upload_images/1128757-8792ee23d878f9d2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p> <h4 id="rl-ll右旋转-rr左旋转-双旋"><a href="#rl-ll右旋转-rr左旋转-双旋" class="header-anchor">#</a> RL – LL右旋转，RR左旋转（双旋）</h4> <p><img src="https://upload-images.jianshu.io/upload_images/1128757-3c71543aa6b76b58.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p> <h4 id="zig、zag"><a href="#zig、zag" class="header-anchor">#</a> zig、zag</h4> <p>有些教程里面</p> <ul><li>把右旋转叫做zig，旋转之后的状态叫做zigged</li> <li>把左旋转叫做zag，旋转之后的状态叫做zagged</li></ul> <h4 id="添加-删除之后的修复"><a href="#添加-删除之后的修复" class="header-anchor">#</a> 添加\删除之后的修复</h4> <div class="language-java extra-class"><pre class="language-java"><code>    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">afterAdd</span><span class="token punctuation">(</span><span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> node<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>node <span class="token operator">=</span> node<span class="token punctuation">.</span>parent<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isBalanced</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  <span class="token comment">//如果平衡没有被打破，更新高度，否则恢复平衡</span>
+                <span class="token function">updateHeight</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                <span class="token function">rebalance</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">afterRemove</span><span class="token punctuation">(</span><span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> node<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>node <span class="token operator">=</span> node<span class="token punctuation">.</span>parent<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isBalanced</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  <span class="token comment">//如果平衡没有被打破，更新高度，否则恢复平衡</span>
+                <span class="token function">updateHeight</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                <span class="token function">rebalance</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 是否平衡
+     *
+     * @param node
+     * @return
+     */</span>
+    <span class="token keyword">private</span> <span class="token keyword">boolean</span> <span class="token function">isBalanced</span><span class="token punctuation">(</span><span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> node<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">abs</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">AVLNode</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">)</span> node<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">balanceFactor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&lt;=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 更新高度
+     *
+     * @param node
+     */</span>
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">updateHeight</span><span class="token punctuation">(</span><span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> node<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">AVLNode</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">)</span> node<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">updateHeight</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+</code></pre></div><p>AVLNode</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">AVLNode</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> <span class="token keyword">extends</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> <span class="token punctuation">{</span>
+        <span class="token comment">//高度</span>
+        <span class="token keyword">int</span> height <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">public</span> <span class="token class-name">AVLNode</span><span class="token punctuation">(</span><span class="token class-name">E</span> element<span class="token punctuation">,</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> parent<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">super</span><span class="token punctuation">(</span>element<span class="token punctuation">,</span> parent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+
+        <span class="token comment">/**
+         * 平衡因子
+         *
+         * @return
+         */</span>
+        <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">balanceFactor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> leftHeight <span class="token operator">=</span> left <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">?</span> <span class="token number">0</span> <span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">AVLNode</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">)</span> left<span class="token punctuation">)</span><span class="token punctuation">.</span>height<span class="token punctuation">;</span>
+            <span class="token keyword">int</span> rightHeight <span class="token operator">=</span> right <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">?</span> <span class="token number">0</span> <span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">AVLNode</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">)</span> right<span class="token punctuation">)</span><span class="token punctuation">.</span>height<span class="token punctuation">;</span>
+            <span class="token keyword">return</span> leftHeight <span class="token operator">-</span> rightHeight<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">/**
+         * 更新node的高度
+         */</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">updateHeight</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> leftHeight <span class="token operator">=</span> left <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">?</span> <span class="token number">0</span> <span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">AVLNode</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">)</span> left<span class="token punctuation">)</span><span class="token punctuation">.</span>height<span class="token punctuation">;</span>
+            <span class="token keyword">int</span> rightHeight <span class="token operator">=</span> right <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">?</span> <span class="token number">0</span> <span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">AVLNode</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">)</span> right<span class="token punctuation">)</span><span class="token punctuation">.</span>height<span class="token punctuation">;</span>
+            height <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">+</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>leftHeight<span class="token punctuation">,</span> rightHeight<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">/**
+         * 高度更高的子节点
+         *
+         * @return
+         */</span>
+        <span class="token keyword">public</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> <span class="token function">tallerChild</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> leftHeight <span class="token operator">=</span> left <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">?</span> <span class="token number">0</span> <span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">AVLNode</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">)</span> left<span class="token punctuation">)</span><span class="token punctuation">.</span>height<span class="token punctuation">;</span>
+            <span class="token keyword">int</span> rightHeight <span class="token operator">=</span> right <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">?</span> <span class="token number">0</span> <span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">AVLNode</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">)</span> right<span class="token punctuation">)</span><span class="token punctuation">.</span>height<span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>leftHeight <span class="token operator">&gt;</span> rightHeight<span class="token punctuation">)</span> <span class="token keyword">return</span> left<span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>leftHeight <span class="token operator">&lt;</span> rightHeight<span class="token punctuation">)</span> <span class="token keyword">return</span> right<span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token function">isLeftChild</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">?</span> left <span class="token operator">:</span> right<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">String</span> parentString <span class="token operator">=</span> <span class="token string">&quot;null&quot;</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>parent <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                parentString <span class="token operator">=</span> parent<span class="token punctuation">.</span>element<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">return</span> element <span class="token operator">+</span> <span class="token string">&quot;_p(&quot;</span> <span class="token operator">+</span> parentString <span class="token operator">+</span> <span class="token string">&quot;)_h(&quot;</span> <span class="token operator">+</span> height <span class="token operator">+</span> <span class="token string">&quot;)&quot;</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+    <span class="token punctuation">}</span>
+</code></pre></div><p>回复平衡方式一</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token comment">/**
+     * 回复平衡
+     *
+     * @param grand
+     */</span>
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">rebalance</span><span class="token punctuation">(</span><span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> grand<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> parent <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">AVLNode</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">)</span> grand<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">tallerChild</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> node <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">AVLNode</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">)</span> parent<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">tallerChild</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>parent<span class="token punctuation">.</span><span class="token function">isLeftChild</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  <span class="token comment">//L</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>node<span class="token punctuation">.</span><span class="token function">isLeftChild</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token comment">//LL  ---G右旋转</span>
+                <span class="token function">rotateRight</span><span class="token punctuation">(</span>grand<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>  <span class="token comment">//LR  --P左旋转，然后G右旋转</span>
+                <span class="token function">rotateLeft</span><span class="token punctuation">(</span>parent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token function">rotateRight</span><span class="token punctuation">(</span>grand<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span><span class="token comment">//R</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>node<span class="token punctuation">.</span><span class="token function">isLeftChild</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">//RL  ---P右旋转，然后G左旋转</span>
+                <span class="token function">rotateRight</span><span class="token punctuation">(</span>parent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token function">rotateLeft</span><span class="token punctuation">(</span>grand<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>  <span class="token comment">//RR  ----G左旋转</span>
+                <span class="token function">rotateLeft</span><span class="token punctuation">(</span>grand<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 左旋转
+     * @param grand
+     */</span>
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">rotateLeft</span><span class="token punctuation">(</span><span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> grand<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> parent <span class="token operator">=</span> grand<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
+        <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> child <span class="token operator">=</span> parent<span class="token punctuation">.</span>left<span class="token punctuation">;</span>
+        grand<span class="token punctuation">.</span>right <span class="token operator">=</span> child<span class="token punctuation">;</span>
+        parent<span class="token punctuation">.</span>left <span class="token operator">=</span> grand<span class="token punctuation">;</span>
+        <span class="token function">afterRotate</span><span class="token punctuation">(</span>grand<span class="token punctuation">,</span> parent<span class="token punctuation">,</span> child<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 右旋转
+     * @param grand
+     */</span>
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">rotateRight</span><span class="token punctuation">(</span><span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> grand<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> parent <span class="token operator">=</span> grand<span class="token punctuation">.</span>left<span class="token punctuation">;</span>
+        <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> child <span class="token operator">=</span> parent<span class="token punctuation">.</span>right<span class="token punctuation">;</span>   <span class="token comment">//先把parent的right拿出来</span>
+        grand<span class="token punctuation">.</span>left <span class="token operator">=</span> child<span class="token punctuation">;</span>  <span class="token comment">//</span>
+        parent<span class="token punctuation">.</span>right <span class="token operator">=</span> grand<span class="token punctuation">;</span>
+        <span class="token function">afterRotate</span><span class="token punctuation">(</span>grand<span class="token punctuation">,</span> parent<span class="token punctuation">,</span> child<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 旋转后更新parent关系和高度
+     *
+     * @param grand
+     * @param parent
+     * @param child
+     */</span>
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">afterRotate</span><span class="token punctuation">(</span><span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> grand<span class="token punctuation">,</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> parent<span class="token punctuation">,</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> child<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 1.让parent称为子树的根节点</span>
+        parent<span class="token punctuation">.</span>parent <span class="token operator">=</span> grand<span class="token punctuation">.</span>parent<span class="token punctuation">;</span>
+        <span class="token comment">//2.更新grand的父节点</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>grand<span class="token punctuation">.</span><span class="token function">isLeftChild</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            grand<span class="token punctuation">.</span>parent<span class="token punctuation">.</span>left <span class="token operator">=</span> parent<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>grand<span class="token punctuation">.</span><span class="token function">isRightChild</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            grand<span class="token punctuation">.</span>parent<span class="token punctuation">.</span>left <span class="token operator">=</span> parent<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            root <span class="token operator">=</span> parent<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment">//3.更新child</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>child <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> child<span class="token punctuation">.</span>parent <span class="token operator">=</span> grand<span class="token punctuation">;</span>
+        <span class="token comment">//4.更新grand</span>
+        grand<span class="token punctuation">.</span>parent <span class="token operator">=</span> parent<span class="token punctuation">;</span>
+        <span class="token comment">//5.更新高度</span>
+        <span class="token function">updateHeight</span><span class="token punctuation">(</span>grand<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">updateHeight</span><span class="token punctuation">(</span>parent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</code></pre></div><h4 id="示例"><a href="#示例" class="header-anchor">#</a> 示例</h4> <p>输入数据：13, 14, 15, 12, 11, 17, 16, 8, 9, 1</p> <p><img src="https://upload-images.jianshu.io/upload_images/1128757-ec6a4f55da63c144.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p> <p><img src="https://upload-images.jianshu.io/upload_images/1128757-7bec02ce730c9e3a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p> <h4 id="统一所有旋转操作-补充代码"><a href="#统一所有旋转操作-补充代码" class="header-anchor">#</a> 统一所有旋转操作（补充代码）</h4> <p><img src="https://upload-images.jianshu.io/upload_images/1128757-9e7651757bdf1c45.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p> <div class="language-java extra-class"><pre class="language-java"><code>
+</code></pre></div><h4 id="独立出avlnode"><a href="#独立出avlnode" class="header-anchor">#</a> 独立出AVLNode</h4> <p><img src="https://upload-images.jianshu.io/upload_images/1128757-c2e815c8d8aec27c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p> <h4 id="删除导致的失衡"><a href="#删除导致的失衡" class="header-anchor">#</a> 删除导致的失衡</h4> <p>示例：删除子树中的 16</p> <p>可能会导致父节点或祖先节点失衡（只有1个节点会失衡），其他节点，都不可能失衡</p> <p><img src="https://upload-images.jianshu.io/upload_images/1128757-b54c67182b9e4181.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p> <p>1.LL – 右旋转（单旋）</p> <ul><li>如果绿色节点不存在，更高层的祖先节点可能也会失衡，需要再次恢复平衡，然后又可能导致更高层的祖先节点失衡...</li> <li>极端情况下，所有祖先节点都需要进行恢复平衡的操作，共 O(logn) 次调整</li></ul> <p><img src="https://upload-images.jianshu.io/upload_images/1128757-1e5d86220052e689.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p> <p>2.RR – 左旋转（单旋</p> <p><img src="https://upload-images.jianshu.io/upload_images/1128757-12b11581ff11f0bf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p> <p>3.LR – RR左旋转，LL右旋转（双旋）</p> <p><img src="https://upload-images.jianshu.io/upload_images/1128757-88f4e06308232389.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p> <p>4.RL – LL右旋转，RR左旋转（双旋
+<img src="https://upload-images.jianshu.io/upload_images/1128757-bd480e0d52eb84a9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p> <h4 id="删除之后的修复"><a href="#删除之后的修复" class="header-anchor">#</a> 删除之后的修复</h4> <h4 id="总结"><a href="#总结" class="header-anchor">#</a> 总结</h4> <p>1.添加</p> <ul><li>可能会导致所有祖先节点都失衡</li> <li>只要让高度最低的失衡节点恢复平衡，整棵树就恢复平衡【仅需 O(1) 次调整】</li></ul> <p>2.删除</p> <ul><li>可能会导致父节点或祖先节点失衡（只有1个节点会失衡）</li> <li>恢复平衡后，可能会导致更高层的祖先节点失衡【最多需要 O(logn) 次调整】</li></ul> <p>3.平均时间复杂度</p> <ul><li>搜索：O(logn)</li> <li>添加：O(logn)，仅需 O(1) 次的旋转操作</li> <li>删除：O(logn)，最多需要 O(logn) 次的旋转操作</li></ul> <h4 id="作业"><a href="#作业" class="header-anchor">#</a> 作业</h4> <p>平衡二叉树：https://leetcode-cn.com/problems/balanced-binary-tree/</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">9/26/2020, 8:44:05 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/zh/java/structures/binary-serch-tree.html" class="prev">
+        二叉搜索树
+      </a></span> <span class="next"><a href="/blog/zh/java/structures/B-tree.html">
+        B树
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.b29a8dd7.js" defer></script><script src="/blog/assets/js/2.f6cef42b.js" defer></script><script src="/blog/assets/js/77.0e21a0d0.js" defer></script>
+  </body>
+</html>

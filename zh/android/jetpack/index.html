@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>走进Jetpack框架组件库 | Android Nodes</title>
+    <meta name="generator" content="VuePress 1.5.4">
+    <link rel="icon" href="/blog/logo.png">
+    <link rel="manifest" href="/blog/manifest.json">
+    <link rel="apple-touch-icon" href="/blog/icons/apple-touch-icon-152x152.png">
+    <link rel="mask-icon" href="/blog/icons/safari-pinned-tab.svg" color="#3eaf7c">
+    <meta name="description" content="欲速则不达，起于累土">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    <link rel="preload" href="/blog/assets/css/0.styles.c59328e2.css" as="style"><link rel="preload" href="/blog/assets/js/app.b29a8dd7.js" as="script"><link rel="preload" href="/blog/assets/js/2.f6cef42b.js" as="script"><link rel="preload" href="/blog/assets/js/12.0f90fab7.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.7a48b7c5.js"><link rel="prefetch" href="/blog/assets/js/11.eac2ba23.js"><link rel="prefetch" href="/blog/assets/js/13.bec57e62.js"><link rel="prefetch" href="/blog/assets/js/14.3ae2a79a.js"><link rel="prefetch" href="/blog/assets/js/15.a791971b.js"><link rel="prefetch" href="/blog/assets/js/16.e5da048d.js"><link rel="prefetch" href="/blog/assets/js/17.4908b8a7.js"><link rel="prefetch" href="/blog/assets/js/18.46af3ffd.js"><link rel="prefetch" href="/blog/assets/js/19.89281622.js"><link rel="prefetch" href="/blog/assets/js/20.cd52446d.js"><link rel="prefetch" href="/blog/assets/js/21.82cce5e6.js"><link rel="prefetch" href="/blog/assets/js/22.80975ead.js"><link rel="prefetch" href="/blog/assets/js/23.96416586.js"><link rel="prefetch" href="/blog/assets/js/24.2c36cba8.js"><link rel="prefetch" href="/blog/assets/js/25.367808ef.js"><link rel="prefetch" href="/blog/assets/js/26.be8af843.js"><link rel="prefetch" href="/blog/assets/js/27.b222d373.js"><link rel="prefetch" href="/blog/assets/js/28.a12c5df9.js"><link rel="prefetch" href="/blog/assets/js/29.d5ff3c40.js"><link rel="prefetch" href="/blog/assets/js/3.6d59dab0.js"><link rel="prefetch" href="/blog/assets/js/30.cbbb74b5.js"><link rel="prefetch" href="/blog/assets/js/31.b75f6d67.js"><link rel="prefetch" href="/blog/assets/js/32.86d96ea4.js"><link rel="prefetch" href="/blog/assets/js/33.46446d62.js"><link rel="prefetch" href="/blog/assets/js/34.8408a108.js"><link rel="prefetch" href="/blog/assets/js/35.98c56f35.js"><link rel="prefetch" href="/blog/assets/js/36.bdaeac6f.js"><link rel="prefetch" href="/blog/assets/js/37.533f8161.js"><link rel="prefetch" href="/blog/assets/js/38.0200746e.js"><link rel="prefetch" href="/blog/assets/js/39.c88574ea.js"><link rel="prefetch" href="/blog/assets/js/4.1ea1eeff.js"><link rel="prefetch" href="/blog/assets/js/40.45749e2b.js"><link rel="prefetch" href="/blog/assets/js/41.f908dd77.js"><link rel="prefetch" href="/blog/assets/js/42.6a921fb9.js"><link rel="prefetch" href="/blog/assets/js/43.a545ead3.js"><link rel="prefetch" href="/blog/assets/js/44.599973fd.js"><link rel="prefetch" href="/blog/assets/js/45.4f5aa578.js"><link rel="prefetch" href="/blog/assets/js/46.bc77698b.js"><link rel="prefetch" href="/blog/assets/js/47.6fab262f.js"><link rel="prefetch" href="/blog/assets/js/48.06721492.js"><link rel="prefetch" href="/blog/assets/js/49.ddd2004c.js"><link rel="prefetch" href="/blog/assets/js/5.7d990afd.js"><link rel="prefetch" href="/blog/assets/js/50.68d30b00.js"><link rel="prefetch" href="/blog/assets/js/51.1e95b300.js"><link rel="prefetch" href="/blog/assets/js/52.7e58153e.js"><link rel="prefetch" href="/blog/assets/js/53.49c83746.js"><link rel="prefetch" href="/blog/assets/js/54.cafb7c5d.js"><link rel="prefetch" href="/blog/assets/js/55.e3a5298e.js"><link rel="prefetch" href="/blog/assets/js/56.16a6fa14.js"><link rel="prefetch" href="/blog/assets/js/57.a5849246.js"><link rel="prefetch" href="/blog/assets/js/58.21f63823.js"><link rel="prefetch" href="/blog/assets/js/59.1de0dd4e.js"><link rel="prefetch" href="/blog/assets/js/6.cec4111c.js"><link rel="prefetch" href="/blog/assets/js/60.d486fda7.js"><link rel="prefetch" href="/blog/assets/js/61.2df18a41.js"><link rel="prefetch" href="/blog/assets/js/62.f167b5ca.js"><link rel="prefetch" href="/blog/assets/js/63.1a1ddafe.js"><link rel="prefetch" href="/blog/assets/js/64.4ba3449a.js"><link rel="prefetch" href="/blog/assets/js/65.8005097c.js"><link rel="prefetch" href="/blog/assets/js/66.5d3693a7.js"><link rel="prefetch" href="/blog/assets/js/67.e9d7bf30.js"><link rel="prefetch" href="/blog/assets/js/68.1efe09bb.js"><link rel="prefetch" href="/blog/assets/js/69.50f5445d.js"><link rel="prefetch" href="/blog/assets/js/7.9d95edae.js"><link rel="prefetch" href="/blog/assets/js/70.02047906.js"><link rel="prefetch" href="/blog/assets/js/71.634bd610.js"><link rel="prefetch" href="/blog/assets/js/72.a00660d0.js"><link rel="prefetch" href="/blog/assets/js/73.cb4a91db.js"><link rel="prefetch" href="/blog/assets/js/74.3f83725a.js"><link rel="prefetch" href="/blog/assets/js/75.89822bf9.js"><link rel="prefetch" href="/blog/assets/js/76.9c29fa27.js"><link rel="prefetch" href="/blog/assets/js/77.0e21a0d0.js"><link rel="prefetch" href="/blog/assets/js/78.83828550.js"><link rel="prefetch" href="/blog/assets/js/79.038d118d.js"><link rel="prefetch" href="/blog/assets/js/8.b3b24cde.js"><link rel="prefetch" href="/blog/assets/js/80.4ed5e1a3.js"><link rel="prefetch" href="/blog/assets/js/81.d08345df.js"><link rel="prefetch" href="/blog/assets/js/82.b6dfa43b.js"><link rel="prefetch" href="/blog/assets/js/83.78d8aa89.js"><link rel="prefetch" href="/blog/assets/js/84.9ecbf7a5.js"><link rel="prefetch" href="/blog/assets/js/85.49225f21.js"><link rel="prefetch" href="/blog/assets/js/86.29868731.js"><link rel="prefetch" href="/blog/assets/js/87.f05ddddc.js"><link rel="prefetch" href="/blog/assets/js/88.9703366d.js"><link rel="prefetch" href="/blog/assets/js/89.0a340baa.js"><link rel="prefetch" href="/blog/assets/js/9.5eb0e890.js"><link rel="prefetch" href="/blog/assets/js/90.af7d5cb4.js"><link rel="prefetch" href="/blog/assets/js/91.e94154f4.js"><link rel="prefetch" href="/blog/assets/js/92.32326a59.js"><link rel="prefetch" href="/blog/assets/js/93.12ad3fb5.js"><link rel="prefetch" href="/blog/assets/js/94.045060fa.js"><link rel="prefetch" href="/blog/assets/js/95.5c510610.js"><link rel="prefetch" href="/blog/assets/js/96.5bcee9fd.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.c59328e2.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">Android Nodes</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/zh/guide/" class="nav-link">
+  备忘录
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Android" class="dropdown-title"><span class="title">Android</span> <span class="arrow down"></span></button> <button type="button" aria-label="Android" class="mobile-dropdown-title"><span class="title">Android</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/zh/android/basic/" class="nav-link">
+  基础
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/ui/" class="nav-link">
+  高级UI
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/architecture/" class="nav-link">
+  架构设计
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/performance/" class="nav-link">
+  性能优化
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/ndk/" class="nav-link">
+  NDK
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/framework/" class="nav-link">
+  开源框架
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/jetpack/" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  Jetpack
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/kotlin/" class="nav-link">
+  Kotlin
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java" class="dropdown-title"><span class="title">Java</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java" class="mobile-dropdown-title"><span class="title">Java</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/zh/java/basic/" class="nav-link">
+  基础
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/structures/" class="nav-link">
+  数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/algorithms/" class="nav-link">
+  算法
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/exercise/" class="nav-link">
+  算法练习
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/zh/net/" class="nav-link">
+  API
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具" class="mobile-dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          代码管理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/api/cli.html" class="nav-link">
+  git
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/api/node.html" class="nav-link">
+  分支管理
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发规范
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/local-development.html" class="nav-link">
+  代码规范
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/design-concepts.html" class="nav-link">
+  团队协作
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/faq/" class="nav-link">
+  需求与工作分配
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/glossary.html" class="nav-link">
+  文档沉淀
+</a></li></ul></li><li class="dropdown-item"><h4>
+          软实力
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/migration-guide.html" class="nav-link">
+  必备技能
+</a></li><li class="dropdown-subitem"><a href="https://github.com/vuejs/vuepress/blob/master/CHANGELOG.md" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  团队管理
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/zh/guide/" class="nav-link">
+  备忘录
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Android" class="dropdown-title"><span class="title">Android</span> <span class="arrow down"></span></button> <button type="button" aria-label="Android" class="mobile-dropdown-title"><span class="title">Android</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/zh/android/basic/" class="nav-link">
+  基础
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/ui/" class="nav-link">
+  高级UI
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/architecture/" class="nav-link">
+  架构设计
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/performance/" class="nav-link">
+  性能优化
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/ndk/" class="nav-link">
+  NDK
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/framework/" class="nav-link">
+  开源框架
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/jetpack/" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  Jetpack
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/kotlin/" class="nav-link">
+  Kotlin
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java" class="dropdown-title"><span class="title">Java</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java" class="mobile-dropdown-title"><span class="title">Java</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/zh/java/basic/" class="nav-link">
+  基础
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/structures/" class="nav-link">
+  数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/algorithms/" class="nav-link">
+  算法
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/exercise/" class="nav-link">
+  算法练习
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/zh/net/" class="nav-link">
+  API
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具" class="mobile-dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          代码管理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/api/cli.html" class="nav-link">
+  git
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/api/node.html" class="nav-link">
+  分支管理
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发规范
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/local-development.html" class="nav-link">
+  代码规范
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/design-concepts.html" class="nav-link">
+  团队协作
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/faq/" class="nav-link">
+  需求与工作分配
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/glossary.html" class="nav-link">
+  文档沉淀
+</a></li></ul></li><li class="dropdown-item"><h4>
+          软实力
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/migration-guide.html" class="nav-link">
+  必备技能
+</a></li><li class="dropdown-subitem"><a href="https://github.com/vuejs/vuepress/blob/master/CHANGELOG.md" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  团队管理
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Jetpack</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/zh/android/jetpack/" aria-current="page" class="active sidebar-link">走进Jetpack框架组件库</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/zh/android/jetpack/#什么是jetpack" class="sidebar-link">什么是Jetpack</a></li><li class="sidebar-sub-header"><a href="/blog/zh/android/jetpack/#jetpack的优势" class="sidebar-link">Jetpack的优势</a></li><li class="sidebar-sub-header"><a href="/blog/zh/android/jetpack/#jetpack组件库介绍" class="sidebar-link">Jetpack组件库介绍</a></li></ul></li><li><a href="/blog/zh/android/jetpack/livecycle.html" class="sidebar-link">Livecycle</a></li><li><a href="/blog/zh/android/jetpack/livedata-1.html" class="sidebar-link">LiveData架构组件原理解析</a></li><li><a href="/blog/zh/android/jetpack/livedata-2.html" class="sidebar-link">LiveData实战与应用</a></li><li><a href="/blog/zh/android/jetpack/viewmodel.html" class="sidebar-link">ViewModel 组件架构原理解析</a></li><li><a href="/blog/zh/android/jetpack/savedstate.html" class="sidebar-link">SaveState组件架构原理解析</a></li><li><a href="/blog/zh/android/jetpack/room.html" class="sidebar-link">Room组件架构原理解析</a></li><li><a href="/blog/zh/android/jetpack/workmanager.html" class="sidebar-link">WorkManager组件架构应用</a></li><li><a href="/blog/zh/android/jetpack/databinding.html" class="sidebar-link">DataBinding组件架构应用</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="走进jetpack框架组件库"><a href="#走进jetpack框架组件库" class="header-anchor">#</a> 走进Jetpack框架组件库</h1> <p>参考：
+https://www.jianshu.com/p/5ffb9993e4e5</p> <p>https://juejin.cn/post/6874886821235392519</p> <p>https://github.com/mrme2014/hi_jetpack</p> <p>https://doc.devio.org/as/book/docs/Part2/%E7%BA%BF%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%BC%80%E5%8F%91%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF/1.thread_introduction.html</p> <p>https://github.com/rivenlee0/CGhelper</p> <h2 id="什么是jetpack"><a href="#什么是jetpack" class="header-anchor">#</a> 什么是Jetpack</h2> <p>自从Google在2018年推出Jetpack之后，它就成为了<strong>Android未来发展的指向标</strong>。Google也希望通过Jetpack统一开发者的开发规范，同事它也是众多优秀Android组件的集合。Jetpack是Google为解决Android开发碎片化，打造成熟健康生态圈提出的战略规划，是Google对Android未来提出的发展方向。</p> <blockquote><p>注意：Jetpack是众多组件库的统称，AndroidX是这些组件的统一包名。</p></blockquote> <p>发展到今天，各个大厂以及GitHub都已经在拥抱并适配Jetpack，甚至Jetpack已经成为了Android开发工程师面试必问的一项技术，可以称它为Android开发必学的技能。</p> <p>详细可以参考：https://developer.android.google.cn/jetpack</p> <h2 id="jetpack的优势"><a href="#jetpack的优势" class="header-anchor">#</a> Jetpack的优势</h2> <ul><li>Jetpack拥有基于生命周期感知的能力，可以减少NPE崩溃、内存泄露。为我们开发出健壮且流畅的程序提供强力保障；</li> <li>Jetpack可以消除大量重复样板式代码，可以加速Android的开发进程。这些组件可搭配工作，也可单独使用，同时配合Kotlin语言特性能够显著提高工作效率。</li> <li>统一开发模式，抛弃传统的MVC、MVP。</li></ul> <h2 id="jetpack组件库介绍"><a href="#jetpack组件库介绍" class="header-anchor">#</a> Jetpack组件库介绍</h2> <p><img src="https://gitee.com/jarrysong/img/raw/master/img/5196125-0e0834ffa48d871b.webp" alt="img"></p> <p>从上图中可以看到Jetpack一共有四部分组成，然而UI、Behavior、Foundation这三部分大多是对已有内容的收集整理，这四部分中最为<strong>核心的就是本专栏着重讲解的Architecture架构部分。</strong></p> <p>Architecture架构部分主要包含以上8个重要成员，本着面向实际开发的需要，所以专栏多以<strong>高频用法 + 实现原理 + 面试考点 + 进阶实战</strong>多个维度授课。让同学们充分掌握Jetpack的核心组件。</p> <p>下面先对专栏的课时安排以及Ketpack核心组件进行初步的介绍让同学们对Jetpack组件库有个初步的印象，详细的我们会在每一节中再展开讨论。</p> <p><img src="https://gitee.com/jarrysong/img/raw/master/img/image-20201126210406985.png" alt="image-20201126210406985"></p> <p><strong>1.Lifecycler:具备宿主生命周期感知能力的组件</strong></p> <ul><li><p>特性：它持有组件(如Activity或Fragment)生命周期状态的信息，并且允许其他对象观察此状态。</p></li> <li><p>本篇主要讲解：</p> <ul><li>什么是Lifecycle；</li> <li>如何使用Lifecycle观察宿主状态；</li> <li>Fragment是如何实现Lifecycle的；</li> <li>Activity是如何实现Lifecycle的；</li> <li>Lifecycle是如何分发宿主状态的等内容。</li></ul></li></ul> <p><strong>2.LiveData：新一代具备生命周期感知能力的数据订阅、分发组件</strong></p> <ul><li>特性：支持共享资源、支持黏性事件的分发、不再需要手动处理生命周期、确保界面符合数据状态。</li> <li>不足：黏性事件不支持取消。</li> <li>本篇主要介绍：
+<ul><li>什么是LiveData；</li> <li>LiveData核心方法，</li> <li>LiveData事件分发实现原理等内容。</li></ul></li></ul> <p><strong>3.LiveData进阶实现</strong></p> <ul><li>本篇将着重讲解如何基于LiveData实现消息总线，并实现黏性事件可控，从而抛弃EventBus。</li></ul> <p><strong>4.ViewModel：具备生命周期感知能力的数据存储组件</strong></p> <ul><li>特性:
+<ul><li>1.页面因配置变更导致的重启，此时数据不丢失。</li> <li>2.可以实现跨页面（跨Activity）的数据共享。</li></ul></li> <li>本篇主要讲解:
+<ul><li>什么是ViewModel；</li> <li>ViewModel的用法；</li> <li>ViewModel复用实现原理等内容。</li></ul></li></ul> <p><strong>5.SavedState架构组件原理解析</strong></p> <ul><li>特性：因内存不足，电量不足导致页面被回收时可以搭配ViewModel实现数据存储于恢复。</li> <li>本篇主要讲解：
+<ul><li>什么是SavedState；</li> <li>SaveState的用法；</li> <li>SavedState数据存储与恢复实现原理等内容。</li></ul></li></ul> <p><strong>6.Room：轻量级orm数据库，本质上是一个SQLite抽象层</strong></p> <ul><li>特性：使用简单（类似于Retrofit库），通过注解的方式实现相关功能。编译时自动生成相关实现类</li> <li>本篇主要讲解主要介绍:
+<ul><li>什么是Room；</li> <li>Room高频用法；</li> <li>Room数据库创建实现原理；</li> <li>Room与LiveData的巧妙结合，数据变更监听等内容。</li></ul></li></ul> <p><strong>7.基于Room封装APP离线缓存框架</strong></p> <ul><li>本篇主要讲解如何预计Room数据库实现离线缓存框架HiStorage，可以用于缓存任意数据结构的数据。</li></ul> <p><strong>8.DataBinding：只是一种工具，它解决的是View和数据之间的双向绑定。</strong></p> <ul><li>特性：支持数据与视图双向绑定、数据绑定空安全、减少模板代码、释放Activity/Fragment压力</li> <li>本篇主要讲解:
+<ul><li>什么是DataBinding；</li> <li>DataBinding的优势；</li> <li>DataBinding如何使用；</li> <li>与ViewBinding的区别等内容。</li></ul></li></ul> <p><strong>9.Paging：列表分页组件，可以轻松完成分页预加载以达到无限滑动的效果</strong></p> <ul><li>巧妙融合LiveData、提供多种数据源加载方式</li> <li>不足之处：不支持列表数据增删改。列表添加HeaderView，FooterView定位不准确。这点我们会这招讲解如何解决这些问题</li> <li>本篇主要讲解:
+<ul><li>什么是Paging；</li> <li>如何使用Paging；</li> <li>Paging工作原理；</li> <li>Paging现存问题以及如何去解决等内容。</li></ul></li></ul> <p><strong>10.Navigation组件原理分析：端内统一路由组件</strong></p> <ul><li>不足：十分依赖xml配置文件不利于组件化，模块化，千人千面场景开发</li> <li>本篇主要讲解:
+<ul><li>什么是Navigation；</li> <li>Navigation如何使用；</li> <li>Navigation工作原理；</li> <li>Navigation现存问题。</li></ul></li></ul> <p><strong>11.组件进阶改造</strong></p> <ul><li>本篇主要讲解基于Navigation手把手实现APP配置架构搭建</li></ul> <p><strong>12.WorkManager：新一代后台任务管理组件，功能十分强悍。Service能做的事情它都能做</strong></p> <ul><li>支持周期性任务调度、链式任务调度、丰富的任务约束条件、程序即便退出，依旧能保证任务的执行</li> <li>本篇主要讲解:
+<ul><li>什么是WorkManager；</li> <li>WorkManager的优势；</li> <li>WorkManager如何使用；</li> <li>WorkManager架构工作原理等内容</li></ul></li></ul> <p><strong>13.老项目适配AndroidX</strong></p> <ul><li>本篇主要讲解老旧项目如何使用Jetpack的能力，如何迁移，以及迁移过程存在的主要问题</li></ul> <p><strong>14.Jetpack专栏总结：回顾全文。对本专栏做一个全面的总结与展望。</strong></p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">12/1/2020, 1:03:12 PM</span></div></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/blog/zh/android/jetpack/livecycle.html">
+        Livecycle
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.b29a8dd7.js" defer></script><script src="/blog/assets/js/2.f6cef42b.js" defer></script><script src="/blog/assets/js/12.0f90fab7.js" defer></script>
+  </body>
+</html>

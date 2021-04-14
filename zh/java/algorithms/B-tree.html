@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>B+树 | Android Nodes</title>
+    <meta name="generator" content="VuePress 1.5.4">
+    <link rel="icon" href="/blog/logo.png">
+    <link rel="manifest" href="/blog/manifest.json">
+    <link rel="apple-touch-icon" href="/blog/icons/apple-touch-icon-152x152.png">
+    <link rel="mask-icon" href="/blog/icons/safari-pinned-tab.svg" color="#3eaf7c">
+    <meta name="description" content="欲速则不达，起于累土">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    <link rel="preload" href="/blog/assets/css/0.styles.c59328e2.css" as="style"><link rel="preload" href="/blog/assets/js/app.b29a8dd7.js" as="script"><link rel="preload" href="/blog/assets/js/2.f6cef42b.js" as="script"><link rel="preload" href="/blog/assets/js/52.7e58153e.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.7a48b7c5.js"><link rel="prefetch" href="/blog/assets/js/11.eac2ba23.js"><link rel="prefetch" href="/blog/assets/js/12.0f90fab7.js"><link rel="prefetch" href="/blog/assets/js/13.bec57e62.js"><link rel="prefetch" href="/blog/assets/js/14.3ae2a79a.js"><link rel="prefetch" href="/blog/assets/js/15.a791971b.js"><link rel="prefetch" href="/blog/assets/js/16.e5da048d.js"><link rel="prefetch" href="/blog/assets/js/17.4908b8a7.js"><link rel="prefetch" href="/blog/assets/js/18.46af3ffd.js"><link rel="prefetch" href="/blog/assets/js/19.89281622.js"><link rel="prefetch" href="/blog/assets/js/20.cd52446d.js"><link rel="prefetch" href="/blog/assets/js/21.82cce5e6.js"><link rel="prefetch" href="/blog/assets/js/22.80975ead.js"><link rel="prefetch" href="/blog/assets/js/23.96416586.js"><link rel="prefetch" href="/blog/assets/js/24.2c36cba8.js"><link rel="prefetch" href="/blog/assets/js/25.367808ef.js"><link rel="prefetch" href="/blog/assets/js/26.be8af843.js"><link rel="prefetch" href="/blog/assets/js/27.b222d373.js"><link rel="prefetch" href="/blog/assets/js/28.a12c5df9.js"><link rel="prefetch" href="/blog/assets/js/29.d5ff3c40.js"><link rel="prefetch" href="/blog/assets/js/3.6d59dab0.js"><link rel="prefetch" href="/blog/assets/js/30.cbbb74b5.js"><link rel="prefetch" href="/blog/assets/js/31.b75f6d67.js"><link rel="prefetch" href="/blog/assets/js/32.86d96ea4.js"><link rel="prefetch" href="/blog/assets/js/33.46446d62.js"><link rel="prefetch" href="/blog/assets/js/34.8408a108.js"><link rel="prefetch" href="/blog/assets/js/35.98c56f35.js"><link rel="prefetch" href="/blog/assets/js/36.bdaeac6f.js"><link rel="prefetch" href="/blog/assets/js/37.533f8161.js"><link rel="prefetch" href="/blog/assets/js/38.0200746e.js"><link rel="prefetch" href="/blog/assets/js/39.c88574ea.js"><link rel="prefetch" href="/blog/assets/js/4.1ea1eeff.js"><link rel="prefetch" href="/blog/assets/js/40.45749e2b.js"><link rel="prefetch" href="/blog/assets/js/41.f908dd77.js"><link rel="prefetch" href="/blog/assets/js/42.6a921fb9.js"><link rel="prefetch" href="/blog/assets/js/43.a545ead3.js"><link rel="prefetch" href="/blog/assets/js/44.599973fd.js"><link rel="prefetch" href="/blog/assets/js/45.4f5aa578.js"><link rel="prefetch" href="/blog/assets/js/46.bc77698b.js"><link rel="prefetch" href="/blog/assets/js/47.6fab262f.js"><link rel="prefetch" href="/blog/assets/js/48.06721492.js"><link rel="prefetch" href="/blog/assets/js/49.ddd2004c.js"><link rel="prefetch" href="/blog/assets/js/5.7d990afd.js"><link rel="prefetch" href="/blog/assets/js/50.68d30b00.js"><link rel="prefetch" href="/blog/assets/js/51.1e95b300.js"><link rel="prefetch" href="/blog/assets/js/53.49c83746.js"><link rel="prefetch" href="/blog/assets/js/54.cafb7c5d.js"><link rel="prefetch" href="/blog/assets/js/55.e3a5298e.js"><link rel="prefetch" href="/blog/assets/js/56.16a6fa14.js"><link rel="prefetch" href="/blog/assets/js/57.a5849246.js"><link rel="prefetch" href="/blog/assets/js/58.21f63823.js"><link rel="prefetch" href="/blog/assets/js/59.1de0dd4e.js"><link rel="prefetch" href="/blog/assets/js/6.cec4111c.js"><link rel="prefetch" href="/blog/assets/js/60.d486fda7.js"><link rel="prefetch" href="/blog/assets/js/61.2df18a41.js"><link rel="prefetch" href="/blog/assets/js/62.f167b5ca.js"><link rel="prefetch" href="/blog/assets/js/63.1a1ddafe.js"><link rel="prefetch" href="/blog/assets/js/64.4ba3449a.js"><link rel="prefetch" href="/blog/assets/js/65.8005097c.js"><link rel="prefetch" href="/blog/assets/js/66.5d3693a7.js"><link rel="prefetch" href="/blog/assets/js/67.e9d7bf30.js"><link rel="prefetch" href="/blog/assets/js/68.1efe09bb.js"><link rel="prefetch" href="/blog/assets/js/69.50f5445d.js"><link rel="prefetch" href="/blog/assets/js/7.9d95edae.js"><link rel="prefetch" href="/blog/assets/js/70.02047906.js"><link rel="prefetch" href="/blog/assets/js/71.634bd610.js"><link rel="prefetch" href="/blog/assets/js/72.a00660d0.js"><link rel="prefetch" href="/blog/assets/js/73.cb4a91db.js"><link rel="prefetch" href="/blog/assets/js/74.3f83725a.js"><link rel="prefetch" href="/blog/assets/js/75.89822bf9.js"><link rel="prefetch" href="/blog/assets/js/76.9c29fa27.js"><link rel="prefetch" href="/blog/assets/js/77.0e21a0d0.js"><link rel="prefetch" href="/blog/assets/js/78.83828550.js"><link rel="prefetch" href="/blog/assets/js/79.038d118d.js"><link rel="prefetch" href="/blog/assets/js/8.b3b24cde.js"><link rel="prefetch" href="/blog/assets/js/80.4ed5e1a3.js"><link rel="prefetch" href="/blog/assets/js/81.d08345df.js"><link rel="prefetch" href="/blog/assets/js/82.b6dfa43b.js"><link rel="prefetch" href="/blog/assets/js/83.78d8aa89.js"><link rel="prefetch" href="/blog/assets/js/84.9ecbf7a5.js"><link rel="prefetch" href="/blog/assets/js/85.49225f21.js"><link rel="prefetch" href="/blog/assets/js/86.29868731.js"><link rel="prefetch" href="/blog/assets/js/87.f05ddddc.js"><link rel="prefetch" href="/blog/assets/js/88.9703366d.js"><link rel="prefetch" href="/blog/assets/js/89.0a340baa.js"><link rel="prefetch" href="/blog/assets/js/9.5eb0e890.js"><link rel="prefetch" href="/blog/assets/js/90.af7d5cb4.js"><link rel="prefetch" href="/blog/assets/js/91.e94154f4.js"><link rel="prefetch" href="/blog/assets/js/92.32326a59.js"><link rel="prefetch" href="/blog/assets/js/93.12ad3fb5.js"><link rel="prefetch" href="/blog/assets/js/94.045060fa.js"><link rel="prefetch" href="/blog/assets/js/95.5c510610.js"><link rel="prefetch" href="/blog/assets/js/96.5bcee9fd.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.c59328e2.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">Android Nodes</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/zh/guide/" class="nav-link">
+  备忘录
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Android" class="dropdown-title"><span class="title">Android</span> <span class="arrow down"></span></button> <button type="button" aria-label="Android" class="mobile-dropdown-title"><span class="title">Android</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/zh/android/basic/" class="nav-link">
+  基础
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/ui/" class="nav-link">
+  高级UI
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/architecture/" class="nav-link">
+  架构设计
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/performance/" class="nav-link">
+  性能优化
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/ndk/" class="nav-link">
+  NDK
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/framework/" class="nav-link">
+  开源框架
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/jetpack/" class="nav-link">
+  Jetpack
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/kotlin/" class="nav-link">
+  Kotlin
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java" class="dropdown-title"><span class="title">Java</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java" class="mobile-dropdown-title"><span class="title">Java</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/zh/java/basic/" class="nav-link">
+  基础
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/structures/" class="nav-link">
+  数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/algorithms/" class="nav-link router-link-active">
+  算法
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/exercise/" class="nav-link">
+  算法练习
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/zh/net/" class="nav-link">
+  API
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具" class="mobile-dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          代码管理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/api/cli.html" class="nav-link">
+  git
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/api/node.html" class="nav-link">
+  分支管理
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发规范
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/local-development.html" class="nav-link">
+  代码规范
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/design-concepts.html" class="nav-link">
+  团队协作
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/faq/" class="nav-link">
+  需求与工作分配
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/glossary.html" class="nav-link">
+  文档沉淀
+</a></li></ul></li><li class="dropdown-item"><h4>
+          软实力
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/migration-guide.html" class="nav-link">
+  必备技能
+</a></li><li class="dropdown-subitem"><a href="https://github.com/vuejs/vuepress/blob/master/CHANGELOG.md" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  团队管理
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/zh/guide/" class="nav-link">
+  备忘录
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Android" class="dropdown-title"><span class="title">Android</span> <span class="arrow down"></span></button> <button type="button" aria-label="Android" class="mobile-dropdown-title"><span class="title">Android</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/zh/android/basic/" class="nav-link">
+  基础
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/ui/" class="nav-link">
+  高级UI
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/architecture/" class="nav-link">
+  架构设计
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/performance/" class="nav-link">
+  性能优化
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/ndk/" class="nav-link">
+  NDK
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/framework/" class="nav-link">
+  开源框架
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/jetpack/" class="nav-link">
+  Jetpack
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/android/kotlin/" class="nav-link">
+  Kotlin
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java" class="dropdown-title"><span class="title">Java</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java" class="mobile-dropdown-title"><span class="title">Java</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/zh/java/basic/" class="nav-link">
+  基础
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/structures/" class="nav-link">
+  数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/algorithms/" class="nav-link router-link-active">
+  算法
+</a></li><li class="dropdown-item"><!----> <a href="/blog/zh/java/exercise/" class="nav-link">
+  算法练习
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/zh/net/" class="nav-link">
+  API
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具" class="mobile-dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          代码管理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/api/cli.html" class="nav-link">
+  git
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/api/node.html" class="nav-link">
+  分支管理
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发规范
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/local-development.html" class="nav-link">
+  代码规范
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/design-concepts.html" class="nav-link">
+  团队协作
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/faq/" class="nav-link">
+  需求与工作分配
+</a></li><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/glossary.html" class="nav-link">
+  文档沉淀
+</a></li></ul></li><li class="dropdown-item"><h4>
+          软实力
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/zh/miscellaneous/migration-guide.html" class="nav-link">
+  必备技能
+</a></li><li class="dropdown-subitem"><a href="https://github.com/vuejs/vuepress/blob/master/CHANGELOG.md" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  团队管理
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Algorithms</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/zh/java/algorithms/" aria-current="page" class="sidebar-link">大纲</a></li><li><a href="/blog/zh/java/algorithms/sort.html" class="sidebar-link">排序</a></li><li><a href="/blog/zh/java/algorithms/union-find.html" class="sidebar-link">并查集</a></li><li><a href="/blog/zh/java/algorithms/graph.html" class="sidebar-link">图（Graph）</a></li><li><a href="/blog/zh/java/algorithms/recursion.html" class="sidebar-link">递归Recursion</a></li><li><a href="/blog/zh/java/algorithms/backtrack.html" class="sidebar-link">回溯</a></li><li><a href="/blog/zh/java/algorithms/greedy.html" class="sidebar-link">贪心（Greedy）</a></li><li><a href="/blog/zh/java/algorithms/divide-conquer.html" class="sidebar-link">分治</a></li><li><a href="/blog/zh/java/algorithms/coin-change.html" class="sidebar-link">动态规划（Dynamic Programming）</a></li><li><a href="/blog/zh/java/algorithms/bloom-filter.html" class="sidebar-link">布隆过滤器（Bloom Filter)</a></li><li><a href="/blog/zh/java/algorithms/skip-list.html" class="sidebar-link">跳表（Skip List）</a></li><li><a href="/blog/zh/java/algorithms/B-tree.html" aria-current="page" class="active sidebar-link">B+树</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/zh/java/algorithms/B-tree.html#b-树的特点" class="sidebar-link">B+树的特点</a></li><li class="sidebar-sub-header"><a href="/blog/zh/java/algorithms/B-tree.html#硬盘的分类" class="sidebar-link">硬盘的分类</a></li><li class="sidebar-sub-header"><a href="/blog/zh/java/algorithms/B-tree.html#mysql的索引底层为何使用b-树" class="sidebar-link">MySQL的索引底层为何使用B+树？</a></li></ul></li><li><a href="/blog/zh/java/algorithms/sequence.html" class="sidebar-link">串（Sequence）</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="b-树"><a href="#b-树" class="header-anchor">#</a> B+树</h1> <p>B+树是B树的变体，常用于数据库和操作系统的文件系统中</p> <ul><li>MySQL数据库的索引就是基于B+树实现的</li></ul> <p><img src="https://gitee.com/jarrysong/img/raw/master/img/image-20201015221214903.png" alt="image-20201015221214903"></p> <h2 id="b-树的特点"><a href="#b-树的特点" class="header-anchor">#</a> B+树的特点</h2> <ul><li>分为内部节点（非叶子）、叶子节点2种节点</li> <li>✓内部节点只存储key，不存储具体数据</li> <li>✓叶子节点存储key和具体数据</li> <li>所有的叶子节点形成一条有序链表</li> <li>m阶B+树非根节点的元素数量 x</li> <li>✓┌ m/2 ┐ ≤ x ≤m</li></ul> <p>关于MySQL发音的官方说明</p> <p>https://dev.mysql.com/doc/refman/8.0/en/what-is-mysql.html</p> <ul><li>The official way to pronounce “MySQL” is “My Ess Que Ell” (not “my sequel”),</li> <li>but we do not mind if you pronounce it as “my sequel” or in some other localized way.</li></ul> <h2 id="硬盘的分类"><a href="#硬盘的分类" class="header-anchor">#</a> 硬盘的分类</h2> <p>市面上常见的硬盘有：机械硬盘（Hard Disk Drive，HDD）、固态硬盘（Solid State Drive，SSD）</p> <ul><li>我们主要介绍一下机械硬盘相关概念</li></ul> <p><img src="https://gitee.com/jarrysong/img/raw/master/img/image-20201016090615443.png" alt="image-20201016090615443"></p> <h3 id="盘片-platter-、盘面-side-、读写磁头-head"><a href="#盘片-platter-、盘面-side-、读写磁头-head" class="header-anchor">#</a> 盘片（platter）、盘面（side）、读写磁头（head)</h3> <p><img src="https://gitee.com/jarrysong/img/raw/master/img/image-20201016084530703.png" alt="image-20201016084530703"></p> <p>硬盘一般由多个盘片组成
+每个盘片包含2个盘面
+每个盘面有1个对应的读写磁头</p> <ul><li>盘面、磁头由上到下从0开始编号</li></ul> <h3 id="磁道-track-、扇区-sector"><a href="#磁道-track-、扇区-sector" class="header-anchor">#</a> 磁道（track）、扇区（sector)</h3> <p><img src="https://gitee.com/jarrysong/img/raw/master/img/image-20201016084745708.png" alt="image-20201016084745708"></p> <p>盘面中的一圈圈灰色圆环为是一条条的磁道</p> <ul><li>磁道由外到内从0开始编号</li></ul> <p>每条磁道上的一个弧段叫做一个扇区</p> <ul><li>扇区是磁盘的最小读写单位</li> <li>一个扇区的大小通常是512字节</li> <li>✓也有4096字节的</li></ul> <h3 id="早期硬盘的扇区细节"><a href="#早期硬盘的扇区细节" class="header-anchor">#</a> 早期硬盘的扇区细节</h3> <p>每条磁道的扇区数相同</p> <ul><li>所以外圈扇区的面积会比内圈扇区大</li></ul> <p>为了更好的读取数据，它们会存放相同的字节数</p> <ul><li>所以外圈扇区的记录密度要比内圈小，会浪费大量的存储空间</li></ul> <p>硬盘的存储容量 = 磁头数 * 盘面磁道数 * 磁道扇区数 * 扇区字节数</p> <h3 id="柱面-cylinder"><a href="#柱面-cylinder" class="header-anchor">#</a> 柱面（cylinder)</h3> <p>相同编号的磁道形成一个圆柱，称为柱面</p> <ul><li>磁盘的柱面数与一个盘面的磁道数是相等的</li></ul> <p><img src="https://gitee.com/jarrysong/img/raw/master/img/image-20201016085223662.png" alt="image-20201016085223661"></p> <h3 id="磁盘块"><a href="#磁盘块" class="header-anchor">#</a> 磁盘块</h3> <p>磁盘块，在Windows中叫做簇（cluster），在Linux中叫做块（ block ）</p> <ul><li>相邻的 2n 个扇区组合在一起，形成一个磁盘块</li> <li>操作系统对磁盘进行管理时，以磁盘块作为最小读写单位</li> <li>✓一般一个磁盘块是4096字节（4KB，由8个连续的512字节扇区组成）</li></ul> <p>注意</p> <ul><li>磁盘块是操作系统中的一个虚拟概念</li> <li>扇区是磁盘上真实存在的物理区域</li></ul> <h3 id="查看硬盘信息"><a href="#查看硬盘信息" class="header-anchor">#</a> 查看硬盘信息</h3> <p>Windows</p> <ul><li>如果是查看D盘，管理员权限打开命令行工具，输入【fsutil fsinfo ntfsinfo d:】</li> <li>或者搜索框输入【系统信息】</li></ul> <p>Mac</p> <ul><li>使用【磁盘工具】</li></ul> <h3 id="操作系统读取硬盘数据的过程"><a href="#操作系统读取硬盘数据的过程" class="header-anchor">#</a> 操作系统读取硬盘数据的过程</h3> <p>① 操作系统将LBA传送给磁盘驱动器并启动读取命令</p> <ul><li>✓LBA（Logical Block Address，逻辑块地址）</li> <li>✓比如类似设备号4、磁头号4、磁道号8、扇区号16、扇区计数8这样的信息</li></ul> <p>② 磁盘驱动器根据LBA将磁头移动到正确的磁道，盘片开始旋转，将目标扇区旋转到磁头下
+③ 磁盘控制器将扇区数据等信息传送到一个处于磁盘界面的缓冲区
+④ 磁盘驱动器向操作系统发出“数据就绪”信号
+⑤ 操作系统从磁盘界面的缓冲区读取数据</p> <ul><li>✓既可以按照一个字节一个字节的方式读取</li> <li>✓也可以启动DMA（Direct Memory Access，直接内存访问）命令读</li></ul> <h3 id="磁盘完成io操作的时间"><a href="#磁盘完成io操作的时间" class="header-anchor">#</a> 磁盘完成IO操作的时间</h3> <p>主要由寻道时间、旋转延迟时间、数据传输时间3部分构成</p> <p>寻道时间（seek）</p> <ul><li>✓将读写磁头移动至正确的磁道上所需要的时间，这部分时间代价最高</li> <li>旋转延迟时间（rotation）</li> <li>✓盘片旋转将目标扇区移动到读写磁头下方所需要的时间，取决于磁盘转速</li> <li>数据传输时间（transfer）</li> <li>✓完成传输数据所需要的时间，取决于接口的数据传输率，通常远小于前两部分消耗时间</li></ul> <p>决定时间长短的大部分因素是和硬件相关的，但所需移动的磁道数是可以通过操作系统来进行控制的</p> <ul><li>减少所需移动的磁道数是减少整个硬盘读写时间的有效办法</li> <li>合理安排磁头的移动以减少寻道时间就是磁盘调度算法的目的所在</li></ul> <h2 id="mysql的索引底层为何使用b-树"><a href="#mysql的索引底层为何使用b-树" class="header-anchor">#</a> MySQL的索引底层为何使用B+树？</h2> <p>为了减小IO操作数量，一般把一个节点的大小设计成最小读写单位的大小</p> <ul><li>MySQL的存储引擎InnoDB的最小读写单位是16K</li></ul> <p>对比B树，B+树的优势是</p> <ul><li>每个节点存储的key数量更多，树的高度更低</li> <li>所有的具体数据都存在叶子节点上，所以每次查询都要查到叶子节点，查询速度比较稳定</li> <li>所有的叶子节点构成了一个有序链表，做区间查询时更方便</li></ul> <h3 id="b树"><a href="#b树" class="header-anchor">#</a> B树</h3> <p><img src="https://gitee.com/jarrysong/img/raw/master/img/image-20201016090324350.png" alt="image-20201016090324350"></p> <h3 id="b-树-2"><a href="#b-树-2" class="header-anchor">#</a> B*树</h3> <p>B*树是B+树的变体：给内部节点增加了指向兄弟节点的指针</p> <ul><li>m阶B*树非根节点的元素数量 x ✓┌ 2m/3 ┐ ≤ x ≤ m</li></ul> <p><img src="https://gitee.com/jarrysong/img/raw/master/img/image-20201016090528391.png" alt="image-20201016090528391"></p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">10/23/2020, 10:57:01 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/zh/java/algorithms/skip-list.html" class="prev">
+        跳表（Skip List）
+      </a></span> <span class="next"><a href="/blog/zh/java/algorithms/sequence.html">
+        串（Sequence）
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.b29a8dd7.js" defer></script><script src="/blog/assets/js/2.f6cef42b.js" defer></script><script src="/blog/assets/js/52.7e58153e.js" defer></script>
+  </body>
+</html>
